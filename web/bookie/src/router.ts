@@ -43,3 +43,4 @@ export const createRoutes: () => RouteConfig[] = () => [
 ]
 
 export const createRouter = () => new VueRouter({ mode: 'history', routes: createRoutes() })
+
