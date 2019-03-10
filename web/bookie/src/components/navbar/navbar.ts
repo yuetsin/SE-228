@@ -25,7 +25,7 @@ export class NavbarComponent extends Vue {
   links: Link[] = [
     new Link('浏览', '/'),
     new Link('详情', '/list'),
-    new Link('关于', '/about')
+    new Link('我的', '/about')
   ]
 
   protected logger: Logger

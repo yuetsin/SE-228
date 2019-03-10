@@ -2,10 +2,26 @@
   <b-row>
     <b-col class="content">
       <h1>
-        <strong>感谢您使用！</strong>
+        <strong>个人中心</strong>
       </h1>
       <p>在
         <a href="https://github.com/yuxiqian/SE-228">这里</a> 检视项目的源代码。</p>
     </b-col>
+  </b-row>
+  <b-row>
+        <md-empty-state
+          class="md-primary"
+          md-icon="book"
+          md-label="已购项目"
+          md-description="您还没有购买任何书籍。">
+        </md-empty-state>
+
+        <md-empty-state
+          class="md-accent"
+          md-rounded
+          md-icon="shopping_cart"
+          md-label="购物车"
+          md-description="您的购物车里还没有任何书籍。">
+        </md-empty-state>
   </b-row>
 </b-container>
