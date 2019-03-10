@@ -23,9 +23,9 @@ export class NavbarComponent extends Vue {
 
   object: { default: string } = { default: 'Default object property!' }
   links: Link[] = [
-    new Link('Home', '/'),
-    new Link('About', '/about'),
-    new Link('List', '/list')
+    new Link('浏览', '/'),
+    new Link('详情', '/list'),
+    new Link('关于', '/about')
   ]
 
   protected logger: Logger

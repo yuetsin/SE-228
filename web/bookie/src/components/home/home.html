@@ -2,16 +2,45 @@
   <b-row>
     <b-col class="content">
       <h1>
-        <strong>Thank you for using
-          <span class="text-primary package">{{package}}</span>
+        <strong>书籍列表
         </strong>
       </h1>
-      <p>This project is running in
-        <strong class="mode">{{mode}} mode</strong>
+      <p>此项目当前运行在
+        <strong class="mode">{{mode}}</strong> 模式下。
       </p>
-      <p>Make sure to follow the project on
-        <a :href="repo">GitHub</a> to stay up to date with the latest releases, or contribute to the project by opening an issue or making
-        a pull-request!</p>
     </b-col>
   </b-row>
+  <div class="card-expansion">
+    <md-card v-for="book in books">
+      <md-card-media>
+        <img v-bind:src="book.cover" alt="Book Cover">
+      </md-card-media>
+
+      <md-card-header>
+        <div class="md-title">{{book.bookName}}</div>
+        <div class="md-subhead">{{book.author}}</div>
+      </md-card-header>
+
+      <md-card-expand>
+        <md-card-actions md-alignment="space-between">
+          <div>
+            <md-button>加入购物车</md-button>
+            <md-button>立马购买</md-button>
+          </div>
+
+          <md-card-expand-trigger>
+            <md-button class="md-icon-button">
+              <md-icon>keyboard_arrow_down</md-icon>
+            </md-button>
+          </md-card-expand-trigger>
+        </md-card-actions>
+
+        <md-card-expand-content>
+          <md-card-content>
+            {{book.details}}
+          </md-card-content>
+        </md-card-expand-content>
+      </md-card-expand>
+    </md-card>
+  </div>
 </b-container>

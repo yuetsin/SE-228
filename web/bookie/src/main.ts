@@ -25,6 +25,5 @@ new Vue({
   router: createRouter(),
   components: {
     'navbar': navbarComponent
-  }
+  },
 })
-
