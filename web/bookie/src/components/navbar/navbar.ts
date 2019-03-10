@@ -7,6 +7,7 @@ import bNavbarBrand from 'bootstrap-vue/es/components/navbar/navbar-brand'
 import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav'
 import { Link } from './link'
 import { Logger } from '../../util/log'
+import './navbar.scss'
 
 @Component({
   template: require('./navbar.html'),
@@ -27,6 +28,8 @@ export class NavbarComponent extends Vue {
     new Link('详情', '/list'),
     new Link('我的', '/about')
   ]
+  bookNames = ['十三个理由', '追风筝的人', '房思琪的初戀樂園', '质数的孤独', '无人生还', '我与地坛']
+  selectedBook = null
 
   protected logger: Logger
 

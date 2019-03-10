@@ -1,3 +1,18 @@
-<md-toolbar>
-  <md-button v-for="link in links" :key="link.name" :to="link.path" exact>{{link.name}}</md-button>
+<md-toolbar class="md-primary">
+  <div class="md-toolbar-row">
+    <span class="md-title">Bookie</span>
+    <md-button class="md-icon-button" href="https://github.com/yuxiqian/SE-228">
+      <md-icon>code</md-icon>
+    </md-button>
+
+    <md-button v-for="link in links" :key="link.name" :to="link.path" exact>{{link.name}}</md-button>
+
+    <md-autocomplete
+      class="search"
+      v-model="selectedBook"
+      :md-options="$data.bookNames"
+      md-layout="box">
+      <label>搜寻...</label>
+    </md-autocomplete>
+  </div>
 </md-toolbar>

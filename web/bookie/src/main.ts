@@ -23,7 +23,10 @@ if (process.env.ENV === 'development' && module.hot) {
 new Vue({
   el: '#app-main',
   router: createRouter(),
+  data: {
+    menuVisible: false
+  },
   components: {
     'navbar': navbarComponent
-  },
+  }
 })

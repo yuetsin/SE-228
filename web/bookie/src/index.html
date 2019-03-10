@@ -13,16 +13,15 @@
 </head>
 
 <body>
+    <div id="app-main">
+      <navbar :inverted="false"></navbar>
 
-  <div id="app-main">
-    <navbar :inverted="false"></navbar>
-    <transition
-                enter-active-class="animated fadeIn"
-                leave-active-class="animated fadeOut">
-      <router-view class="child-view">正在加载...</router-view>
-    </transition>
-  </div>
-
+      <transition
+                  enter-active-class="animated fadeIn"
+                  leave-active-class="animated fadeOut">
+        <router-view class="child-view">正在加载...</router-view>
+      </transition>
+    </div>
 </body>
 <style>
   .child-view {

@@ -9,3 +9,31 @@
   display: inline-block;
   vertical-align: top;
 }
+
+@import "../../../node_modules/vue-material/dist/theme/engine";
+
+@include md-register-theme("green-card", (
+  primary: md-get-palette-color(green, 100)
+));
+
+@include md-register-theme("black-card", (
+  primary: md-get-palette-color(black, 500)
+));
+
+@include md-register-theme("purple-card", (
+  primary: md-get-palette-color(purple, 100)
+));
+
+@include md-register-theme("orange-card", (
+  primary: md-get-palette-color(orange, 100)
+));
+
+@import "../../../node_modules/vue-material/dist/base/theme";
+@import "../../../node_modules/vue-material/dist/components/MdCard/theme";
+
+.md-card {
+  width: 320px;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top;
+}

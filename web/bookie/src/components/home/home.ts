@@ -37,5 +37,15 @@ export class HomeComponent extends Vue {
     bookName: '房思琪的初戀樂園',
     author: '林奕含',
     details: '人喜欢的就是文饰过非。明明在做一件错事，却还是喜欢用漂亮的话来美化、掩盖丑恶。李国华是这样，高育良也是如此。当真相被揭开，人性的劣根性彻底暴露，所有被谎言堆砌的美好轰然倒塌，那些在谎言里活着的人才会彻悟。'
+  }, {
+    cover: '../../assets/img/andThereWereNone.jpg',
+    bookName: '无人生还',
+    author: 'Agatha Christie',
+    details: '开创童谣杀人和孤岛模式…古典推理的不朽名作。'
+  }, {
+    cover: '../../assets/img/woYuDiTan.png',
+    bookName: '我与地坛',
+    author: '史铁生',
+    details: '「母亲喜欢花，可自从我的腿瘫痪后，她侍弄的那些花都死了。」'
   }]
 }

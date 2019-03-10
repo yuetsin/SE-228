@@ -1,5 +1,4 @@
 import { Component, Vue } from 'vue-property-decorator'
-import axios, { AxiosResponse } from 'axios'
 import bContainer from 'bootstrap-vue/es/components/layout/container'
 import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
@@ -18,29 +17,11 @@ interface UserResponse {
   }
 })
 export class ListComponent extends Vue {
-
-  items: UserResponse[] = []
-  protected axios
-  private url = 'https://jsonplaceholder.typicode.com/users'
-
-  constructor () {
-    super()
-    this.axios = axios
-  }
-
-  mounted () {
-    this.$nextTick(() => {
-      this.loadItems()
-    })
-  }
-
-  private loadItems () {
-    if (!this.items.length) {
-      this.axios.get(this.url).then((response: AxiosResponse) => {
-        this.items = response.data
-      }, (error) => {
-        console.error(error)
-      })
-    }
-  }
+  buyAnonymously = false
+  selectedDate = null
+  bookAmount = 'one'
+  cover = '../../assets/img/thirteenReasonsWhy.png'
+  bookName = '十三个理由'
+  author = 'Jay Asher'
+  details = '中学生汉娜自杀后，留下十三盒磁带。分别寄给十三个同学，在录音中，她一一追诉往事，发出质询……随着一盒又一盒磁带的揭示，在悬念丛生中，反思了中学阶段时人文教育的缺失，发人深思。'
 }

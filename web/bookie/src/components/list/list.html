@@ -1,8 +1,89 @@
 <b-container class="content">
   <b-row>
     <b-col class="content">
-      <h1>书籍详情</h1>
-
+      <h1>详情</h1>
     </b-col>
   </b-row>
+
+  <div>
+    <md-steppers md-vertical>
+      <md-step id="first" icon="book" md-label="书籍信息" md-description="了解这本书">
+          <md-card class="md-card-example" md-with-hover>
+            <md-card-area md-inset>
+              <md-card-media md-ratio="16:9">
+                <img v-bind:src="cover" alt="Coffee House">
+              </md-card-media>
+
+              <md-card-header>
+                <h2 class="md-title">{{bookName}}</h2>
+                <div class="md-subhead">
+                  <md-icon>location_on</md-icon>
+                  <span>将从上海市发出</span>
+                </div>
+              </md-card-header>
+
+              <md-card-content>
+                {{details}}
+              </md-card-content>
+            </md-card-area>
+            <md-card-actions>
+              <md-button class="md-primary">加入购物车</md-button>
+            </md-card-actions>
+          </md-card>
+
+        <div>
+        <md-card class="md-primary" md-with-hover>
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">定价</div>
+              <div class="md-subhead">29.99¥</div>
+            </md-card-header-text>
+            <md-card-actions>
+              <md-button>降价时通知</md-button>
+            </md-card-actions>
+          </md-card-header>
+        </md-card>
+
+        <md-card class="md-primary" md-with-hover>
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">ISBN</div>
+              <div class="md-subhead">9787532752669</div>
+            </md-card-header-text>
+          </md-card-header>
+        </md-card>
+
+        <md-card class="md-primary" md-with-hover>
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">所属分类</div>
+              <md-chip class="md-primary" md-clickable>图书</md-chip>
+              <md-chip class="md-primary" md-clickable>小说</md-chip>
+              <md-chip class="md-primary" md-clickable>情节</md-chip>
+              <md-chip class="md-primary" md-clickable>爱情</md-chip>
+            </md-card-header-text>
+          </md-card-header>
+        </md-card>
+        </div>
+      </md-step>
+
+      <md-step id="second" md-label="选择数量">
+        <md-radio v-model="bookAmount" value="one">一套</md-radio>
+        <md-radio v-model="bookAmount" value="two">两套</md-radio>
+        <md-radio v-model="bookAmount" value="three">三套</md-radio>
+        <md-radio v-model="bookAmount" value="four">四套</md-radio>
+        <md-radio v-model="bookAmount" value="five">五套</md-radio>
+      </md-step>
+
+      <md-step id="third" md-label="购买" md-description="下单并付款">
+        <md-datepicker v-model="selectedDate">
+          <label>选择送达日期</label>
+        </md-datepicker>
+
+        <md-switch v-model="buyAnonymously" class="md-primary">匿名购买</md-switch>
+
+        <md-button class="md-dense md-raised md-primary">确认订单</md-button>
+      </md-step>
+    </md-steppers>
+  </div>
 </b-container>
