@@ -7,3 +7,12 @@ html, body, #app-main {
 .content {
   margin-top: 50px;
 }
+
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+@include md-register-theme("default", (
+  primary: #ffceed, // The primary color of your brand
+  accent: #e88cd9 // The secondary color of your brand
+));
+
+@import "~vue-material/dist/theme/all"; // Apply the theme
