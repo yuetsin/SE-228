@@ -29,12 +29,14 @@ describe('Navbar component', () => {
     let homeComponent = { template: '<div class="home">Home</div>' }
     let aboutComponent = { template: '<div class="about">About</div>' }
     let listComponent = { template: '<div class="list">List</div>' }
+    let registerComponent = { template: '<div class="register">Register</div>' }
 
     router = new VueRouter({
       routes: [
         { path: '/', component: homeComponent },
         { path: '/about', component: aboutComponent },
-        { path: '/list', component: listComponent }
+        { path: '/list', component: listComponent },
+        { path: '/register', component: registerComponent }
       ]
     })
   })

@@ -26,7 +26,8 @@ export class NavbarComponent extends Vue {
   links: Link[] = [
     new Link('浏览', '/'),
     new Link('详情', '/list'),
-    new Link('我的', '/about')
+    new Link('我的', '/about'),
+    new Link('注册', '/register')
   ]
   bookNames = ['十三个理由', '追风筝的人', '房思琪的初戀樂園', '质数的孤独', '无人生还', '我与地坛']
   selectedBook = null

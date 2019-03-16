@@ -1,0 +1,36 @@
+
+
+<b-container class="content">
+
+  <b-row>
+    <b-col class="content">
+      <h1>
+        <strong>注册账户</strong>
+      </h1>
+      <p>提供一些必要信息来注册账户。</p>
+    </b-col>
+  </b-row>
+
+  <md-dialog-alert
+    :md-active.sync="registerSucceed"
+    :md-content="'感谢您注册名为 ' + userName + ' 的账户！'"
+    md-confirm-text="好嘞！" />
+
+  <div class="md-layout md-gutter">
+    <div class="md-layout-item md-size-25">
+        <md-field>
+          <label>至少 8 个英文字母、数字或汉字</label>
+          <md-input v-model="userName" placeholder="用户名"></md-input>
+        </md-field>
+    </div>
+
+    <div class="md-layout-item md-size-25">
+          <md-field>
+            <label>至少 6 个英文字母、数字或符号</label>
+            <md-input v-model="passWord" type="password" placeholder="密码"></md-input>
+          </md-field>
+    </div>
+  </div>
+  <md-checkbox v-model="agreedLicense">我已经阅读并同意以上用户协议，并已年满 18 周岁</md-checkbox>
+  <md-button v-bind:disabled="canRegister()" @click="registerSucceed = true" class="md-dense md-raised md-primary">注册</md-button>
+</b-container>
