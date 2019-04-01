@@ -15,7 +15,15 @@
 
   <b-row>
     <div class="card-expansion">
-      <md-card v-for="book in bookLib" md-with-hover>
+      <transition-group
+        name="staggered-fade"
+        tag="ul"
+        v-bind:css="false"
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        v-on:leave="leave"
+      >
+      <md-card v-for="book in bookLib" v-bind:key="book" md-with-hover>
         <md-card-media>
           <img v-bind:src="book.cover" alt="Book Cover">
         </md-card-media>
@@ -46,6 +54,7 @@
           </md-card-expand-content>
         </md-card-expand>
       </md-card>
+      </transition-group>
     </div>
   </b-row>
 </b-container>
