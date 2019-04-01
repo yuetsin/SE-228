@@ -2,7 +2,7 @@
   const bookLibrary = require('../assets/books/books.json')['oh_my_books']
   const version  = "1.0.2.20190401"
   let selectedBooks = []
-
+  let userName = undefined
   let counter = 0
   const MAX_NUMBER = 4
   for (let i of bookLibrary) {
@@ -16,6 +16,7 @@
     bookLibrary,
     version,
     selectedBooks,
-    MAX_NUMBER
+    MAX_NUMBER,
+    userName
   }
 </script>

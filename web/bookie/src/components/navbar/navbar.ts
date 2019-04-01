@@ -8,7 +8,6 @@ import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav'
 import { Link } from './link'
 import { Logger } from '../../util/log'
 import './navbar.scss'
-import { createRouter } from '../../router'
 // @ts-ignore
 import global_ from '../../common/common'
 
@@ -34,6 +33,7 @@ export class NavbarComponent extends Vue {
   ]
   bookNames = []
   selectedBook = ''
+  userName = global_.userName
   protected logger: Logger
   updateSelected () {
     console.log("I'm here!")
