@@ -1,20 +1,18 @@
-<b-container class="content">
+<b-container v-if="isAlive" class="content" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
   <b-row>
     <b-col class="content">
-      <h1>
-        <strong>发现
+      <md-button v-on:click="this.console.log(bookLib)"> HERE !</md-button>
+      <h1 >
+        <strong>本周推荐
         </strong>
       </h1>
-      <p>此项目当前运行在
-        <strong class="mode">{{mode}}</strong> 模式下。
-      </p>
     </b-col>
   </b-row>
 
   <b-row>
     <div class="card-expansion">
-      <md-card v-for="book in books" md-with-hover>
+      <md-card v-for="book in bookLib" md-with-hover>
         <md-card-media>
           <img v-bind:src="book.cover" alt="Book Cover">
         </md-card-media>

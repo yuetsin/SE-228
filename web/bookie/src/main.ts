@@ -1,14 +1,16 @@
 import Vue from 'vue'
+import * as shared from './common/global'
+Vue.prototype.$shared = shared
+
 import VueMaterial from 'vue-material'
 import { makeHot, reload } from './util/hot-reload'
 import { createRouter } from './router'
+import './sass/main.scss'
 
 Vue.use(VueMaterial)
 
 const navbarComponent = () => import('./components/navbar').then(({ NavbarComponent }) => NavbarComponent)
 // const navbarComponent = () => import(/* webpackChunkName: 'navbar' */'./components/navbar').then(({ NavbarComponent }) => NavbarComponent)
-
-import './sass/main.scss'
 
 if (process.env.ENV === 'development' && module.hot) {
   const navbarModuleId = './components/navbar'

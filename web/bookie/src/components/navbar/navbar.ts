@@ -8,6 +8,9 @@ import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav'
 import { Link } from './link'
 import { Logger } from '../../util/log'
 import './navbar.scss'
+import { createRouter } from '../../router'
+// @ts-ignore
+import global_ from '../../common/common'
 
 @Component({
   template: require('./navbar.html'),
@@ -29,10 +32,41 @@ export class NavbarComponent extends Vue {
     new Link('我的', '/about'),
     new Link('注册', '/register')
   ]
-  bookNames = ['十三个理由', '追风筝的人', '房思琪的初戀樂園', '质数的孤独', '无人生还', '我与地坛']
-  selectedBook = null
-
+  bookNames = []
+  selectedBook = ''
   protected logger: Logger
+  updateSelected () {
+    console.log("I'm here!")
+
+    this.bookNames = []
+    for (let i of global_.bookLibrary) {
+      this.bookNames.push(i.bookName)
+      this.bookNames.push(i.author)
+      this.bookNames.sort()
+    }
+    if (this.selectedBook === '') {
+      // @ts-ignore
+      global_.selectedBooks = global.bookLibrary
+    } else {
+      // @ts-ignore
+      global_.selectedBooks = []
+
+      console.log('Oh, this.selectedBook = ' + this.selectedBook)
+      for (let i of global_.bookLibrary) {
+        // console.log('i: ')
+        // console.log(i)
+        // console.log('Consider ' + i.bookName + ' contains ' + this.selectedBook)
+        if (i.bookName.indexOf(this.selectedBook) >= 0) {
+          global_.selectedBooks.push(i)
+        } else if (i.author.indexOf(this.selectedBook) >= 0) {
+          global_.selectedBooks.push(i)
+        }
+      }
+    }
+    console.log(global_.selectedBooks)
+    // const router = createRouter()
+    // router.go(0)
+  }
 
   @Watch('$route.path')
   pathChanged () {

@@ -8,9 +8,10 @@
     <md-button v-for="link in links" :key="link.name" :to="link.path" exact>{{link.name}}</md-button>
 
     <md-autocomplete
+      v-on:input="updateSelected()"
       class="search"
       v-model="selectedBook"
-      :md-options="$data.bookNames"
+      :md-options="bookNames"
       md-layout="box">
       <label>搜寻...</label>
     </md-autocomplete>

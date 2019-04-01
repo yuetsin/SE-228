@@ -12,7 +12,6 @@ let loggerSpy = spy()
 class MockAboutComponent extends RegisterComponent {
   constructor () {
     super()
-    this.logger = new MockLogger(loggerSpy)
   }
 }
 
