@@ -44,13 +44,19 @@ export class NavbarComponent extends Vue {
       this.bookNames.push(i.author)
       this.bookNames.sort()
     }
+
+    while (global_.selectedBooks.pop() !== undefined);
     if (this.selectedBook === '') {
       // @ts-ignore
-      global_.selectedBooks = global.bookLibrary
+      let counter = 0
+      for (let i of global_.bookLibrary) {
+        counter++
+        global_.selectedBooks.push(i)
+        if (counter > global_.MAX_NUMBER) {
+          break
+        }
+      }
     } else {
-      // @ts-ignore
-      global_.selectedBooks = []
-
       console.log('Oh, this.selectedBook = ' + this.selectedBook)
       for (let i of global_.bookLibrary) {
         // console.log('i: ')
