@@ -3,6 +3,20 @@ const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 let config = {
+  devServer: {
+    historyApiFallback: true,
+    port: 8080,
+    proxy: {
+      '/api': {
+        target: 'localhost:8443',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api'
+        }
+      }
+    }
+  },
   entry: {
     'main': helpers.root('/src/main.ts')
   },
@@ -44,11 +58,7 @@ let config = {
     ]
   },
   plugins: [
-    new NamedModulesPlugin(),
-    new CopyWebpackPlugin([{
-      from: 'src/assets',
-      to: './assets'
-    } ])
+    new NamedModulesPlugin()
   ]
 }
 

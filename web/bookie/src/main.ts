@@ -1,16 +1,20 @@
 import Vue from 'vue'
-import * as shared from './common/global'
-Vue.prototype.$shared = shared
 
+import VueAxios from 'vue-axios'
 import VueMaterial from 'vue-material'
 import { makeHot, reload } from './util/hot-reload'
 import { createRouter } from './router'
 import './sass/main.scss'
+// @ts-ignore
+import global_ from './common/common'
+import axios from 'axios'
+import HttpRequest from './axios/api.request'
+Vue.prototype.$axios = axios
 
+Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 
 const navbarComponent = () => import('./components/navbar').then(({ NavbarComponent }) => NavbarComponent)
-// const navbarComponent = () => import(/* webpackChunkName: 'navbar' */'./components/navbar').then(({ NavbarComponent }) => NavbarComponent)
 
 if (process.env.ENV === 'development' && module.hot) {
   const navbarModuleId = './components/navbar'
@@ -20,6 +24,24 @@ if (process.env.ENV === 'development' && module.hot) {
   makeHot(navbarModuleId, navbarComponent,
     module.hot.accept('./components/navbar', () => reload(navbarModuleId, (require('./components/navbar') as any).NavbarComponent)))
 }
+
+HttpRequest.request({
+  url: '/api',
+  method: 'get'
+}).then(response => {
+  for (let i of response.data['oh_my_books']) {
+    global_.bookLibrary.push(i)
+  }
+  let counter = 0
+  for (let i of global_.bookLibrary) {
+    counter++
+    global_.selectedBooks.push(i)
+    if (counter > global_.MAX_NUMBER) {
+      break
+    }
+  }
+  console.log(global_.bookLibrary)
+})
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({

@@ -2,11 +2,11 @@ import { Component, Vue } from 'vue-property-decorator'
 import bContainer from 'bootstrap-vue/es/components/layout/container'
 import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
-
+// @ts-ignore
+import HttpRequest from '../../axios/api.request'
 import './home.scss'
 // @ts-ignore
 import global_ from '../../common/common'
-import {Book} from '../../struct/book'
 
 @Component({
   template: require('./home.html'),
@@ -38,6 +38,14 @@ import {Book} from '../../struct/book'
         global_.selectedBooks.sort((b1, b2) => (b2.bookName.length) - (b1.bookName.length))
       }
       this.$data.ascending = !this.$data.ascending
+    },
+    getimg (imgName: string) {
+      HttpRequest.request({
+        url: '/img/' + imgName,
+        method: 'get'
+      }).then(response => {
+
+      })
     }
   }
 })
