@@ -1,1 +1,2 @@
 *.scss linguist-language=css
+*.sql linguist-detectable=true

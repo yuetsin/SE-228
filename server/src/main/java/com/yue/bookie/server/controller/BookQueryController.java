@@ -23,12 +23,12 @@ public class BookQueryController {
                 Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/", BehaviorConfig.dbUserName, BehaviorConfig.dbUserPassword);
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT user_name, age FROM imooc_goddess");
-                //如果有数据，rs.next()返回true
                 while(rs.next()){
                     System.out.println(rs.getString("user_name")+" 年龄："+rs.getInt("age"));
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
+                return "{}";
             }
         } else {
             // Keep legacy solution in case if you need it...
