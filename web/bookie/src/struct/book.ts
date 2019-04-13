@@ -1,10 +1,14 @@
 export interface Book {
-  cover: string
-  bookName: string
+  cover_url: string
+  title: string
+  isbn: string
   author: string
-  details: string
+  description: string
   uuid: string
-  remain_storage: number
+  storage: number
+  price: number
+  coupon_price: number
+  type: string
 }
 
 export function initBook (obj: Object) {

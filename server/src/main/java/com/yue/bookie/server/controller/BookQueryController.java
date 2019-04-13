@@ -1,6 +1,8 @@
 package com.yue.bookie.server.controller;
 
 import com.yue.bookie.server.config.BehaviorConfig;
+import com.yue.bookie.server.config.SecurityConfig;
+import com.yue.bookie.server.packer.JSONPacker;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
@@ -19,13 +21,14 @@ public class BookQueryController {
     public String api() {
         if (!BehaviorConfig.useLegacyJson) {
             try {
+                SecurityConfig sC = new SecurityConfig();
+                sC.initDataBase();
                 Class.forName(BehaviorConfig.driverClass);
-                Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/", BehaviorConfig.dbUserName, BehaviorConfig.dbUserPassword);
+                Connection conn = DriverManager.getConnection(BehaviorConfig.dbUrl, sC.userName, sC.passWord);
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT user_name, age FROM imooc_goddess");
-                while(rs.next()){
-                    System.out.println(rs.getString("user_name")+" 年龄："+rs.getInt("age"));
-                }
+                stmt.executeQuery("USE bookie;");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM book_library");
+                return JSONPacker.resultSetToJson(rs);
             } catch (Exception ex) {
                 ex.printStackTrace();
                 return "{}";

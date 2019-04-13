@@ -33,9 +33,9 @@ import global_ from '../../common/common'
     },
     sortList () {
       if (this.$data.ascending) {
-        global_.selectedBooks.sort((b1, b2) => (b1.bookName.length) - (b2.bookName.length))
+        global_.selectedBooks.sort((b1, b2) => (b1.title.length) - (b2.title.length))
       } else {
-        global_.selectedBooks.sort((b1, b2) => (b2.bookName.length) - (b1.bookName.length))
+        global_.selectedBooks.sort((b1, b2) => (b2.title.length) - (b1.title.length))
       }
       this.$data.ascending = !this.$data.ascending
     },

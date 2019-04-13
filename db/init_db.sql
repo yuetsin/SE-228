@@ -2,9 +2,17 @@ CREATE DATABASE bookie;
 
 USE bookie;
 
+DROP TABLE IF EXISTS book_library;
+DROP TABLE IF EXISTS book_type;
+
+CREATE TABLE book_type (
+	type_name VARCHAR(10),
+	PRIMARY KEY (type_name)
+);
+
 CREATE TABLE book_library (
 	title VARCHAR(40),
-	author VARCHAR(10),
+	author VARCHAR(30),
 	type VARCHAR(10),
 	description VARCHAR(200),
 	storage INTEGER,
@@ -16,7 +24,3 @@ CREATE TABLE book_library (
 	FOREIGN KEY (type) REFERENCES book_type (type_name) ON DELETE SET NULL
 );
 
-CREATE TABLE book_type (
-	type_name VARCHAR(10),
-	PRIMARY KEY (type_name)
-);

@@ -11,11 +11,11 @@
           <md-card class="md-card-example" md-with-hover>
             <md-card-area md-inset>
               <md-card-media md-ratio="16:9">
-                <img v-bind:src="cover" alt="Coffee House">
+                <img v-bind:src="cover_url" alt="Coffee House">
               </md-card-media>
 
               <md-card-header>
-                <h2 class="md-title">{{bookName}}</h2>
+                <h2 class="md-title">{{title}}</h2>
                 <div class="md-subhead">
                   <md-icon>location_on</md-icon>
                   <span>将从上海市发出</span>
@@ -23,7 +23,7 @@
               </md-card-header>
 
               <md-card-content>
-                {{details}}
+                {{description}}
               </md-card-content>
             </md-card-area>
             <md-card-actions>

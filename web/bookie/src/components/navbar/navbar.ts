@@ -40,7 +40,7 @@ export class NavbarComponent extends Vue {
 
     this.bookNames = []
     for (let i of global_.bookLibrary) {
-      this.bookNames.push(i.bookName)
+      this.bookNames.push(i.title)
       this.bookNames.push(i.author)
       this.bookNames.sort()
     }
@@ -61,8 +61,8 @@ export class NavbarComponent extends Vue {
       for (let i of global_.bookLibrary) {
         // console.log('i: ')
         // console.log(i)
-        // console.log('Consider ' + i.bookName + ' contains ' + this.selectedBook)
-        if (i.bookName.indexOf(this.selectedBook) >= 0) {
+        // console.log('Consider ' + i.title + ' contains ' + this.selectedBook)
+        if (i.title.indexOf(this.selectedBook) >= 0) {
           global_.selectedBooks.push(i)
         } else if (i.author.indexOf(this.selectedBook) >= 0) {
           global_.selectedBooks.push(i)
