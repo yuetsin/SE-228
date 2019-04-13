@@ -49,9 +49,9 @@
       "price": 33.00
     },
     {
-      "cover": "../../assets/img/juWaiRen.png",
+      "cover": "juWaiRen.png",
       "bookName": "局外人",
-      "author": "阿尔贝·加缪",
+      "author": "Albert Camus",
       "details": "由于人和世界的分离，世界对于人来说是荒诞的、毫无意义的，而人对荒诞的世界无能为力，因此不抱任何希望，对一切事物都无动于衷。",
       "remain_storage": 10049,
       "price": 28.00
