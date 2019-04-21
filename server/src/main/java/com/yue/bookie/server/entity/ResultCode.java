@@ -1,4 +1,4 @@
-package com.casic.demo.entity;
+package com.yue.bookie.server.entity;
 
 /**
  * 响应码枚举，参考HTTP状态码的语义
