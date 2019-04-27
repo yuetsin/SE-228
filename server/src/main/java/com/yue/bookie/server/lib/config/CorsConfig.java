@@ -1,4 +1,4 @@
-package com.yue.bookie.server.config;
+package com.yue.bookie.server.lib.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

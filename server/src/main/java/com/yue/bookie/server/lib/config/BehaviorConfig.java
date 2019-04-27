@@ -1,4 +1,4 @@
-package com.yue.bookie.server.config;
+package com.yue.bookie.server.lib.config;
 
 public class BehaviorConfig {
     public static Boolean useLegacyJson = false;

@@ -1,4 +1,4 @@
-package com.yue.bookie.server.struct;
+package com.yue.bookie.server.lib.struct;
 
 public class Book {
     String cover_url;

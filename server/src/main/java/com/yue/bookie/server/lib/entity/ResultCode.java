@@ -1,4 +1,4 @@
-package com.yue.bookie.server.entity;
+package com.yue.bookie.server.lib.entity;
 
 /**
  * 响应码枚举，参考HTTP状态码的语义

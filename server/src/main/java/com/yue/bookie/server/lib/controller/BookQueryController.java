@@ -1,8 +1,8 @@
-package com.yue.bookie.server.controller;
+package com.yue.bookie.server.lib.controller;
 
-import com.yue.bookie.server.config.BehaviorConfig;
-import com.yue.bookie.server.config.SecurityConfig;
-import com.yue.bookie.server.packer.JSONPacker;
+import com.yue.bookie.server.lib.config.BehaviorConfig;
+import com.yue.bookie.server.lib.config.SecurityConfig;
+import com.yue.bookie.server.lib.packer.JSONPacker;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;

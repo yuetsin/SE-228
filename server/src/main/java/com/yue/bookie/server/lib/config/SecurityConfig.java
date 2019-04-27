@@ -1,4 +1,4 @@
-package com.yue.bookie.server.config;
+package com.yue.bookie.server.lib.config;
 
 import java.io.IOException;
 import java.io.InputStream;

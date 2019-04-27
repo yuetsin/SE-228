@@ -1,4 +1,4 @@
-package com.yue.bookie.server.packer;
+package com.yue.bookie.server.lib.packer;
 
 import org.json.JSONArray;
 import org.json.JSONException;

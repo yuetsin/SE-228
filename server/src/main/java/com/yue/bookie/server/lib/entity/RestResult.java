@@ -1,4 +1,4 @@
-package com.yue.bookie.server.entity;
+package com.yue.bookie.server.lib.entity;
 
 /**
  * 统一封装API返回信息

@@ -1,6 +1,10 @@
 DELETE FROM book_library;
-
 DELETE FROM book_type;
+DELETE FROM s_role_permission;
+DELETE FROM s_user_role;
+DELETE FROM s_user;
+DELETE FROM s_role;
+DELETE FROM s_permission;
 
 INSERT INTO book_type
 VALUES ('外文小说');
@@ -38,3 +42,36 @@ VALUES ('我与地坛', '史铁生', '散文', '「母亲喜欢花，可自从�
 INSERT INTO book_library
 VALUES ('局外人', 'Albert Camus', '外文小说', '由于人和世界的分离，世界对于人来说是荒诞的、毫无意义的，而人对荒诞的世界无能为力，因此不抱任何希望，对一切事物都无动于衷。', 10049
 	, 'juWaiRen.png', '9781508560449', 28.00, 28.00);
+
+-- ----------------------------  
+-- Records of s_user  
+-- ----------------------------  
+INSERT INTO `s_user` VALUES ('1', 'admin', 'admin');  
+INSERT INTO `s_user` VALUES ('2', 'veiking', 'veiking');  
+INSERT INTO `s_user` VALUES ('3', 'xiaoming', 'xiaoming');   
+  
+-- ----------------------------  
+-- Records of s_role  
+-- ----------------------------  
+INSERT INTO `s_role` VALUES ('1', 'R_ADMIN');  
+INSERT INTO `s_role` VALUES ('2', 'R_USER');  
+  
+-- ----------------------------  
+-- Records of s_permission  
+-- ----------------------------  
+INSERT INTO `s_permission` VALUES ('1', 'P_ME', '/me');  
+INSERT INTO `s_permission` VALUES ('2', 'P_CONSOLE', '/console');
+
+-- ----------------------------  
+-- Records of s_user_role  
+-- ----------------------------  
+INSERT INTO `s_user_role` VALUES ('1', '1');  
+INSERT INTO `s_user_role` VALUES ('2', '2');  
+
+-- ----------------------------  
+-- Records of s_role_permission  
+-- ----------------------------  
+INSERT INTO `s_role_permission` VALUES ('1', '1');
+INSERT INTO `s_role_permission` VALUES ('1', '2');
+INSERT INTO `s_role_permission` VALUES ('2', '1');
+  

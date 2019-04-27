@@ -1,4 +1,4 @@
-package com.yue.bookie.server.utils;
+package com.yue.bookie.server.lib.utils;
 
 public class ValidationChecker {
     public static boolean isLegalUserName(String inputStr) {

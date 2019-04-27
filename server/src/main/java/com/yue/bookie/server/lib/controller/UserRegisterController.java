@@ -1,16 +1,12 @@
-package com.yue.bookie.server.controller;
+package com.yue.bookie.server.lib.controller;
 
 
-import com.yue.bookie.server.config.BehaviorConfig;
-import com.yue.bookie.server.config.SecurityConfig;
+import com.yue.bookie.server.lib.config.BehaviorConfig;
+import com.yue.bookie.server.lib.config.SecurityConfig;
 
-import com.yue.bookie.server.utils.ValidationChecker;
+import com.yue.bookie.server.lib.utils.ValidationChecker;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 import java.sql.*;
 
 
@@ -30,14 +26,14 @@ public class UserRegisterController {
             Connection conn = DriverManager.getConnection(BehaviorConfig.dbUrl, sC.userName, sC.passWord);
             Statement stmt = conn.createStatement();
             stmt.executeQuery("USE bookie;");
-            String sql = "SELECT * FROM bookie.users_table WHERE username = ?";
+            String sql = "SELECT * FROM bookie.s_user WHERE username = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.first()) {
                 return "{\"status\": \"user_already_exist\"}";
             }
-            String sql_insert = "INSERT INTO users_table(username, password) VALUES (?, ?)";
+            String sql_insert = "INSERT INTO s_user(username, password) VALUES (?, ?)";
             PreparedStatement ps_insert = conn.prepareStatement(sql_insert);
             ps_insert.setString(1, username);
             ps_insert.setString(2, password);
