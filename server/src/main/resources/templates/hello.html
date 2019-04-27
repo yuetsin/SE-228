@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"	
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
@@ -11,8 +11,9 @@ body { padding: 40px; }
 </style>
 </head>
 <body>
+
 	<h1>HELLO</h1>
-	<br/>你好：<a sec:authentication="name"></a>
+	<br/>你好。
 	<p>
 		<a sec:authorize="hasAuthority('P_INDEX')" th:href="@{/index}"> INDEX</a>
 		<a sec:authorize="hasAuthority('P_ADMIN')" th:href="@{/admin}"> | ADMIN</a>
