@@ -46,32 +46,32 @@ VALUES ('局外人', 'Albert Camus', '外文小说', '由于人和世界的分�
 -- ----------------------------  
 -- Records of s_user  
 -- ----------------------------  
-INSERT INTO `s_user` VALUES ('1', 'admin', 'admin');  
-INSERT INTO `s_user` VALUES ('2', 'veiking', 'veiking');  
-INSERT INTO `s_user` VALUES ('3', 'xiaoming', 'xiaoming');   
+INSERT INTO `s_user` VALUES (1, 'admin', 'admin');  
+INSERT INTO `s_user` VALUES (2, 'veiking', 'veiking');  
+INSERT INTO `s_user` VALUES (3, 'xiaoming', 'xiaoming');   
   
 -- ----------------------------  
 -- Records of s_role  
 -- ----------------------------  
-INSERT INTO `s_role` VALUES ('1', 'R_ADMIN');  
-INSERT INTO `s_role` VALUES ('2', 'R_USER');  
+INSERT INTO `s_role` VALUES (1, 'R_ADMIN');  
+INSERT INTO `s_role` VALUES (2, 'R_USER');  
   
 -- ----------------------------  
 -- Records of s_permission  
 -- ----------------------------  
-INSERT INTO `s_permission` VALUES ('1', 'P_ME', '/me');  
-INSERT INTO `s_permission` VALUES ('2', 'P_CONSOLE', '/console');
+INSERT INTO `s_permission` VALUES (1, 'P_ME', '/me');  
+INSERT INTO `s_permission` VALUES (2, 'P_CONSOLE', '/console');
 
 -- ----------------------------  
 -- Records of s_user_role  
 -- ----------------------------  
-INSERT INTO `s_user_role` VALUES ('1', '1');  
-INSERT INTO `s_user_role` VALUES ('2', '2');  
+INSERT INTO `s_user_role` VALUES (1, 1);  
+INSERT INTO `s_user_role` VALUES (2, 2);  
 
 -- ----------------------------  
 -- Records of s_role_permission  
 -- ----------------------------  
-INSERT INTO `s_role_permission` VALUES ('1', '1');
-INSERT INTO `s_role_permission` VALUES ('1', '2');
-INSERT INTO `s_role_permission` VALUES ('2', '1');
+INSERT INTO `s_role_permission` VALUES (1, 1);
+INSERT INTO `s_role_permission` VALUES (1, 2);
+INSERT INTO `s_role_permission` VALUES (2, 1);
   

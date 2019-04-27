@@ -36,39 +36,39 @@ CREATE TABLE book_library
 
 CREATE TABLE s_user
 (
-	`user_id` INTEGER auto_increment,
-	`username` VARCHAR(40),
+	`id` INTEGER auto_increment,
+	`name` VARCHAR(40),
 	`password` VARCHAR(40),
-	PRIMARY KEY (`user_id`)
+	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE s_role
 (
-	`role_id` INTEGER auto_increment,
+	`id` INTEGER auto_increment,
 	`role` VARCHAR(32),
-	PRIMARY KEY (`role_id`)
+	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE s_permission
 (
-	`perm_id` INTEGER auto_increment,
+	`id` INTEGER auto_increment,
 	`permission` VARCHAR(32),
 	`url` VARCHAR(32),
-	PRIMARY KEY (`perm_id`)
+	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE s_role_permission
 (
-	`role_id` INTEGER,
-	`perm_id` INTEGER,
-	FOREIGN KEY (`role_id`) REFERENCES s_role(`role_id`) ON DELETE SET NULL,
-	FOREIGN KEY (`perm_id`) REFERENCES s_permission(`perm_id`) ON DELETE SET NULL
+	`fk_role_id` INTEGER,
+	`fk_permission_id` INTEGER,
+	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE SET NULL,
+	FOREIGN KEY (`fk_permission_id`) REFERENCES s_permission(`id`) ON DELETE SET NULL
 );
 
 CREATE TABLE s_user_role
 (
-	`user_id` INTEGER,
-	`role_id` INTEGER,
-	FOREIGN KEY (`user_id`) REFERENCES s_user(`user_id`) ON DELETE SET NULL,
-	FOREIGN KEY (`role_id`) REFERENCES s_role(`role_id`) ON DELETE SET NULL
+	`fk_user_id` INTEGER,
+	`fk_role_id` INTEGER,
+	FOREIGN KEY (`fk_user_id`) REFERENCES s_user(`id`) ON DELETE SET NULL,
+	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE SET NULL
 );
