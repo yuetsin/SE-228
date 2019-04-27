@@ -37,7 +37,7 @@ public class UserRegisterController {
             if (rs.first()) {
                 return "{\"status\": \"user_already_exist\"}";
             }
-            String sql_insert = "INSERT INTO users_table VALUES (?, ?, FALSE)";
+            String sql_insert = "INSERT INTO users_table(username, password) VALUES (?, ?)";
             PreparedStatement ps_insert = conn.prepareStatement(sql_insert);
             ps_insert.setString(1, username);
             ps_insert.setString(2, password);

@@ -30,8 +30,8 @@ CREATE TABLE book_library
 
 CREATE TABLE users_table
 (
+	`user_id` INTEGER auto_increment,
 	`username` VARCHAR(40),
 	`password` VARCHAR(40),
-	`is_admin` BOOLEAN,
-	PRIMARY KEY (`username`)
+	PRIMARY KEY (`user_id`)
 )

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="365cca6f-dbf7-49bd-90aa-8bbcceed4b7e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/common/common.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/common.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/home.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/navbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/navbar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../db/init_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../db/init_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/controller/UserRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/controller/UserRegisterController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/navbar/navbar.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="43" column="36" lean-forward="true" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+            <state relative-caret-position="297">
+              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -198,8 +197,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="40" />
-    <option name="y" value="447" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -346,12 +344,12 @@
       <workItem from="1554613436213" duration="7440000" />
       <workItem from="1554621580493" duration="32000" />
       <workItem from="1555118451893" duration="188000" />
-      <workItem from="1556335502155" duration="2092000" />
+      <workItem from="1556335502155" duration="2479000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45242000" />
+    <option name="totallyTimeSpent" value="45629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -741,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/navbar/navbar.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="43" column="36" lean-forward="true" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        <state relative-caret-position="297">
+          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>
