@@ -6,9 +6,9 @@ import { makeHot, reload } from './util/hot-reload'
 import { createRouter } from './router'
 import './sass/main.scss'
 // @ts-ignore
-import global_ from './common/common'
+import './common/common'
 import axios from 'axios'
-import HttpRequest from './axios/api.request'
+
 Vue.prototype.$axios = axios
 
 Vue.use(VueAxios, axios)
@@ -24,25 +24,6 @@ if (process.env.ENV === 'development' && module.hot) {
   makeHot(navbarModuleId, navbarComponent,
     module.hot.accept('./components/navbar', () => reload(navbarModuleId, (require('./components/navbar') as any).NavbarComponent)))
 }
-
-HttpRequest.request({
-  url: '/api',
-  method: 'get'
-}).then(response => {
-  for (let i of response.data['oh_my_books']) {
-    global_.bookLibrary.push(i)
-  }
-  let counter = 0
-  for (let i of global_.bookLibrary) {
-    counter++
-    global_.selectedBooks.push(i)
-    if (counter > global_.MAX_NUMBER) {
-      break
-    }
-  }
-  console.log(global_.bookLibrary)
-})
-
 // tslint:disable-next-line:no-unused-expression
 new Vue({
   el: '#app-main',

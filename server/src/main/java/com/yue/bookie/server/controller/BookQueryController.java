@@ -9,16 +9,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 @RestController
 public class BookQueryController {
-    @RequestMapping(value = "/api", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/search", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public String api() {
+    public String api(String q) {
+        System.out.println("Gotta request " + q);
         if (!BehaviorConfig.useLegacyJson) {
             try {
                 SecurityConfig sC = new SecurityConfig();
@@ -27,7 +25,11 @@ public class BookQueryController {
                 Connection conn = DriverManager.getConnection(BehaviorConfig.dbUrl, sC.userName, sC.passWord);
                 Statement stmt = conn.createStatement();
                 stmt.executeQuery("USE bookie;");
-                ResultSet rs = stmt.executeQuery("SELECT * FROM book_library");
+                String sql = "SELECT * FROM bookie.book_library WHERE locate(?, title) > 0 OR locate(?, author) > 0";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, q);
+                ps.setString(2, q);
+                ResultSet rs = ps.executeQuery();
                 return JSONPacker.resultSetToJson(rs);
             } catch (Exception ex) {
                 ex.printStackTrace();

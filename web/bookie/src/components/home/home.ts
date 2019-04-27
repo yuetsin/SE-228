@@ -44,7 +44,7 @@ import global_ from '../../common/common'
         url: '/img/' + imgName,
         method: 'get'
       }).then(response => {
-
+        console.log('done!')
       })
     }
   }

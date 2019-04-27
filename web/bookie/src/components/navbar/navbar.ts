@@ -10,7 +10,6 @@ import { Logger } from '../../util/log'
 import './navbar.scss'
 // @ts-ignore
 import global_ from '../../common/common'
-
 @Component({
   template: require('./navbar.html'),
   components: {
@@ -33,45 +32,19 @@ export class NavbarComponent extends Vue {
   ]
   bookNames = []
   selectedBook = ''
-  userName = global_.userName
   protected logger: Logger
   updateSelected () {
-    console.log("I'm here!")
-
-    this.bookNames = []
-    for (let i of global_.bookLibrary) {
-      this.bookNames.push(i.title)
-      this.bookNames.push(i.author)
-      this.bookNames.sort()
-    }
-
-    while (global_.selectedBooks.pop() !== undefined);
-    if (this.selectedBook === '') {
-      // @ts-ignore
-      let counter = 0
-      for (let i of global_.bookLibrary) {
-        counter++
+    this.axios.get('/api', {
+      params: {
+        q: this.selectedBook
+      }
+    }).then(response => {
+      for (let i of response.data['oh_my_books']) {
         global_.selectedBooks.push(i)
-        if (counter > global_.MAX_NUMBER) {
-          break
-        }
+        this.bookNames.push(i.title)
       }
-    } else {
-      console.log('Oh, this.selectedBook = ' + this.selectedBook)
-      for (let i of global_.bookLibrary) {
-        // console.log('i: ')
-        // console.log(i)
-        // console.log('Consider ' + i.title + ' contains ' + this.selectedBook)
-        if (i.title.indexOf(this.selectedBook) >= 0) {
-          global_.selectedBooks.push(i)
-        } else if (i.author.indexOf(this.selectedBook) >= 0) {
-          global_.selectedBooks.push(i)
-        }
-      }
-    }
-    console.log(global_.selectedBooks)
-    // const router = createRouter()
-    // router.go(0)
+      console.log(global_.selectedBooks)
+    })
   }
 
   @Watch('$route.path')

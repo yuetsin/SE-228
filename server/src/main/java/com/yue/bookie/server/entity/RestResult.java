@@ -1,4 +1,4 @@
-package com.casic.demo.entity;
+package com.yue.bookie.server.entity;
 
 /**
  * 统一封装API返回信息
