@@ -10,8 +10,8 @@ DROP TABLE IF EXISTS s_user_role;
 DROP TABLE IF EXISTS s_user;
 DROP TABLE IF EXISTS s_role;
 DROP TABLE IF EXISTS s_permission;
-
-
+DROP TABLE IF EXISTS bills;
+DROP TABLE IF EXISTS comments;
 
 CREATE TABLE book_type
 (
@@ -71,4 +71,29 @@ CREATE TABLE s_user_role
 	`fk_role_id` INTEGER,
 	FOREIGN KEY (`fk_user_id`) REFERENCES s_user(`id`) ON DELETE SET NULL,
 	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE SET NULL
+);
+
+
+CREATE TABLE bills
+(
+	`bill_uuid` VARCHAR(32),
+	`user_id` INTEGER,
+	`count` INTEGER,
+	`time` DATETIME,
+	`isbn` VARCHAR(15),
+	PRIMARY KEY `bill_uuid`,
+	FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE SET NULL,
+	FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE SET NULL
+);
+
+CREATE TABLE comments
+(
+	`comm_uuid` VARCHAR(32),
+	`user_id` INTEGER,
+	`time` DATETIME,
+	`isbn` VARCHAR(15),
+	`comment_content` VARCHAR(1024),
+	PRIMARY KEY `comm_uuid`,
+	FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE SET NULL,
+	FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE SET NULL
 );
