@@ -25,9 +25,6 @@ export class AboutComponent extends Vue {
   marketTextField: string = '您的购物车是空的。'
   protected logger: Logger
 
-  getMetaInfo(isbn: string) {
-
-  }
   mounted () {
     if (!this.logger) this.logger = new Logger()
     this.$nextTick(() => this.logger.info('about is ready!'))
@@ -38,6 +35,15 @@ export class AboutComponent extends Vue {
           this.$data.purchasedList = resp['data']
           if (this.$data.purchasedList.length !== 0) {
             this.purchasedTextField = '您有 ' + this.$data.purchasedList.length + ' 项已购项目。'
+            for (let item of this.$data.purchasedList) {
+              HttpRequest.get('/isbn', {
+                params: {
+                  isbn: item.isbn
+                }
+              }).then(response => {
+                item['desc'] = response['data']['data'][0]['title'] + ' - ' + response['data']['data'][0]['author']
+              })
+            }
           } else {
             this.purchasedTextField = '您尚未有已购项目。'
           }
@@ -54,6 +60,16 @@ export class AboutComponent extends Vue {
           this.$data.cartList = resp['data']
           if (this.$data.cartList.length !== 0) {
             this.marketTextField = '您的购物车中有 ' + this.$data.cartList.length + ' 项目。'
+            for (let item of this.$data.cartList) {
+              HttpRequest.get('/isbn', {
+                params: {
+                  isbn: item.isbn
+                }
+              }).then(response => {
+                console.log('cart resp: ', response)
+                item['desc'] = response['data']['data'][0]['title'] + ' - ' + response['data']['data'][0]['author']
+              })
+            }
           } else {
             this.marketTextField = '您的购物车是空的。'
           }
