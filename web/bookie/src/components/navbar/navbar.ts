@@ -8,6 +8,7 @@ import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav'
 import { Link } from './link'
 import { Logger } from '../../util/log'
 import './navbar.scss'
+import HttpRequest from '../../axios/api.request'
 // @ts-ignore
 import global_ from '../../common/common'
 @Component({
@@ -30,18 +31,25 @@ export class NavbarComponent extends Vue {
     new Link('我的', '/about'),
     new Link('注册', '/register')
   ]
+  shouldDisplayDetails: boolean = global_.highlightBook !== undefined
   bookNames = []
   selectedBook = ''
   protected logger: Logger
   updateSelected () {
-    this.axios.get('/api', {
+    HttpRequest.get('/search', {
       params: {
         q: this.selectedBook
       }
     }).then(response => {
-      for (let i of response.data['oh_my_books']) {
+      while (global_.selectedBooks.pop() !== undefined);
+      while (this.bookNames.pop() !== undefined);
+      if (response.data['status'] !== 'ok') {
+        return
+      }
+      for (let i of response.data['data']) {
         global_.selectedBooks.push(i)
         this.bookNames.push(i.title)
+        this.bookNames.push(i.author)
       }
       console.log(global_.selectedBooks)
     })
@@ -55,5 +63,9 @@ export class NavbarComponent extends Vue {
   mounted () {
     if (!this.logger) this.logger = new Logger()
     this.$nextTick(() => this.logger.info(this.object.default))
+  }
+
+  enter () {
+    console.log('Entered Navbar View')
   }
 }

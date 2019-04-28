@@ -5,7 +5,7 @@
       <md-icon>code</md-icon>
     </md-button>
 
-    <md-button v-for="link in links" :key="link.name" :to="link.path" exact>{{link.name}}</md-button>
+    <md-button v-if="link.name !== '详情' || shouldDisplayDetails" v-for="link in links" :key="link.name" :to="link.path" exact>{{link.name}}</md-button>
 
     <md-autocomplete
       v-on:input="updateSelected()"

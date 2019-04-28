@@ -14,6 +14,7 @@ import java.sql.*;
 @RestController
 public class BookQueryController {
     @RequestMapping(value = "/search", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @CrossOrigin
     @ResponseBody
     public String api(String q) {
         if (q.length() < 1) {

@@ -13,7 +13,7 @@
       class="md-primary"
       md-icon="book"
       md-label="已购项目"
-      md-description="您还没有购买任何书籍。">
+      :md-description="purchasedTextField">
     </md-empty-state>
 
     <md-empty-state
@@ -21,7 +21,7 @@
       md-rounded
       md-icon="shopping_cart"
       md-label="购物车"
-      md-description="您的购物车里还没有任何书籍。">
+      :md-description="marketTextField">
     </md-empty-state>
   </b-row>
 </b-container>

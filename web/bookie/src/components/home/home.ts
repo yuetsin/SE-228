@@ -33,9 +33,9 @@ import global_ from '../../common/common'
     },
     sortList () {
       if (this.$data.ascending) {
-        global_.selectedBooks.sort((b1, b2) => (b1.title.length) - (b2.title.length))
+        this.$data.bookLib.sort((b1, b2) => (b1.title.length) - (b2.title.length))
       } else {
-        global_.selectedBooks.sort((b1, b2) => (b2.title.length) - (b1.title.length))
+        this.$data.bookLib.sort((b1, b2) => (b2.title.length) - (b1.title.length))
       }
       this.$data.ascending = !this.$data.ascending
     },
@@ -46,6 +46,11 @@ import global_ from '../../common/common'
       }).then(response => {
         console.log('done!')
       })
+    },
+    setGlobal (isbn: string) {
+      global_.highlightBook = isbn
+      console.log('Set isbn = ' + isbn)
+      this.$router.push('/list')
     }
   }
 })

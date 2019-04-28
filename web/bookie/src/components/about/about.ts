@@ -15,6 +15,8 @@ import { Logger } from '../../util/log'
 export class AboutComponent extends Vue {
 
   repo: string = 'https://github.com/ducksoupdev/vue-webpack-typescript'
+  purchasedTextField: string = '已购项目为空。'
+  marketTextField: string = '购物车为空。'
   protected logger: Logger
 
   mounted () {
