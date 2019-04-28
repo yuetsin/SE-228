@@ -81,7 +81,7 @@
 
         <md-switch v-model="buyAnonymously" class="md-primary">匿名购买</md-switch>
 
-        <md-button class="md-dense md-raised md-primary">确认订单</md-button>
+        <md-button v-on:click="purchaseBill()" class="md-dense md-raised md-primary">确认订单</md-button>
       </md-step>
     </md-steppers>
   </div>

@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	public void configure(WebSecurity webSecurity) throws Exception {
+
 		webSecurity.ignoring().antMatchers("/css/**");
 	}
  
@@ -31,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity
-            .authorizeRequests().antMatchers("/reg", "/search", "/img/**", "/isbn").permitAll()
+            .authorizeRequests().antMatchers("/reg", "/search", "/img/**", "/isbn", "/register").permitAll()
             // 对于网站部分资源需要指定鉴权
             //.antMatchers("/admin/**").hasRole("ADMIN")
             // 除上面外的所有请求全部需要鉴权认证

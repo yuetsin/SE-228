@@ -33,7 +33,7 @@
         <md-card-expand>
           <md-card-actions md-alignment="space-between">
             <div>
-              <md-button><md-icon>add</md-icon>加入购物车</md-button>
+              <md-button v-on:click="addCart(book.isbn)"><md-icon>add</md-icon>加入购物车</md-button>
               <md-button v-on:click="setGlobal(book.isbn)"><md-icon>list</md-icon>详情</md-button>
             </div>
 

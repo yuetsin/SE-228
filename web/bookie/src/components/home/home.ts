@@ -51,6 +51,21 @@ import global_ from '../../common/common'
       global_.highlightBook = isbn
       console.log('Set isbn = ' + isbn)
       this.$router.push('/list')
+    },
+    addCart (isbn: string) {
+      HttpRequest.post('/buy?isbn=' + isbn + '&count=1&later=true')
+        .then(response => {
+          if (response['status'] === 200) {
+            let resp = response['data']
+            if (resp['status'] === 'ok') {
+              alert('添加成功。')
+            } else {
+              alert('添加购物车失败。错误信息：' + resp['status'])
+            }
+          } else {
+            alert('添加购物车失败。错误代码：' + response['status'])
+          }
+        })
     }
   }
 })

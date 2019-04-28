@@ -58,6 +58,21 @@ export class ListComponent extends Vue {
       }
     })
   }
+  purchaseBill () {
+    HttpRequest.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=false')
+      .then(response => {
+        if (response['status'] === 200) {
+          let resp = response['data']
+          if (resp['status'] === 'ok') {
+            alert('添加成功。总花费：' + resp['cost'])
+          } else {
+            alert('购买失败。错误信息：' + resp['status'])
+          }
+        } else {
+          alert('购买失败。错误代码：' + response['status'])
+        }
+      })
+  }
   mounted () {
     console.log('CALLED ENTER!')
     if (global_.highlightBook === undefined) {

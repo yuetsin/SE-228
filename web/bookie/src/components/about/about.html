@@ -24,4 +24,37 @@
       :md-description="marketTextField">
     </md-empty-state>
   </b-row>
+  <b-col>
+  <b-col class="content">
+    <md-layout md-align="center">
+    <md-table v-model="cartList" md-sort="time" md-sort-order="desc">
+      <md-table-toolbar>
+        <h1 class="md-title">购物车</h1>
+      </md-table-toolbar>
+
+      <md-table-row slot="md-table-row" slot-scope="{ item }">
+        <md-table-cell md-label="ISBN" md-numeric>{{ item.isbn }}</md-table-cell>
+        <md-table-cell md-label="交易流水" md-sort-by="bill_uuid">{{ item.bill_uuid }}</md-table-cell>
+        <md-table-cell md-label="交易时间" md-sort-by="time">{{ item.time }}</md-table-cell>
+        <md-table-cell md-label="数量" md-sort-by="count">{{ item.count }}</md-table-cell>
+<!--        <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>-->
+      </md-table-row>
+    </md-table>
+      </md-layout>
+    <md-layout md-align="center">
+  <md-table v-model="purchasedList" md-sort="time" md-sort-order="desc">
+    <md-table-toolbar>
+      <h1 class="md-title">已购项目</h1>
+    </md-table-toolbar>
+
+    <md-table-row slot="md-table-row" slot-scope="{ item }">
+      <md-table-cell md-label="ISBN" md-numeric>{{ item.isbn }}</md-table-cell>
+      <md-table-cell md-label="交易流水" md-sort-by="bill_uuid">{{ item.bill_uuid }}</md-table-cell>
+      <md-table-cell md-label="交易时间" md-sort-by="time">{{ item.time }}</md-table-cell>
+      <md-table-cell md-label="数量" md-sort-by="count">{{ item.count }}</md-table-cell>
+      <!--        <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>-->
+    </md-table-row>
+  </md-table>
+      </md-layout>
+  </b-col>
 </b-container>
