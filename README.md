@@ -10,6 +10,4 @@ Project Repository for SE-228，「Web 开发技术」。
 
 * 执行 `server⁩ ▸ ⁨mvnw⁩` 或 `server⁩ ▸ ⁨mvnw⁩.cmd` 来开启后端服务器。
 
-* 切换到 `web⁩ ▸ ⁨bookie ▸ ⁨⁩` 目录下，执行 `npm install` 及 `npm run dev` 来开启前端服务。
-
 * 访问 `localhost:8080` 来查看前端网页。
