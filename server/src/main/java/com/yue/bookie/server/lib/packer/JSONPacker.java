@@ -28,6 +28,6 @@ public class JSONPacker {
             array.put(jsonObj);
         }
 
-        return "{\"oh_my_books\":" + array.toString() + "}";
+        return "{\"status\": \"ok\", \"data\":" + array.toString() + "}";
     }
 }

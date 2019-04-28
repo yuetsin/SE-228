@@ -18,7 +18,7 @@ import java.sql.*;
 public class PurchaseController {
     @RequestMapping(value = "/buy", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public String buy(String isbn, Integer count) {
+    public String buy(String isbn, Integer count, Boolean later) {
         if (count < 1) {
             return "{\"status\": \"bad_amount\"}";
         }
@@ -54,15 +54,19 @@ public class PurchaseController {
                             Integer u_id = rs.getInt("id");
                             Date date = new Date();
                             Timestamp timeStamp = new Timestamp(date.getTime());
-                            String sql_bill = "INSERT INTO bills(bill_uuid, user_id, count, time, isbn) VALUES (UUID(), ?, ?, ?, ?)";
+                            String sql_bill = "INSERT INTO bills(bill_uuid, user_id, count, time, isbn, later) VALUES (UUID(), ?, ?, ?, ?, ?)";
                             PreparedStatement ps_bill = conn.prepareStatement(sql_bill);
                             ps_bill.setInt(1, u_id);
                             ps_bill.setInt(2, count);
                             ps_bill.setTimestamp(3, timeStamp);
                             ps_bill.setString(4, isbn);
+                            ps_bill.setBoolean(5, later);
                             if (ps_bill.executeUpdate() == 1) {
-
-                                return String.format("{\"status\": \"ok\", \"cost\": \"%s\"}", price.toString());
+                                if (later) {
+                                    return "{\"status\": \"ok\"}";
+                                } else {
+                                    return String.format("{\"status\": \"ok\", \"cost\": \"%s\"}", price.toString());
+                                }
                             } else {
                                 return "{\"status\": \"internal_error\"}";
                             }

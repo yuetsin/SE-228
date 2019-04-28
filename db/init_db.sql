@@ -81,6 +81,7 @@ CREATE TABLE bills
 	`count` INTEGER,
 	`time` DATETIME,
 	`isbn` VARCHAR(15),
+	`later` BOOLEAN,
 	PRIMARY KEY (`bill_uuid`),
 	FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE SET NULL,
 	FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE SET NULL
