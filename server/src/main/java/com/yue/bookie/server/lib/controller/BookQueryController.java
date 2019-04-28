@@ -16,6 +16,9 @@ public class BookQueryController {
     @RequestMapping(value = "/search", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public String api(String q) {
+        if (q.length() < 1) {
+            return "{\"status\": \"bad_request\"}";
+        }
         System.out.println("Gotta request " + q);
         if (!BehaviorConfig.useLegacyJson) {
             try {
@@ -33,7 +36,7 @@ public class BookQueryController {
                 return JSONPacker.resultSetToJson(rs);
             } catch (Exception ex) {
                 ex.printStackTrace();
-                return "{}";
+                return "{\"status\": \"internal_error\"}";
             }
         } else {
             // Keep legacy solution in case if you need it...
@@ -57,11 +60,12 @@ public class BookQueryController {
                     reader.close();
                     is.close();
                 } else {
-                    return "{}";
+                    return "{\"status\": \"json_error\"}";
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
+                return "{\"status\": \"internal_error\"}";
             }
             return String.valueOf(stringBuilder);
         }
