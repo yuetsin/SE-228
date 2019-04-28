@@ -18,7 +18,7 @@
                 <h2 class="md-title">{{this.$data.bookName}}</h2>
                 <div class="md-subhead">
                   <md-icon>location_on</md-icon>
-                  <span>将从上海市发出</span>
+                  <span>将从上海市发出，库存 {{this.$data.storage}} 件</span>
                 </div>
               </md-card-header>
 
@@ -27,7 +27,7 @@
               </md-card-content>
             </md-card-area>
             <md-card-actions>
-              <md-button class="md-primary">加入购物车</md-button>
+              <md-button v-on:click="addToCart()" class="md-primary">加入购物车</md-button>
             </md-card-actions>
           </md-card>
 
@@ -58,10 +58,7 @@
           <md-card-header>
             <md-card-header-text>
               <div class="md-title">所属分类</div>
-              <md-chip class="md-primary" md-clickable>图书</md-chip>
-              <md-chip class="md-primary" md-clickable>小说</md-chip>
-              <md-chip class="md-primary" md-clickable>情节</md-chip>
-              <md-chip class="md-primary" md-clickable>爱情</md-chip>
+              <md-chip class="md-primary" md-clickable>{{type}}</md-chip>
             </md-card-header-text>
           </md-card-header>
         </md-card>
@@ -69,11 +66,12 @@
       </md-step>
 
       <md-step id="second" md-label="选择数量">
-        <md-radio v-model="bookAmount" value=1>一套</md-radio>
-        <md-radio v-model="bookAmount" value=2>两套</md-radio>
-        <md-radio v-model="bookAmount" value=3>三套</md-radio>
-        <md-radio v-model="bookAmount" value=4>四套</md-radio>
-        <md-radio v-model="bookAmount" value=5>五套</md-radio>
+        <md-radio v-model="bookAmount" :value="1">一套</md-radio>
+        <md-radio v-model="bookAmount" :value="2">两套</md-radio>
+        <md-radio v-model="bookAmount" :value="3">三套</md-radio>
+        <md-radio v-model="bookAmount" :value="4">四套</md-radio>
+        <md-radio v-model="bookAmount" :value="5">五套</md-radio>
+
       </md-step>
 
       <md-step id="third" md-label="购买" md-description="下单并付款">

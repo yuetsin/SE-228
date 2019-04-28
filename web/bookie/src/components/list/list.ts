@@ -18,9 +18,11 @@ interface UserResponse {
       buyAnonymously: false,
       originPrice: '',
       couponPrice: '',
+      type: '',
       isbn: '',
-      bookAmount: 'one',
+      bookAmount: undefined,
       cover: '',
+      storage: 0,
       selectedDate: undefined,
       bookName: '十三个理由',
       author: 'Jay Asher',
@@ -35,6 +37,27 @@ interface UserResponse {
 })
 export class ListComponent extends Vue {
 
+  addToCart () {
+    if (this.$data.isbn === '') {
+      return
+    }
+    HttpRequest.post('/buy', {
+      params: {
+        isbn: this.$data.isbn,
+        count: this.$data.bookAmount,
+        later: true
+      }
+    }).then(response => {
+      console.log(response)
+      if (response['status'] === 200) {
+        if (response['data']['status'] === 'ok') {
+          this.$router.push('/about')
+        } else {
+          alert('加入购物车失败。\n错误信息：' + response['data']['status'])
+        }
+      }
+    })
+  }
   mounted () {
     console.log('CALLED ENTER!')
     if (global_.highlightBook === undefined) {
@@ -57,6 +80,8 @@ export class ListComponent extends Vue {
           this.$data.couponPrice = rsp['coupon_price']
           this.$data.author = rsp['author']
           this.$data.details = rsp['description']
+          this.$data.storage = rsp['storage']
+          this.$data.type = rsp['type']
           console.log(this.$data)
         } else {
           this.$router.push('/')

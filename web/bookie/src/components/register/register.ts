@@ -4,9 +4,15 @@ import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
 // @ts-ignore
 import global_ from '../../common/common'
-
+import HttpRequest from '../../axios/api.request'
 @Component({
   template: require('./register.html'),
+  data: function () {
+    return {
+      userName: '',
+      passWord: ''
+    }
+  },
   components: {
     'b-container': bContainer,
     'b-col': bCol,
@@ -14,8 +20,7 @@ import global_ from '../../common/common'
   }
 })
 export class RegisterComponent extends Vue {
-  userName = ''
-  passWord = ''
+
   agreedLicense = false
   registerSucceed = false
 
@@ -23,15 +28,16 @@ export class RegisterComponent extends Vue {
     // @ts-ignore
     return !(this.userName.length >= 8 && (this.passWord.length >= 6) && this.agreedLicense)
   }
-  setUserName () {
-    global_.userName = this.userName
-    this.$router.replace({
-      path: '/_empty'
+  postRegister () {
+    console.log(this.$data.userName, this.$data.passWord)
+    HttpRequest.post('/reg?username=' + this.$data.userName + '&password=' + this.$data.passWord).then(response => {
+      let rsp = response['data']
+      if (rsp['status'] !== 'ok') {
+        alert('注册失败，请再试一次。\n错误信息：' + rsp['status'])
+        return
+      }
+      this.registerSucceed = true
+      this.$router.push('/login')
     })
-
-    this.$router.replace({
-      path: '/'
-    })
-    this.$router.go(0)
   }
 }

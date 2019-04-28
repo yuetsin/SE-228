@@ -32,5 +32,5 @@
     </div>
   </div>
   <md-checkbox v-model="agreedLicense">我已经阅读并同意以上用户协议，并已年满 18 周岁</md-checkbox>
-  <md-button v-bind:disabled="canRegister()" @click="registerSucceed = true; setUserName()" class="md-dense md-raised md-primary">注册</md-button>
+  <md-button v-bind:disabled="canRegister()" @click="postRegister()" class="md-dense md-raised md-primary">注册</md-button>
 </b-container>
