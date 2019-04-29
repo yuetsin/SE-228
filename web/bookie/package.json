@@ -95,6 +95,7 @@
     "vue-hot-reload-api": "~2.2.4",
     "vue-template-compiler": "^2.6.10",
     "webpack": "~3.10.0",
-    "webpack-dev-server": "~2.11.1"
+    "webpack-dev-server": "~2.11.1",
+    "uglifyjs-webpack-plugin": "^2.1.2"
   }
 }

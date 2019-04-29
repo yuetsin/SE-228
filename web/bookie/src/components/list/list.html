@@ -85,7 +85,7 @@
       </md-step>
     </md-steppers>
 
-      <md-card class="md-primary" md-with-hover v-for="comment in comments">
+      <md-card v-if="flush" class="md-primary" md-with-hover v-for="comment in comments">
         <md-ripple>
           <md-card-header>
             <div class="md-title">来自用户 ID #{{ comment.user_id }}</div>

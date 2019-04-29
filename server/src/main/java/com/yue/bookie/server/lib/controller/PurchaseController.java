@@ -37,11 +37,14 @@ public class PurchaseController {
                 if (storage >= count) {
                     String sql_insert = "UPDATE book_library SET storage = ? WHERE isbn = ?";
                     PreparedStatement ps_insert = conn.prepareStatement(sql_insert);
-                    ps_insert.setInt(1, storage - count);
+                    if (later) {
+                        ps_insert.setInt(1, storage);
+                    } else {
+                        ps_insert.setInt(1, storage - count);
+                    }
                     ps_insert.setString(2, isbn);
 
                     if (ps_insert.executeUpdate() == 1) {
-
                         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                         String sql_get_uid = "SELECT * FROM s_user WHERE name = ?";
                         PreparedStatement ps_getuid = conn.prepareStatement(sql_get_uid);

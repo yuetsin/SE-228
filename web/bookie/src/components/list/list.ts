@@ -15,13 +15,14 @@ interface UserResponse {
   template: require('./list.html'),
   data: function () {
     return {
+      flush: true,
       buyAnonymously: false,
       originPrice: '',
       couponPrice: '',
       type: '',
       isbn: '',
-      bookAmount: undefined,
-      cover: '',
+      bookAmount: 1,
+      cover: 'default.png',
       storage: 0,
       selectedDate: undefined,
       bookName: '十三个理由',
@@ -47,7 +48,7 @@ export class ListComponent extends Vue {
       console.log(response)
       if (response['status'] === 200) {
         if (response['data']['status'] === 'ok') {
-          this.$router.push('/about')
+          this.$router.push('/')
         } else {
           alert('加入购物车失败。\n错误信息：' + response['data']['status'])
         }
@@ -76,7 +77,9 @@ export class ListComponent extends Vue {
           let resp = response['data']
           if (resp['status'] === 'ok') {
             alert('评论成功！')
-            this.mounted()
+            this.loadComments()
+            this.$data.flush = false
+            this.$data.flush = true
           } else {
             alert('提交评论错误。错误信息：' + resp['status'])
           }
@@ -86,9 +89,13 @@ export class ListComponent extends Vue {
       })
   }
   mounted () {
+    this.loadComments()
+  }
+
+  private loadComments () {
     console.log('CALLED ENTER!')
     if (global_.highlightBook === undefined) {
-      this.$router.push('/')
+      this.$router.push('/home')
     }
     HttpRequest.get('/isbn', {
       params: {
@@ -122,10 +129,10 @@ export class ListComponent extends Vue {
           })
           console.log(this.$data)
         } else {
-          this.$router.push('/')
+          this.$router.push('/home')
         }
       } else {
-        this.$router.push('/')
+        this.$router.push('/home')
       }
     })
   }

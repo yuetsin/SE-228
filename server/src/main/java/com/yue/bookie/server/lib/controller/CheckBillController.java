@@ -33,7 +33,7 @@ public class CheckBillController {
             ResultSet rs = ps_getuid.executeQuery();
             if (rs.first()) {
                 Integer u_id = rs.getInt("id");
-                String bill_check_id = "SELECT * FROM bills WHERE user_id = ? AND later = FALSE";
+                String bill_check_id = "SELECT bills.isbn, title, author, count, time, bill_uuid FROM bills, book_library WHERE user_id = ? AND bills.isbn = book_library.isbn AND later = FALSE";
                 PreparedStatement ps = conn.prepareStatement(bill_check_id);
                 ps.setInt(1, u_id);
                 rs = ps.executeQuery();

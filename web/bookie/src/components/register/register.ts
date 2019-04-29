@@ -37,7 +37,7 @@ export class RegisterComponent extends Vue {
         return
       }
       this.registerSucceed = true
-      this.$router.push('/login')
+      this.$router.push('/logout')
     })
   }
 }

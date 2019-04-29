@@ -26,7 +26,6 @@ public class PageController {
 		return "hello";
 	}
 
-
 	@RequestMapping("/me")
 	@ResponseBody
 	public String me(Model model, String tt) {

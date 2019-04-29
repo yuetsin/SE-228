@@ -32,13 +32,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity
-            .authorizeRequests().antMatchers("/reg", "/search", "/img/**", "/isbn", "/register").permitAll()
+            .authorizeRequests().antMatchers("/reg", "/search", "/img/**", "/isbn", "/register", "/logout", "/login").permitAll()
             // 对于网站部分资源需要指定鉴权
             //.antMatchers("/admin/**").hasRole("ADMIN")
             // 除上面外的所有请求全部需要鉴权认证
             .anyRequest().authenticated().and()
             // 定义当需要用户登录时候，转到的登录页面
-            .formLogin().loginPage("/login").defaultSuccessUrl("/index").permitAll().and()
+            .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll().and()
             // 定义登出操作
 			.logout().logoutSuccessUrl("/login?logout").permitAll().and()
 			.csrf().disable()

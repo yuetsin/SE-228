@@ -8,6 +8,7 @@ import HttpRequest from '../../axios/api.request'
   template: require('./about.html'),
   'data': function () {
     return {
+      flush: true,
       cartList: [],
       purchasedList: []
     }
@@ -24,15 +25,15 @@ export class AboutComponent extends Vue {
   purchasedTextField: string = '您尚未有已购项目。'
   marketTextField: string = '您的购物车是空的。'
   protected logger: Logger
-
-
-  buyFromMarket(uuid: string) {
-    HttpRequest.post('/alter?uuid=' + uuid).then (response => {
+  buyFromMarket (uuid: string) {
+    HttpRequest.post('/alter?uuid=' + uuid).then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
-          alert('购买成功。')
-          this.$router.push('/about')
+          alert('购买成功。\n花费：' + resp['cost'])
+          this.$data.flush = false
+          this.$data.flush = true
+          this.loadBills()
         } else {
           alert('购买失败。错误消息：' + resp['status'])
         }
@@ -41,9 +42,28 @@ export class AboutComponent extends Vue {
       }
     })
   }
+  removeFromCart (uuid: string) {
+    HttpRequest.post('/del?uuid=' + uuid).then(response => {
+      if (response['status'] === 200) {
+        let resp = response['data']
+        if (resp['status'] === 'ok') {
+          alert('移除成功。')
+          this.loadBills()
+        } else {
+          alert('移除失败。错误消息：' + resp['status'])
+        }
+      } else {
+        alert('移除失败。错误代码：' + response['status'])
+      }
+    })
+  }
   mounted () {
     if (!this.logger) this.logger = new Logger()
     this.$nextTick(() => this.logger.info('about is ready!'))
+    this.loadBills()
+  }
+
+  private loadBills () {
     HttpRequest.get('/bill').then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
