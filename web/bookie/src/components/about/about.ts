@@ -28,7 +28,17 @@ export class AboutComponent extends Vue {
 
   buyFromMarket(uuid: string) {
     HttpRequest.post('/alter?uuid=' + uuid).then (response => {
-      
+      if (response['status'] === 200) {
+        let resp = response['data']
+        if (resp['status'] === 'ok') {
+          alert('购买成功。')
+          this.$router.push('/about')
+        } else {
+          alert('购买失败。错误消息：' + resp['status'])
+        }
+      } else {
+        alert('购买失败。错误代码：' + response['status'])
+      }
     })
   }
   mounted () {
