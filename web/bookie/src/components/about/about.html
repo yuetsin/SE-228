@@ -27,7 +27,7 @@
   <b-col>
   <b-col class="content">
     <md-layout md-align="center">
-    <md-table v-model="cartList" md-sort="time" md-sort-order="asc">
+    <md-table v-if="cartList.length !== 0" v-model="cartList" md-sort="time" md-sort-order="asc">
       <md-table-toolbar>
         <h1 class="md-title">购物车</h1>
       </md-table-toolbar>
@@ -44,7 +44,7 @@
     </md-table>
       </md-layout>
     <md-layout md-align="center">
-  <md-table v-model="purchasedList" md-sort="time" md-sort-order="asc">
+  <md-table v-if="purchasedList.length !== 0" v-model="purchasedList" md-sort="time" md-sort-order="asc">
     <md-table-toolbar>
       <h1 class="md-title">已购项目</h1>
     </md-table-toolbar>

@@ -29,7 +29,7 @@ public class RemoveFromCart {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, uuid);
             if( ps.executeUpdate() == 1) {
-                return "{\"status\": \"ok\"";
+                return "{\"status\": \"ok\"}";
             } else {
                 return "{\"status\": \"bad_uuid\"}";
             }

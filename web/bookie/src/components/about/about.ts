@@ -30,7 +30,7 @@ export class AboutComponent extends Vue {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
-          alert('购买成功。\n花费：' + resp['cost'])
+          alert('购买成功。总花费：' + resp['cost'] + '元')
           this.$data.flush = false
           this.$data.flush = true
           this.loadBills()
