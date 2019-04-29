@@ -77,6 +77,7 @@ export class ListComponent extends Vue {
           let resp = response['data']
           if (resp['status'] === 'ok') {
             alert('评论成功！')
+            this.$data.commContent = ''
             this.loadComments()
             this.$data.flush = false
             this.$data.flush = true
