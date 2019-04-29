@@ -84,5 +84,50 @@
         <md-button v-on:click="purchaseBill()" class="md-dense md-raised md-primary">确认订单</md-button>
       </md-step>
     </md-steppers>
+
+      <md-card class="md-primary" md-with-hover v-for="comment in comments">
+        <md-ripple>
+          <md-card-header>
+            <div class="md-title">来自用户 ID #{{ comment.user_id }}</div>
+            <div class="md-subhead">评论于 {{ comment.time }}</div>
+            <div v-if="comment.purchased === '1'" class="md-subhead">已购买的评价</div>
+          </md-card-header>
+
+          <md-card-expand>
+            <md-card-actions md-alignment="space-between">
+              <md-card-expand-trigger>
+                <md-button class="md-icon-button">
+                  <md-icon>keyboard_arrow_down</md-icon>
+                </md-button>
+              </md-card-expand-trigger>
+            </md-card-actions>
+            <md-card-expand-content>
+              <md-card-content>
+                {{ comment.comment_content }}
+              </md-card-content>
+            </md-card-expand-content>
+          </md-card-expand>
+        </md-ripple>
+      </md-card>
+
+    <md-card md-with-hover>
+      <md-ripple>
+        <md-card-header>
+          <div class="md-title">书写评论</div>
+          <div class="md-subhead">您喜欢 {{ this.$data.author }} 的 {{ this.$data.bookName }} 吗？</div>
+        </md-card-header>
+
+        <md-card-content>
+          <md-field>
+            <label>写下您的评论！</label>
+            <md-textarea v-model="commContent" md-counter="200"></md-textarea>
+          </md-field>
+        </md-card-content>
+
+        <md-card-actions>
+          <md-button class="md-raised md-primary" v-on:click="submitComment()" v-bind:disabled="commContent.length === 0">提交</md-button>
+        </md-card-actions>
+      </md-ripple>
+    </md-card>
   </div>
 </b-container>

@@ -25,6 +25,12 @@ export class AboutComponent extends Vue {
   marketTextField: string = '您的购物车是空的。'
   protected logger: Logger
 
+
+  buyFromMarket(uuid: string) {
+    HttpRequest.post('/alter?uuid=' + uuid).then (response => {
+      
+    })
+  }
   mounted () {
     if (!this.logger) this.logger = new Logger()
     this.$nextTick(() => this.logger.info('about is ready!'))

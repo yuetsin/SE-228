@@ -26,7 +26,9 @@ interface UserResponse {
       selectedDate: undefined,
       bookName: '十三个理由',
       author: 'Jay Asher',
-      details: '中学生汉娜自杀后……'
+      details: '中学生汉娜自杀后……',
+      comments: [],
+      commContent: ''
     }
   },
   components: {
@@ -41,13 +43,7 @@ export class ListComponent extends Vue {
     if (this.$data.isbn === '') {
       return
     }
-    HttpRequest.post('/buy', {
-      params: {
-        isbn: this.$data.isbn,
-        count: this.$data.bookAmount,
-        later: true
-      }
-    }).then(response => {
+    HttpRequest.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=true').then(response => {
       console.log(response)
       if (response['status'] === 200) {
         if (response['data']['status'] === 'ok') {
@@ -70,6 +66,22 @@ export class ListComponent extends Vue {
           }
         } else {
           alert('购买失败。错误代码：' + response['status'])
+        }
+      })
+  }
+  submitComment () {
+    HttpRequest.post('/comment?content=' + this.$data.commContent + '&isbn=' + this.$data.isbn)
+      .then(response => {
+        if (response['status'] === 200) {
+          let resp = response['data']
+          if (resp['status'] === 'ok') {
+            alert('评论成功！')
+            this.mounted()
+          } else {
+            alert('提交评论错误。错误信息：' + resp['status'])
+          }
+        } else {
+          alert('提交评论错误。错误代码：' + response['status'])
         }
       })
   }
@@ -97,6 +109,17 @@ export class ListComponent extends Vue {
           this.$data.details = rsp['description']
           this.$data.storage = rsp['storage']
           this.$data.type = rsp['type']
+          HttpRequest.get('/comlist', {
+            params: {
+              isbn: this.$data.isbn
+            }
+          }).then(response => {
+            if (response['data']['status'] === 'ok') {
+              this.$data.comments = response['data']['data']
+            } else {
+              console.log('failed to load comments. response: ', response)
+            }
+          })
           console.log(this.$data)
         } else {
           this.$router.push('/')
