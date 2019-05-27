@@ -33,15 +33,16 @@ public class BookQueryController {
                 return "{\"status\": \"internal_error\"}";
             }
         } else {
+            return "{\"status\": \"deprecated_option\"}";
+            /*
             // Keep legacy solution in case if you need it...
             File file02 = new File("assets/books/books.json");
             FileInputStream is;
             StringBuilder stringBuilder = null;
             try {
                 if (file02.length() != 0) {
-                    /**
-                     * 文件有内容才去读文件
-                     */
+                     // 文件有内容才去读文件
+
                     is = new FileInputStream(file02);
                     InputStreamReader streamReader = new InputStreamReader(is);
                     BufferedReader reader = new BufferedReader(streamReader);
@@ -62,6 +63,7 @@ public class BookQueryController {
                 return "{\"status\": \"internal_error\"}";
             }
             return String.valueOf(stringBuilder);
+        */
         }
     }
 }
