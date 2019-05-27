@@ -1,27 +1,26 @@
 package com.yue.bookie.server.lib.struct;
 
-
-import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.annotation.Generated;
+import javax.persistence.*;
 import java.io.Serializable;
-
+import java.util.UUID;
 @Entity
-@Data
 @Table(name = "carts")
+@IdClass(MultiPrimKey.class)
 public class Cart implements Serializable {
 
     @Id
     @Column
     public Integer userId;
 
-    @Column
-    public Integer count;
-
     @Id
     @Column
     public String isbn;
+
+    @Column
+    public Integer count;
+
+
+    public String title;
+    public String author;
 }

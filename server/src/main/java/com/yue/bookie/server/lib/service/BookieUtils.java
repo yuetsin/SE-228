@@ -1,10 +1,7 @@
 package com.yue.bookie.server.lib.service;
 
 import com.yue.bookie.server.lib.repository.*;
-import com.yue.bookie.server.lib.struct.Book;
-import com.yue.bookie.server.lib.struct.Comment;
-import com.yue.bookie.server.lib.struct.Role;
-import com.yue.bookie.server.lib.struct.User;
+import com.yue.bookie.server.lib.struct.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -73,6 +70,28 @@ public class BookieUtils {
         roleRepo.setRole();
     }
 
+    /* Cart Related Repo Methods */
+    public void addToCart(String isbn, Integer count) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
+        Integer userId = currentUser.id;
+        cartRepo.addToCart(userId, count, isbn);
+    }
+
+    public void deleteFromCart(String isbn) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
+        Integer userId = currentUser.id;
+        cartRepo.deleteFromCart(userId, isbn);
+    }
+
+    public List<Cart> getUserCart() {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
+        Integer userId = currentUser.id;
+        return cartRepo.findAllByUserId(userId);
+    }
+
     /* Mixed Repo Methods */
     public Boolean checkPurchased(String userName, String isbn) {
         try {
@@ -83,7 +102,6 @@ public class BookieUtils {
             return false;
         }
     }
-
 
     /* Initialize Service */
     public static BookieUtils service;
