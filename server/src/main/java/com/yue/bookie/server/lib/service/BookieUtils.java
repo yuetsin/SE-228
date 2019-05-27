@@ -46,20 +46,29 @@ public class BookieUtils {
 
     public void addComments(String isbn, String contents) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User currentUser = userRepo.getUserByName(userDetails.getUsername());
+        User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
         Integer userId = currentUser.id;
         Boolean purchased = checkPurchased(currentUser.name, isbn);
         commentRepo.addComments(userId, purchased, isbn, contents);
     }
 
     public Boolean checkPurchased(String userName, String isbn) {
-        Integer userId = userRepo.getUserByName(userName).id;
-        return billRepo.checkPurchased(userId, isbn).size() != 0;
+        try {
+            Integer userId = userRepo.getUserByName(userName).get(0).id;
+            return billRepo.checkPurchased(userId, isbn).size() != 0;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     public List<Book> getBookByIsbn(String isbn) {
         return bookRepo.findByIsbn(isbn);
     }
+
+    public List<User> getUserByName(String name) { return userRepo.getUserByName(name); }
+
+    public void registerUser(String username, String password) { userRepo.registerNewUser(username, password); }
 
     public static BookieUtils service;
 

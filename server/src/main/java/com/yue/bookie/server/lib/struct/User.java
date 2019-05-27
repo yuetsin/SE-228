@@ -2,10 +2,7 @@ package com.yue.bookie.server.lib.struct;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "s_user")
 @Data
@@ -14,9 +11,10 @@ public class User {
 
     @Id
     @Column
+    @GeneratedValue
     public Integer id;
 
-    @Column
+    @Column(name = "`name`")
     public String name;
 
     @Column
