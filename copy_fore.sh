@@ -12,7 +12,8 @@ cd ../../
 
 cp -v ./web/bookie/dist/index.html ./server/src/main/resources/templates/index.html
 
-cp -R -P ./web/bookie/dist/js ./server/src/main/resources/static/js
+cp -R -P ./web/bookie/dist/js ./server/src/main/resources/static
 
 
-./server/mvnw run
+cd ./server
+./mvnw spring-boot:run

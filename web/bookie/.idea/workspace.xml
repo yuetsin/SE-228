@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="365cca6f-dbf7-49bd-90aa-8bbcceed4b7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/service/BookieUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../copy_fore.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../copy_fore.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/controller/BookQueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/controller/BookQueryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/repository/BookRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/repository/BookRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/repository/CommentRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/repository/CommentRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/service/BookService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/struct/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/struct/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/security/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/security/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struct/book.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/struct/book.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -220,7 +213,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -311,7 +304,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/src/components" />
   </component>
   <component name="RecentsManager">
@@ -380,12 +373,12 @@
       <workItem from="1556510147643" duration="7115000" />
       <workItem from="1557234955546" duration="247000" />
       <workItem from="1558915602238" duration="186000" />
-      <workItem from="1558927053727" duration="658000" />
+      <workItem from="1558927053727" duration="757000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73523000" />
+    <option name="totallyTimeSpent" value="73622000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,7 +390,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47001934" visible="true" weight="0.27836505" />
       <window_info id="Structure" order="1" sideWeight="0.52998066" side_tool="true" weight="0.27836505" />
