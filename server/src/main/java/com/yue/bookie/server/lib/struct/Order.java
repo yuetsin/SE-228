@@ -23,4 +23,13 @@ public class Order {
 
     @Column
     public Timestamp time;
+
+    @Column
+    public String receiver;
+
+    @Column(name = "phone_no")
+    public String phoneNo;
+
+    @Column
+    public String address;
 }

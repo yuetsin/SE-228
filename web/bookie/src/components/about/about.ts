@@ -26,7 +26,7 @@ export class AboutComponent extends Vue {
   marketTextField: string = '您的购物车是空的。'
   protected logger: Logger
   buyFromMarket (isbn: string, count: number) {
-    this.axios.post('/alter?isbn=' + isbn + '&count=' + count).then(response => {
+    this.axios.post('/buy?isbn=' + isbn + '&count=' + count + '&later=false').then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {

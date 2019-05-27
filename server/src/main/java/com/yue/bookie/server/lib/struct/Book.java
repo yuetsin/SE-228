@@ -28,7 +28,7 @@ public class Book {
     String description;
 
     @Column
-    Integer storage;
+    public Integer storage;
 
     @Column
     BigDecimal price;

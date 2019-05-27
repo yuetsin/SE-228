@@ -4,6 +4,7 @@ package com.yue.bookie.server.lib.controller;
 import com.yue.bookie.server.lib.config.BehaviorConfig;
 import com.yue.bookie.server.lib.config.SecurityConfig;
 import com.yue.bookie.server.lib.service.BookieUtils;
+import com.yue.bookie.server.lib.struct.Book;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,17 @@ public class PurchaseController {
                 ex.printStackTrace();
                 return "{\"status\": \"internal_error\"}";
             }
+        } else {
+            try {
+                if (BookieUtils.service.buyFromCart(isbn, count)) {
+                    return "{\"status\": \"ok\"}";
+                } else {
+                    return "{\"status\": \"storage_inadequate\"}";
+                }
+            } catch (Exception ex){
+                ex.printStackTrace();
+                return "{\"status\": \"internal_error\"}";
+            }
         }
-        return "{\"status\": \"internal_error\"}";
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class BookieUtils {
@@ -109,6 +110,23 @@ public class BookieUtils {
             return billRepo.checkPurchased(userId, isbn).size() != 0;
         } catch (Exception ex) {
             ex.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean buyFromCart(String isbn, Integer count) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
+        Integer userId = currentUser.id;
+
+        Book book = bookRepo.findByIsbn(isbn).get(0);
+        if (book.storage >= count) {
+            bookRepo.decreaseStorage(isbn, count);
+            cartRepo.deleteFromCart(userId, isbn);
+            String uuid = UUID.randomUUID().toString();
+            billRepo.addToBill(uuid, count, isbn);
+            return true;
+        } else {
             return false;
         }
     }

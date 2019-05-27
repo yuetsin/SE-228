@@ -82,6 +82,9 @@ CREATE TABLE orders
 	`bill_uuid` VARCHAR(36),
 	`user_id` INTEGER,
 	`time` DATETIME,
+	`receiver` VARCHAR(10),
+	`phone_no` VARCHAR(20),
+	`address` VARCHAR(81),
     PRIMARY KEY (`bill_uuid`),
     FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE RESTRICT
 );

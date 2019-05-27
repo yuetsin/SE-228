@@ -2,10 +2,12 @@ package com.yue.bookie.server.lib.repository;
 
 import com.yue.bookie.server.lib.struct.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -20,4 +22,9 @@ public interface BookRepo extends JpaRepository<Book, String> {
     public List<Book> findByType(String type);
 
     public List<Book> findByIsbn(String isbn);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE book_library SET `storage` = `storage` - ?2 WHERE isbn = ?1", nativeQuery = true)
+    public void decreaseStorage(String isbn, Integer storage);
 }
