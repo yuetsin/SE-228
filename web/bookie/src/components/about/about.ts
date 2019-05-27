@@ -3,7 +3,7 @@ import bContainer from 'bootstrap-vue/es/components/layout/container'
 import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
 import { Logger } from '../../util/log'
-import HttpRequest from '../../axios/api.request'
+// import HttpRequest from '../../axios/api.request'
 @Component({
   template: require('./about.html'),
   'data': function () {
@@ -26,7 +26,7 @@ export class AboutComponent extends Vue {
   marketTextField: string = '您的购物车是空的。'
   protected logger: Logger
   buyFromMarket (uuid: string) {
-    HttpRequest.post('/alter?uuid=' + uuid).then(response => {
+    this.axios.post('/alter?uuid=' + uuid).then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
@@ -43,7 +43,7 @@ export class AboutComponent extends Vue {
     })
   }
   removeFromCart (uuid: string) {
-    HttpRequest.post('/del?uuid=' + uuid).then(response => {
+    this.axios.post('/del?uuid=' + uuid).then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
@@ -64,7 +64,7 @@ export class AboutComponent extends Vue {
   }
 
   private loadBills () {
-    HttpRequest.get('/bill').then(response => {
+    this.axios.get('/bill').then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
@@ -72,7 +72,7 @@ export class AboutComponent extends Vue {
           if (this.$data.purchasedList.length !== 0) {
             this.purchasedTextField = '您有 ' + this.$data.purchasedList.length + ' 项已购项目。'
             for (let item of this.$data.purchasedList) {
-              HttpRequest.get('/isbn', {
+              this.axios.get('/isbn', {
                 params: {
                   isbn: item.isbn
                 }
@@ -89,7 +89,7 @@ export class AboutComponent extends Vue {
       }
     })
 
-    HttpRequest.get('/market').then(response => {
+    this.axios.get('/market').then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
@@ -97,7 +97,7 @@ export class AboutComponent extends Vue {
           if (this.$data.cartList.length !== 0) {
             this.marketTextField = '您的购物车中有 ' + this.$data.cartList.length + ' 项目。'
             for (let item of this.$data.cartList) {
-              HttpRequest.get('/isbn', {
+              this.axios.get('/isbn', {
                 params: {
                   isbn: item.isbn
                 }

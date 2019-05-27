@@ -4,7 +4,7 @@ import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
 // @ts-ignore
 import global_ from '../../common/common'
-import HttpRequest from '../../axios/api.request'
+// import HttpRequest from '../../axios/api.request'
 
 interface UserResponse {
   id: string
@@ -44,7 +44,7 @@ export class ListComponent extends Vue {
     if (this.$data.isbn === '') {
       return
     }
-    HttpRequest.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=true').then(response => {
+    this.axios.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=true').then(response => {
       console.log(response)
       if (response['status'] === 200) {
         if (response['data']['status'] === 'ok') {
@@ -56,7 +56,7 @@ export class ListComponent extends Vue {
     })
   }
   purchaseBill () {
-    HttpRequest.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=false')
+    this.axios.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=false')
       .then(response => {
         if (response['status'] === 200) {
           let resp = response['data']
@@ -72,7 +72,7 @@ export class ListComponent extends Vue {
       })
   }
   submitComment () {
-    HttpRequest.post('/comment?content=' + this.$data.commContent + '&isbn=' + this.$data.isbn)
+    this.axios.post('/comment?content=' + this.$data.commContent + '&isbn=' + this.$data.isbn)
       .then(response => {
         if (response['status'] === 200) {
           let resp = response['data']
@@ -99,7 +99,7 @@ export class ListComponent extends Vue {
     if (global_.highlightBook === undefined) {
       this.$router.push('/home')
     }
-    HttpRequest.get('/isbn', {
+    this.axios.get('/isbn', {
       params: {
         isbn: global_.highlightBook
       }
@@ -118,7 +118,7 @@ export class ListComponent extends Vue {
           this.$data.details = rsp['description']
           this.$data.storage = rsp['storage']
           this.$data.type = rsp['type']
-          HttpRequest.get('/comlist', {
+          this.axios.get('/comlist', {
             params: {
               isbn: this.$data.isbn
             }

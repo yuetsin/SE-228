@@ -14,7 +14,7 @@ public interface BookRepo extends JpaRepository<Book, String> {
 
     public List<Book> findByAuthorContaining(String author);
 
-    @Query(value = "SELECT * FROM book_library lib WHERE locate(:keyword, lib.title) >= 0 OR locate(:keyword, lib.author) >= 0", nativeQuery = true)
+    @Query(value = "SELECT * FROM book_library lib WHERE locate(:keyword, lib.title) > 0 OR locate(:keyword, lib.author) > 0", nativeQuery = true)
     public List<Book> ambiguousFind(@Param("keyword") String keyword);
 
     public List<Book> findByType(String type);

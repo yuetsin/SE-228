@@ -8,7 +8,7 @@ import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav'
 import { Link } from './link'
 import { Logger } from '../../util/log'
 import './navbar.scss'
-import HttpRequest from '../../axios/api.request'
+// import HttpRequest from '../../axios/api.request'
 // @ts-ignore
 import global_ from '../../common/common'
 @Component({
@@ -36,7 +36,7 @@ export class NavbarComponent extends Vue {
   selectedBook = ''
   protected logger: Logger
   updateSelected () {
-    HttpRequest.get('/search', {
+    this.axios.get('/search', {
       params: {
         q: this.selectedBook
       }

@@ -27,7 +27,7 @@ public class BookQueryController {
                 List<Book> books = BookieUtils.service.ambiguousFind(q);
                 JSONArray JSONArray = new JSONArray(books);
                 System.out.println(JSONArray.toString());
-                return JSONArray.toString();
+                return String.format("{\"status\": \"ok\", \"data\": %s}", JSONArray.toString());
             } catch (Exception ex) {
                 ex.printStackTrace();
                 return "{\"status\": \"internal_error\"}";
