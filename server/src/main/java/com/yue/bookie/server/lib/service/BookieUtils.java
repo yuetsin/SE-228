@@ -3,6 +3,7 @@ package com.yue.bookie.server.lib.service;
 import com.yue.bookie.server.lib.repository.*;
 import com.yue.bookie.server.lib.struct.Book;
 import com.yue.bookie.server.lib.struct.Comment;
+import com.yue.bookie.server.lib.struct.Role;
 import com.yue.bookie.server.lib.struct.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +15,9 @@ import java.util.List;
 
 @Component
 public class BookieUtils {
+
+    /* Repo Instance Autowire */
+
     @Autowired
     BookRepo bookRepo;
 
@@ -32,10 +36,19 @@ public class BookieUtils {
     @Autowired
     UserRepo userRepo;
 
+    @Autowired
+    RoleRepo roleRepo;
+
+    /* Book Related Repo Methods */
     public List<Book> ambiguousFind(String keyword) {
         return bookRepo.ambiguousFind(keyword);
     }
 
+    public List<Book> getBookByIsbn(String isbn) {
+        return bookRepo.findByIsbn(isbn);
+    }
+
+    /* Comments Related Repo Methods */
     public List<Comment> getCommentByIsbn(String isbn) {
         return commentRepo.findAllByIsbn(isbn);
     }
@@ -52,6 +65,15 @@ public class BookieUtils {
         commentRepo.addComments(userId, purchased, isbn, contents);
     }
 
+    /* User Related Repo Methods */
+    public List<User> getUserByName(String name) { return userRepo.getUserByName(name); }
+
+    public void registerUser(String username, String password) {
+        userRepo.registerNewUser(username, password);
+        roleRepo.setRole();
+    }
+
+    /* Mixed Repo Methods */
     public Boolean checkPurchased(String userName, String isbn) {
         try {
             Integer userId = userRepo.getUserByName(userName).get(0).id;
@@ -62,14 +84,8 @@ public class BookieUtils {
         }
     }
 
-    public List<Book> getBookByIsbn(String isbn) {
-        return bookRepo.findByIsbn(isbn);
-    }
 
-    public List<User> getUserByName(String name) { return userRepo.getUserByName(name); }
-
-    public void registerUser(String username, String password) { userRepo.registerNewUser(username, password); }
-
+    /* Initialize Service */
     public static BookieUtils service;
 
     @PostConstruct
@@ -81,5 +97,6 @@ public class BookieUtils {
         service.cartRepo = this.cartRepo;
         service.orderRepo = this.orderRepo;
         service.userRepo = this.userRepo;
+        service.roleRepo = this.roleRepo;
     }
 }

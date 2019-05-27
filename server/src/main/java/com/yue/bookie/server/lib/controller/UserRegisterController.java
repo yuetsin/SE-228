@@ -36,7 +36,7 @@ public class UserRegisterController {
             }
 
             BookieUtils.service.registerUser(username, password);
-
+            return "{\"status\": \"ok\"}";
         } catch (Exception ex) {
             ex.printStackTrace();
         }

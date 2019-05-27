@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 @Entity
 @Data
-@Table(name = "bills")
+@Table(name = "carts")
 public class Cart implements Serializable {
 
     @Id

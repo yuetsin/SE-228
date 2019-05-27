@@ -17,6 +17,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO s_user(`'name'`, `password`) VALUES (?1, ?2) INSERT INTO s_role(`'id'`, `'role'`) VALUES (LAST_INSERT_ID(), 'R_USER'); ", nativeQuery = true)
+    @Query(value = "INSERT INTO s_user(`name`, `password`) VALUES (?1, ?2);", nativeQuery = true)
     void registerNewUser(String name, String password);
 }
