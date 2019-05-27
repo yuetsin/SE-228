@@ -22,6 +22,8 @@ public class Comment implements Serializable {
     @Column
     String isbn;
 
+    String name;
+
     @Column(name = "user_id")
     Integer userId;
 

@@ -19,5 +19,5 @@ public interface BookRepo extends JpaRepository<Book, String> {
 
     public List<Book> findByType(String type);
 
-    public Object findByIsbn(String isbn);
+    public List<Book> findByIsbn(String isbn);
 }

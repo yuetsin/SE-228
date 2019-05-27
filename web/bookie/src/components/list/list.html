@@ -88,7 +88,7 @@
       <md-card v-if="flush" class="md-primary" md-with-hover v-for="comment in comments">
         <md-ripple>
           <md-card-header>
-            <div class="md-title">来自用户 ID #{{ comment.user_id }}</div>
+            <div class="md-title">来自用户 @{{ comment.name }}</div>
             <div class="md-subhead">评论于 {{ comment.time }}</div>
             <div v-if="comment.purchased === '1'" class="md-subhead">已购买的评价</div>
           </md-card-header>
@@ -103,7 +103,7 @@
             </md-card-actions>
             <md-card-expand-content>
               <md-card-content>
-                {{ comment.comment_content }}
+                {{ comment.commentContent }}
               </md-card-content>
             </md-card-expand-content>
           </md-card-expand>

@@ -1,3 +1,6 @@
+SET GLOBAL time_zone = "+8:00";
+FLUSH PRIVILEGES;
+
 DROP DATABASE IF EXISTS bookie;
 CREATE DATABASE bookie;
 

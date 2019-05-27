@@ -14,11 +14,11 @@ public class User {
 
     @Id
     @Column
-    Integer id;
+    public Integer id;
 
     @Column
-    String name;
+    public String name;
 
     @Column
-    String password;
+    public String password;
 }

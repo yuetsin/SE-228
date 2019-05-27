@@ -109,11 +109,11 @@ export class ListComponent extends Vue {
         let rsp = response['data']
         if (rsp['status'] === 'ok') {
           rsp = rsp['data'][0]
-          this.$data.cover = rsp['cover_url']
+          this.$data.cover = rsp['coverUrl']
           this.$data.bookName = rsp['title']
           this.$data.originPrice = rsp['price']
           this.$data.isbn = rsp['isbn']
-          this.$data.couponPrice = rsp['coupon_price']
+          this.$data.couponPrice = rsp['couponPrice']
           this.$data.author = rsp['author']
           this.$data.details = rsp['description']
           this.$data.storage = rsp['storage']
