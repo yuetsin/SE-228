@@ -1,2 +1,3 @@
 *.scss linguist-language=css
 *.sql linguist-detectable=true
+./server/src/main.resources/dependency/*.* linguist-generated=true
