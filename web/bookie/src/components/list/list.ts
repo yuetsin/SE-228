@@ -61,7 +61,7 @@ export class ListComponent extends Vue {
         if (response['status'] === 200) {
           let resp = response['data']
           if (resp['status'] === 'ok') {
-            alert('购买成功。总花费：' + resp['cost'] + '元')
+            alert('购买成功。')
             this.$router.push('/')
           } else {
             alert('购买失败。错误信息：' + resp['status'])

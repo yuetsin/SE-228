@@ -103,6 +103,14 @@ public class BookieUtils {
         return resultSet;
     }
 
+    /* Order Related Repo Methods */
+    public List<Order> getOrders() {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
+        Integer userId = currentUser.id;
+        return orderRepo.getByUserId(userId);
+    }
+
     /* Mixed Repo Methods */
     public Boolean checkPurchased(String userName, String isbn) {
         try {
@@ -114,7 +122,7 @@ public class BookieUtils {
         }
     }
 
-    public Boolean buyFromCart(String isbn, Integer count) {
+    public Boolean buyFromCart(String isbn, Integer count, String receiver, String phoneNo, String address) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
         Integer userId = currentUser.id;
@@ -124,6 +132,7 @@ public class BookieUtils {
             bookRepo.decreaseStorage(isbn, count);
             cartRepo.deleteFromCart(userId, isbn);
             String uuid = UUID.randomUUID().toString();
+            orderRepo.addToOrder(uuid, userId, receiver, phoneNo, address);
             billRepo.addToBill(uuid, count, isbn);
             return true;
         } else {

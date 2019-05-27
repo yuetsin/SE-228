@@ -17,7 +17,7 @@ import java.sql.*;
 public class PurchaseController {
     @RequestMapping(value = "/buy", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public String buy(String isbn, Integer count, Boolean later) {
+    public String buy(String isbn, Integer count, Boolean later, String receiver, String phoneNo, String address) {
         if (count < 1) {
             return "{\"status\": \"bad_amount\"}";
         }
@@ -33,7 +33,7 @@ public class PurchaseController {
             }
         } else {
             try {
-                if (BookieUtils.service.buyFromCart(isbn, count)) {
+                if (BookieUtils.service.buyFromCart(isbn, count, receiver, phoneNo, address)) {
                     return "{\"status\": \"ok\"}";
                 } else {
                     return "{\"status\": \"storage_inadequate\"}";

@@ -30,7 +30,7 @@ export class AboutComponent extends Vue {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
-          alert('购买成功。总花费：' + resp['cost'] + '元')
+          alert('购买成功。')
           this.$data.flush = false
           this.$data.flush = true
           this.loadBills()
@@ -69,17 +69,9 @@ export class AboutComponent extends Vue {
         let resp = response['data']
         if (resp['status'] === 'ok') {
           this.$data.purchasedList = resp['data']
+          console.log(this.$data.purchasedList)
           if (this.$data.purchasedList.length !== 0) {
             this.purchasedTextField = '您有 ' + this.$data.purchasedList.length + ' 项已购项目。'
-            for (let item of this.$data.purchasedList) {
-              this.axios.get('/isbn', {
-                params: {
-                  isbn: item.isbn
-                }
-              }).then(response => {
-                item['desc'] = response['data']['data'][0]['title'] + ' - ' + response['data']['data'][0]['author']
-              })
-            }
           } else {
             this.purchasedTextField = '您尚未有已购项目。'
           }

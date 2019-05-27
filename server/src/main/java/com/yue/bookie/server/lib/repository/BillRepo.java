@@ -19,6 +19,6 @@ public interface BillRepo extends JpaRepository<Book, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO carts(`uuid`, `count`, `isbn`) VALUES (?1, ?2, ?3)", nativeQuery = true)
+    @Query(value = "INSERT INTO bills(`bill_uuid`, `count`, `isbn`) VALUES (?1, ?2, ?3)", nativeQuery = true)
     public void addToBill(String uuid, Integer count, String isbn);
 }
