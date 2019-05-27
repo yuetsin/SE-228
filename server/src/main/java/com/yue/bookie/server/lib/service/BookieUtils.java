@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.sql.ResultSet;
 import java.util.List;
 
 @Component
@@ -75,13 +76,19 @@ public class BookieUtils {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
         Integer userId = currentUser.id;
-        cartRepo.addToCart(userId, count, isbn);
+        if (cartRepo.findByIsbn(isbn).size() != 0) {
+            cartRepo.increaseCart(isbn, userId);
+        } else {
+            Book addBook = bookRepo.findByIsbn(isbn).get(0);
+            cartRepo.addToCart(userId, count, isbn, addBook.getTitle(), addBook.getAuthor());
+        }
     }
 
     public void deleteFromCart(String isbn) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
         Integer userId = currentUser.id;
+        System.out.println(String.format("id = %d, isbn = %s", userId, isbn));
         cartRepo.deleteFromCart(userId, isbn);
     }
 
@@ -89,7 +96,10 @@ public class BookieUtils {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
         Integer userId = currentUser.id;
-        return cartRepo.findAllByUserId(userId);
+
+        List<Cart> resultSet = cartRepo.findByUserId(userId);
+//        System.out.println(resultSet.get(0).title);
+        return resultSet;
     }
 
     /* Mixed Repo Methods */

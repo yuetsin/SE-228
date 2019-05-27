@@ -25,8 +25,8 @@ export class AboutComponent extends Vue {
   purchasedTextField: string = '您尚未有已购项目。'
   marketTextField: string = '您的购物车是空的。'
   protected logger: Logger
-  buyFromMarket (uuid: string) {
-    this.axios.post('/alter?uuid=' + uuid).then(response => {
+  buyFromMarket (isbn: string, count: number) {
+    this.axios.post('/alter?isbn=' + isbn + '&count=' + count).then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
@@ -42,8 +42,8 @@ export class AboutComponent extends Vue {
       }
     })
   }
-  removeFromCart (uuid: string) {
-    this.axios.post('/del?uuid=' + uuid).then(response => {
+  removeFromCart (isbn: string) {
+    this.axios.post('/del?isbn=' + isbn).then(response => {
       if (response['status'] === 200) {
         let resp = response['data']
         if (resp['status'] === 'ok') {
@@ -96,16 +96,7 @@ export class AboutComponent extends Vue {
           this.$data.cartList = resp['data']
           if (this.$data.cartList.length !== 0) {
             this.marketTextField = '您的购物车中有 ' + this.$data.cartList.length + ' 项目。'
-            for (let item of this.$data.cartList) {
-              this.axios.get('/isbn', {
-                params: {
-                  isbn: item.isbn
-                }
-              }).then(response => {
-                console.log('cart resp: ', response)
-                item['desc'] = response['data']['data'][0]['title'] + ' - ' + response['data']['data'][0]['author']
-              })
-            }
+            console.log(this.$data.cartList)
           } else {
             this.marketTextField = '您的购物车是空的。'
           }

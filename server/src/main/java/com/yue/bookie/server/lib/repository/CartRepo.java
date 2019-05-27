@@ -15,16 +15,23 @@ import java.util.List;
 
 @Repository
 public interface CartRepo extends JpaRepository<Cart, String> {
-    @Query(value = "SELECT user_id, `count`, isbn, title, author FROM carts STRAIGHT_JOIN book_library ON carts.isbn = book_library.isbn WHERE user_id = ?1;", nativeQuery = true)
-    public List<Cart> findAllByUserId(Integer userId);
+    public List<Cart> findByUserId(Integer userId);
+
+    public List<Cart> findByIsbn(String isbn);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO carts(`user_id`, `count`, `isbn`) VALUES (?1, ?2, ?3);", nativeQuery = true)
-    public void addToCart(Integer userId, Integer count, String isbn);
+    @Query(value = "INSERT INTO carts(`user_id`, `count`, `isbn`, `title`, `author`) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
+    public void addToCart(Integer userId, Integer count, String isbn, String title, String author);
+
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM carts WHERE isbn = ?1 AND user_id = ?2", nativeQuery = true)
+    @Query(value = "UPDATE carts SET `count` = `count` + 1 WHERE user_id = ?2 AND isbn = ?1", nativeQuery = true)
+    public void increaseCart(String isbn, Integer userId);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM carts WHERE isbn = ?2 AND user_id = ?1", nativeQuery = true)
     public void deleteFromCart(Integer userId, String isbn);
 }

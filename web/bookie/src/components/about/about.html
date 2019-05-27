@@ -37,8 +37,8 @@
         <md-table-cell md-label="书名" md-sort-by="title">{{ item.title }}</md-table-cell>
         <md-table-cell md-label="作者" md-sort-by="author">{{ item.author }}</md-table-cell>
         <md-table-cell md-label="数量" md-sort-by="count" md-numeric>{{ item.count }}</md-table-cell>
-        <md-table-cell><md-button v-on:click="buyFromMarket(item.bill_uuid)"><md-icon>monetization_on</md-icon> 购买</md-button></md-table-cell>
-        <md-table-cell><md-button v-on:click="removeFromCart(item.bill_uuid)"><md-icon>remove_shopping_cart</md-icon> 移除</md-button></md-table-cell>
+        <md-table-cell><md-button v-on:click="buyFromMarket(item.isbn, item.count)"><md-icon>monetization_on</md-icon> 购买</md-button></md-table-cell>
+        <md-table-cell><md-button v-on:click="removeFromCart(item.isbn)"><md-icon>remove_shopping_cart</md-icon> 移除</md-button></md-table-cell>
 <!--        <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>-->
       </md-table-row>
     </md-table>

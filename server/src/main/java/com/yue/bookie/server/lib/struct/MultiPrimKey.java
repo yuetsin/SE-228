@@ -3,8 +3,8 @@ package com.yue.bookie.server.lib.struct;
 import java.io.Serializable;
 
 public class MultiPrimKey implements Serializable {
-    private Integer userId;
-    private String isbn;
+    public Integer userId;
+    public String isbn;
 
     public MultiPrimKey() {}
 

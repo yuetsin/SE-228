@@ -19,28 +19,7 @@ public class CheckBillController {
     @ResponseBody
     public String bill() {
         try {
-            SecurityConfig sC = new SecurityConfig();
-            sC.initDataBase();
-            Class.forName(BehaviorConfig.driverClass);
-            Connection conn = DriverManager.getConnection(BehaviorConfig.dbUrl, sC.userName, sC.passWord);
-            Statement stmt = conn.createStatement();
-            stmt.executeQuery("USE bookie;");
-
-            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            String sql_get_uid = "SELECT * FROM s_user WHERE name = ?";
-            PreparedStatement ps_getuid = conn.prepareStatement(sql_get_uid);
-            ps_getuid.setString(1, userDetails.getUsername());
-            ResultSet rs = ps_getuid.executeQuery();
-            if (rs.first()) {
-                Integer u_id = rs.getInt("id");
-                String bill_check_id = "SELECT bills.isbn, title, author, count, time, bill_uuid FROM bills, book_library WHERE user_id = ? AND bills.isbn = book_library.isbn AND later = FALSE";
-                PreparedStatement ps = conn.prepareStatement(bill_check_id);
-                ps.setInt(1, u_id);
-                rs = ps.executeQuery();
-                return JSONPacker.resultSetToJson(rs);
-            } else {
-                return "{\"status\": \"no_user_found\"}";
-            }
+            return "{\"status\": \"WIP\"}";
         } catch (Exception ex) {
             ex.printStackTrace();
             return "{\"status\": \"internal_error\"}";

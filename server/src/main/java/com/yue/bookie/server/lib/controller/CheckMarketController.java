@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.NodeList;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Vector;
 
 @RestController
 public class CheckMarketController {
@@ -24,9 +26,14 @@ public class CheckMarketController {
     public String market() {
         try {
             List<Cart> currentUserCart = BookieUtils.service.getUserCart();
-            JSONArray JSONArray = new JSONArray(currentUserCart);
-            System.out.println(JSONArray.toString());
-            return String.format("{\"status\": \"ok\", \"data\": %s}", JSONArray.toString());
+
+            String builtStr = "";
+            List<String> partial = new Vector<>();
+            for (Cart cart : currentUserCart) {
+                partial.add(String.format("{\"isbn\": \"%s\", \"count\": %d, \"author\": \"%s\", \"title\": \"%s\"}", cart.isbn, cart.count, cart.author, cart.title));
+            }
+            System.out.println(builtStr);
+            return String.format("{\"status\": \"ok\", \"data\": [%s]}",String.join(", ", partial));
         } catch (Exception ex) {
             ex.printStackTrace();
             return "{\"status\": \"internal_error\"}";
