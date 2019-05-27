@@ -6,8 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CommentRepo extends JpaRepository<Comment, Long> {
-    List<Comment> findAllByUserId(Integer userId);
+    public List<Comment> findAllByUserId(Integer userId);
     /* Foolish JPA reserved underscore */
 
-    List<Comment> findAllByIsbn(String isbn);
+    public List<Comment> findAllByIsbn(String isbn);
+
+    public Comment save(Comment comment);
 }

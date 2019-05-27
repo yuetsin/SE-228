@@ -1,6 +1,7 @@
 package com.yue.bookie.server.lib.struct;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import lombok.Data;
 import org.apache.ibatis.annotations.One;
 
 import javax.annotation.Generated;
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "comments")
 public class Comment implements Serializable {
     @Id
@@ -31,4 +33,20 @@ public class Comment implements Serializable {
 
     @Column
     Boolean purchased;
+
+    public String getCommUuid() {
+        return commUuid;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getCommentContent() {
+        return commentContent;
+    }
+
+    public Comment() {
+
+    }
 }

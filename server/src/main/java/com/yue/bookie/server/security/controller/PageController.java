@@ -18,12 +18,12 @@ public class PageController {
 	@RequestMapping("/admin")
 	@PreAuthorize("hasAuthority('R_ADMIN')")
 	public String admin(Model model, String tt) {
-		return "admin";
+		return "admin.html";
 	}
 	
 	@RequestMapping("/hello")
 	public String hello(Model model, String tt) {
-		return "hello";
+		return "hello.html";
 	}
 
 	@RequestMapping("/me")

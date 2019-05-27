@@ -8,14 +8,14 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface BookRepo extends JpaRepository<Book, Long> {
-    List<Book> findByTitleContaining(String title);
+    public List<Object[]> findByTitleContaining(String title);
 
-    List<Book> findByAuthorContaining(String author);
+    public List<Object[]> findByAuthorContaining(String author);
 
     @Query(value = "SELECT b FROM book_library lib WHERE locate(:keyword, lib.title) >= 0 OR locate(:keyword, lib.author) >= 0", nativeQuery = true)
-    List<Book> ambiguousFind(@Param("keyword") String keyword);
+    public List<Object[]> ambiguousFind(@Param("keyword") String keyword);
 
-    List<Book> findByType(String type);
+    public List<Object[]> findByType(String type);
 
-    Book findByIsbn(String isbn);
+    public Object findByIsbn(String isbn);
 }

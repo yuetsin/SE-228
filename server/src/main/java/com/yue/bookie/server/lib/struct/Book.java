@@ -1,9 +1,12 @@
 package com.yue.bookie.server.lib.struct;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 
 @Entity
+@Data
 @Table(name = "book_library")
 public class Book {
 
@@ -34,4 +37,29 @@ public class Book {
 
     @Column
     String type;
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public boolean reduceStorage(Integer count) {
+        if (storage >= count) {
+            storage -= count;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Book() {
+
+    }
 }
