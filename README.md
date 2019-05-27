@@ -8,6 +8,6 @@ Project Repository for SE-228，「Web 开发技术」。
 
 * 在 `server⁩ ▸ ⁨src⁩ ▸ ⁨main⁩ ▸ ⁨resources ▸ ⁨jdbc.properties⁩` 和 `application.properties` 文件中配置 MySQL 数据库之账户及密码。
 
-* 执行 `server⁩ ▸ ⁨mvnw⁩` 或 `server⁩ ▸ ⁨mvnw⁩.cmd` 来开启后端服务器。
+* 执行 `fresh_start.sh` 来编译并启动程序。
 
 * 访问 `localhost:8080` 来查看前端网页。
