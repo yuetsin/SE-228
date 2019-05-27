@@ -1,10 +1,7 @@
 package com.yue.bookie.server.lib.controller;
 
 import com.yue.bookie.server.lib.config.BehaviorConfig;
-import com.yue.bookie.server.lib.config.SecurityConfig;
-import com.yue.bookie.server.lib.packer.JSONPacker;
-import com.yue.bookie.server.lib.repository.BookRepo;
-import com.yue.bookie.server.lib.service.BookService;
+import com.yue.bookie.server.lib.service.BookieUtils;
 import com.yue.bookie.server.lib.struct.Book;
 import org.json.JSONArray;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.sql.*;
 import java.util.List;
 
 @RestController
@@ -28,9 +24,9 @@ public class BookQueryController {
         System.out.println("Gotta request " + q);
         if (!BehaviorConfig.useLegacyJson) {
             try {
-                BookService bS = new BookService();
-                List<Object[]> books = bS.findAllBooks(q);
+                List<Book> books = BookieUtils.service.ambiguousFind(q);
                 JSONArray JSONArray = new JSONArray(books);
+                System.out.println(JSONArray.toString());
                 return JSONArray.toString();
             } catch (Exception ex) {
                 ex.printStackTrace();

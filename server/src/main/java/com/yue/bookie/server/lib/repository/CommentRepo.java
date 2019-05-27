@@ -2,10 +2,11 @@ package com.yue.bookie.server.lib.repository;
 
 import com.yue.bookie.server.lib.struct.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface CommentRepo extends JpaRepository<Comment, Long> {
+public interface CommentRepo extends JpaRepository<Comment, String> {
     public List<Comment> findAllByUserId(Integer userId);
     /* Foolish JPA reserved underscore */
 

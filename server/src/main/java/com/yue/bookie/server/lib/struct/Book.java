@@ -3,6 +3,7 @@ package com.yue.bookie.server.lib.struct;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Entity
@@ -30,10 +31,10 @@ public class Book {
     Integer storage;
 
     @Column
-    BigInteger price;
+    BigDecimal price;
 
     @Column(name = "coupon_price")
-    BigInteger couponPrice;
+    BigDecimal couponPrice;
 
     @Column
     String type;

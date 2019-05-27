@@ -7,12 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 请求页面分发，注意和WebMvcConfig的对比，功能类似
  * @author Veiking
  */
-@Controller
+@RestController
 public class PageController {
 	
 	@RequestMapping("/admin")
