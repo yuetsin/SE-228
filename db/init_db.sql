@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS bookie;
 CREATE DATABASE bookie;
 
 USE bookie;
@@ -61,30 +62,47 @@ CREATE TABLE s_role_permission
 (
 	`fk_role_id` INTEGER,
 	`fk_permission_id` INTEGER,
-	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE SET NULL,
-	FOREIGN KEY (`fk_permission_id`) REFERENCES s_permission(`id`) ON DELETE SET NULL
+	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE RESTRICT,
+	FOREIGN KEY (`fk_permission_id`) REFERENCES s_permission(`id`) ON DELETE RESTRICT
 );
 
 CREATE TABLE s_user_role
 (
 	`fk_user_id` INTEGER,
 	`fk_role_id` INTEGER,
-	FOREIGN KEY (`fk_user_id`) REFERENCES s_user(`id`) ON DELETE SET NULL,
-	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE SET NULL
+	FOREIGN KEY (`fk_user_id`) REFERENCES s_user(`id`) ON DELETE RESTRICT,
+	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE RESTRICT
 );
 
-
-CREATE TABLE bills
+CREATE TABLE orders
 (
 	`bill_uuid` VARCHAR(36),
 	`user_id` INTEGER,
-	`count` INTEGER,
 	`time` DATETIME,
+    PRIMARY KEY (`bill_uuid`),
+    FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE RESTRICT
+);
+
+CREATE TABLE bills (
+    `bill_uuid` VARCHAR(36),
+    `count` INTEGER,
+    `isbn` VARCHAR(15),
+    PRIMARY KEY (`isbn` , `bill_uuid`),
+    FOREIGN KEY (`bill_uuid`)
+        REFERENCES orders (`bill_uuid`),
+    FOREIGN KEY (`isbn`)
+        REFERENCES book_library (`isbn`)
+);
+
+
+CREATE TABLE carts
+(
+	`user_id` INTEGER,
+	`count` INTEGER,
 	`isbn` VARCHAR(15),
-	`later` BOOLEAN,
-	PRIMARY KEY (`bill_uuid`),
-	FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE SET NULL,
-	FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE SET NULL
+    PRIMARY KEY (`isbn`, `user_id`),
+    FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE RESTRICT,
+    FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE RESTRICT
 );
 
 CREATE TABLE comments
@@ -96,6 +114,6 @@ CREATE TABLE comments
 	`isbn` VARCHAR(15),
 	`comment_content` VARCHAR(1024),
 	PRIMARY KEY (`comm_uuid`),
-	FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE SET NULL,
-	FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE SET NULL
+	FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE RESTRICT,
+	FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE RESTRICT
 );

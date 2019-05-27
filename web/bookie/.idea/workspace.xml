@@ -2,66 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="365cca6f-dbf7-49bd-90aa-8bbcceed4b7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/controller/GlobalErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../db/add_example_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../db/add_example_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/java/com/yue/bookie/server/lib/controller/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/0.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/0.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/0.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/0.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/0.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/0.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/1.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/1.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/1.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/1.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/1.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/1.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/2.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/2.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/2.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/2.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/2.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/2.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/3.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/3.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/3.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/3.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/3.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/3.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/4.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/4.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/4.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/4.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/4.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/4.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.69f8b6c0370b645a86c1.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.783b49d6efda2c9473ed.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/main.9fd08ad0a862f725522e.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/manifest.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/manifest.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/manifest.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/manifest.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/manifest.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/manifest.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/vendor.69f8b6c0370b645a86c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/vendor.69f8b6c0370b645a86c1.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/vendor.783b49d6efda2c9473ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/vendor.783b49d6efda2c9473ed.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/vendor.9fd08ad0a862f725522e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/static/js/vendor.9fd08ad0a862f725522e.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/about/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/about/about.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about/about.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/list/list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/list/list.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -76,108 +17,7 @@
     <favorites_list name="bookie" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/about/about.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/home/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/list/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/list/list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-281">
-              <caret line="87" column="26" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/list/list.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-                <element signature="e#256#297#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/about/about.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="29" column="75" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/about/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/router.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -264,8 +104,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -285,11 +124,6 @@
             <path>
               <item name="bookie" type="b2602c69:ProjectViewProjectNode" />
               <item name="bookie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookie" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bookie" type="b2602c69:ProjectViewProjectNode" />
@@ -355,7 +189,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/src/components" />
   </component>
   <component name="RecentsManager">
@@ -422,11 +256,13 @@
       <workItem from="1556454583930" duration="5351000" />
       <workItem from="1556502790940" duration="2942000" />
       <workItem from="1556510147643" duration="7115000" />
+      <workItem from="1557234955546" duration="247000" />
+      <workItem from="1558915602238" duration="186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72432000" />
+    <option name="totallyTimeSpent" value="72865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -440,7 +276,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47001934" visible="true" weight="0.27836505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.47001934" visible="true" weight="0.27836505" />
       <window_info id="Structure" order="1" sideWeight="0.52998066" side_tool="true" weight="0.27836505" />
       <window_info id="npm" order="2" sideWeight="0.5133758" side_tool="true" visible="true" weight="0.24947146" />
       <window_info id="Favorites" order="3" sideWeight="0.5280464" side_tool="true" weight="0.27836505" />
@@ -454,8 +290,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299363" />
       <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49964765" weight="0.32899868" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5123326" side_tool="true" visible="true" weight="0.32769832" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.48766738" visible="true" weight="0.32769832" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5137421" side_tool="true" visible="true" weight="0.32769832" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48625794" visible="true" weight="0.32769832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -595,20 +431,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/axios/api.request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/axios/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/axios/api.request.js" />
+    <entry file="file://$PROJECT_DIR$/src/axios/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/home/home.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -753,41 +577,10 @@
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/components/about/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/router.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/list/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-281">
-          <caret line="87" column="26" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/list/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="367">
+          <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -802,10 +595,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/about/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/components/list/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="87" column="26" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/list/index.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -819,17 +626,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home/home.html">
+    <entry file="file://$PROJECT_DIR$/src/components/about/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        <state relative-caret-position="21">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/about/about.html">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="29" column="75" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="75" />
+        <state relative-caret-position="301">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
