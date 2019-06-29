@@ -97,7 +97,7 @@ CREATE TABLE order_items (
     `isbn` VARCHAR(15),
     PRIMARY KEY (`isbn` , `bill_uuid`),
     FOREIGN KEY (`bill_uuid`)
-        REFERENCES orders (`bill_uuid`),
+        REFERENCES paid_orders (`bill_uuid`),
     FOREIGN KEY (`isbn`)
         REFERENCES book_library (`isbn`)
 );

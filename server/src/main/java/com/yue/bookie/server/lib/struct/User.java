@@ -19,4 +19,7 @@ public class User {
 
     @Column
     public String password;
+
+    @Column
+    public Boolean available;
 }
