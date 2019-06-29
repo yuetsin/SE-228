@@ -14,6 +14,5 @@ cp -v ./web/bookie/dist/index.html ./server/src/main/resources/templates/index.h
 
 cp -R -P ./web/bookie/dist/js ./server/src/main/resources/static
 
-
 cd ./server
 ./mvnw spring-boot:run
