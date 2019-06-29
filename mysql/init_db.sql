@@ -25,6 +25,7 @@ CREATE TABLE book_type
 
 CREATE TABLE book_library
 (
+	`disabled` BOOLEAN,
 	`title` VARCHAR(40),
 	`author` VARCHAR(30),
 	`type` VARCHAR(10),
@@ -43,6 +44,7 @@ CREATE TABLE s_user
 	`id` INTEGER auto_increment,
 	`name` VARCHAR(40),
 	`password` VARCHAR(40),
+	`available` BOOLEAN,
 	PRIMARY KEY (`id`)
 );
 
@@ -77,7 +79,7 @@ CREATE TABLE s_user_role
 	FOREIGN KEY (`fk_role_id`) REFERENCES s_role(`id`) ON DELETE RESTRICT
 );
 
-CREATE TABLE orders
+CREATE TABLE paid_orders
 (
 	`bill_uuid` VARCHAR(36),
 	`user_id` INTEGER,
@@ -89,7 +91,7 @@ CREATE TABLE orders
     FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE RESTRICT
 );
 
-CREATE TABLE bills (
+CREATE TABLE order_items (
     `bill_uuid` VARCHAR(36),
     `count` INTEGER,
     `isbn` VARCHAR(15),
@@ -101,7 +103,7 @@ CREATE TABLE bills (
 );
 
 
-CREATE TABLE carts
+CREATE TABLE unpaid_carts
 (
 	`user_id` INTEGER,
 	`count` INTEGER,

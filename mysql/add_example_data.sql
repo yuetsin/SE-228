@@ -50,9 +50,9 @@ VALUES ('欢愉', 'Lily King', '外文小说', '在对他人生活的审视中�
 -- ----------------------------  
 -- Records of s_user  
 -- ----------------------------  
-INSERT INTO `s_user` VALUES (1, 'admin', 'admin');  
-INSERT INTO `s_user` VALUES (2, 'veiking', 'veiking');  
-INSERT INTO `s_user` VALUES (3, 'xiaoming', 'xiaoming');   
+INSERT INTO `s_user` VALUES (1, 'admin', 'admin', TRUE);  
+INSERT INTO `s_user` VALUES (2, 'yuetsin', 'yuetsin', TRUE);  
+INSERT INTO `s_user` VALUES (3, 'malloc', 'malloc', TRUE);   
   
 -- ----------------------------  
 -- Records of s_role  
@@ -71,6 +71,7 @@ INSERT INTO `s_permission` VALUES (2, 'P_CONSOLE', '/console');
 -- ----------------------------  
 INSERT INTO `s_user_role` VALUES (1, 1);  
 INSERT INTO `s_user_role` VALUES (2, 2);  
+INSERT INTO `s_user_role` VALUES (3, 2);  
 
 -- ----------------------------  
 -- Records of s_role_permission  
