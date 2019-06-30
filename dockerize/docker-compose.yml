@@ -12,10 +12,9 @@ services:
       - "3306:3306"
     container_name: mysqldb
     healthcheck:
-      healthcheck:
-            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-            timeout: 20s
-            retries: 10
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 
   server:
     image: yuxiqian/bookie-server:latest
