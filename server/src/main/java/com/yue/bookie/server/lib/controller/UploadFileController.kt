@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.multipart.MultipartFile
 import java.io.OutputStream
 import java.util.*
@@ -43,8 +44,9 @@ class UploadFileController {
      * @param file 文件
      * @return 文件名和文件存储的fileId键值对的Map
      */
-    @RequestMapping(value = ["/upload"], method = [RequestMethod.POST])
-    fun upload(@RequestParam(value = "file") file: MultipartFile):  Map<String, ObjectId>
+    @RequestMapping(value = ["/upload"], method = [RequestMethod.POST], produces = ["application/json;charset=UTF-8"])
+    @ResponseBody
+    fun upload(@RequestParam(value = "file") file: MultipartFile): String
     {
         val map = HashMap<String, ObjectId>()
         try {
@@ -60,13 +62,14 @@ class UploadFileController {
                     .chunkSizeBytes(358400)
                     .metadata(document)
 
-            val fileId = gridFSBucket.uploadFromStream (UUID.randomUUID().toString(), streamToUploadFrom, options)
+            val fileId = gridFSBucket.uploadFromStream(UUID.randomUUID().toString(), streamToUploadFrom, options)
             System.out.println("上传成功，" + "文件名:" + file.originalFilename + "文件ID:" + fileId)
             map[file.originalFilename!!] = fileId
+            return "{\"status\": \"ok\", \"origin_name\": \"" + file.originalFilename!! + "\", \"file_id\": \"" + fileId.toString() + "\"}"
         } catch (e: Exception) {
             e.printStackTrace()
+            return "{\"status\": \"internal_error\"}"
         }
-        return map
     }
 
     @RequestMapping(value = ["/download"])

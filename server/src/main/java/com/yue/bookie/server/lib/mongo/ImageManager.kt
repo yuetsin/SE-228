@@ -3,16 +3,7 @@ import com.mongodb.*
 import org.bson.types.Binary
 import java.io.FileInputStream
 import java.util.*
-import com.mongodb.client.MongoCollection
-import com.mongodb.client.MongoDatabase
-import org.bson.conversions.Bson
-import sun.plugin2.util.PojoUtil.toJson
-import com.mongodb.client.MongoCursor
-import com.mongodb.client.FindIterable
-import com.mongodb.gridfs.GridFS
-import org.json.JSONObject
-import java.io.IOException
-import java.net.UnknownHostException
+import org.springframework.core.io.ClassPathResource
 
 
 object ImageManager {
@@ -22,15 +13,15 @@ object ImageManager {
     fun getMongoDBUri(): String {
 
         // create file input stream object for the properties file
-        val fis = FileInputStream("../../../resources/application.properties")
+        val fis = ClassPathResource(
+                "application.properties").file.inputStream()
         // create Properties class object to access properties file
         val prop = Properties()
         // load the properties file
         prop.load(fis)
         // get the property of "url" using getProperty()
-        val uri = prop.getProperty("mongouri")
 
-        return uri
+        return prop.getProperty("spring.data.mongodb.uri")
     }
 
     fun uploadImage(fileName: String, content: Binary): String? {
