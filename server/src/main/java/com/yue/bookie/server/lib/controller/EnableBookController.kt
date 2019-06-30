@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-class EnableBookController {
+open class EnableBookController {
     @PreAuthorize("hasAuthority('R_ADMIN')")
     @RequestMapping(value = ["/admin/enablebook"], method = [RequestMethod.POST], produces = ["application/json;charset=UTF-8"])
     @ResponseBody

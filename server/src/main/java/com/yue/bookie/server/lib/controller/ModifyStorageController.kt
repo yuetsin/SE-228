@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-class ModifyStorageController {
+open class ModifyStorageController {
     @PreAuthorize("hasAuthority('R_ADMIN')")
     @RequestMapping(value = ["/admin/setstorage"], method = [RequestMethod.POST], produces = ["application/json;charset=UTF-8"])
     @ResponseBody

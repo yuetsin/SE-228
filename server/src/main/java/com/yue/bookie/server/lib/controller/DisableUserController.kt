@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class DisableUserController {
+open class DisableUserController {
     @PreAuthorize("hasAuthority('R_ADMIN')")
     @RequestMapping(value = ["/admin/disableuser"], method = [RequestMethod.POST], produces = ["application/json;charset=UTF-8"])
     @ResponseBody

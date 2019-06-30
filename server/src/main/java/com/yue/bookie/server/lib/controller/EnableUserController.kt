@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-class EnableUserController {
+open class EnableUserController {
     @PreAuthorize("hasAuthority('R_ADMIN')")
     @RequestMapping(value = ["/admin/enableuser"], method = [RequestMethod.POST], produces = ["application/json;charset=UTF-8"])
     @ResponseBody
