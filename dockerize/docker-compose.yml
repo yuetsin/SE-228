@@ -1,4 +1,4 @@
-version : '2'
+version : '2.1'
 services:
   mysqldb:
     image: yuxiqian/bookie-mysql:latest
@@ -31,3 +31,4 @@ services:
       echo "database is ready!";
       echo "start web service here";'
     container_name: server
+    restart: always
