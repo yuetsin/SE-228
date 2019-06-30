@@ -10,4 +10,7 @@ cd sb-docker
 
 cd ../
 
+docker push yuxiqian/bookie-mysql
+docker push yuxiqian/bookie-server
+
 docker-compose up

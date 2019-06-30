@@ -20,4 +20,15 @@ services:
       - mysqldb
     depends_on:
       - mysqldb
+    command: >
+      /bin/bash -c '
+      while ! nc -z database 3306;
+      do
+        echo "wait for database";
+        sleep 1;
+      done;
+
+      echo "database is ready!";
+      echo "start web service here";
+      '
     container_name: server
