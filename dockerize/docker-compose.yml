@@ -1,0 +1,21 @@
+version : '2'
+services:
+  sql:
+    image: yuxiqian/bookie-mysql:latest
+    volumes:
+           - ./src/main/docker/mysql/my.cnf:/etc/mysql/my.cnf mysql
+    environment:
+       - MYSQL_ROOT_PASSWORD=123456docker
+    ports:
+       - "3307:3306"
+    expose:
+       - "3307"
+           
+  server:
+    image: yuxiqian/bookie-server:latest
+    ports:
+      - "8080:8080"
+    links:
+        - sql
+
+  
