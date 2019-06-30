@@ -29,6 +29,5 @@ services:
       done;
 
       echo "database is ready!";
-      echo "start web service here";
-      '
+      echo "start web service here";'
     container_name: server
