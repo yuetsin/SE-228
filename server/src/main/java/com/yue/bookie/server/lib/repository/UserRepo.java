@@ -1,6 +1,7 @@
 package com.yue.bookie.server.lib.repository;
 
 import com.yue.bookie.server.lib.struct.Book;
+import com.yue.bookie.server.lib.struct.Role;
 import com.yue.bookie.server.lib.struct.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -30,4 +31,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Transactional
     @Query(value = "INSERT INTO s_user(`name`, `password`, `available`) VALUES (?1, ?2, TRUE)", nativeQuery = true)
     void registerNewUser(String name, String password);
+
+    @Query(value = "SELECT `role` FROM `s_user`, `s_role`, `s_user_role` WHERE `s_user`.name = ?1 AND `s_user`.`id` = `s_user_role`.`fk_user_id` AND `s_role`.`id` = `s_user_role`.`fk_role_id`", nativeQuery = true)
+    public List<String> getUserRole(String name);
 }

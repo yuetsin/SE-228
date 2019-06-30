@@ -3,6 +3,7 @@ package com.yue.bookie.server.lib.service;
 import com.yue.bookie.server.lib.repository.*;
 import com.yue.bookie.server.lib.struct.*;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -164,6 +165,7 @@ public class BookieUtils {
     }
 
     public void disableBook(@NotNull String isbn) {
+
         bookRepo.disableBook(isbn);
     }
 
@@ -173,5 +175,10 @@ public class BookieUtils {
 
     public void setStorage(@NotNull String isbn, int storage) {
         bookRepo.setStorage(isbn, storage);
+    }
+
+    @Nullable
+    public List<String> getUserRole(@Nullable User user) {
+        return userRepo.getUserRole(user.name);
     }
 }
