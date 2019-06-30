@@ -1,16 +1,19 @@
 version : '2'
 services:
   mysqldb:
-    image: docker.io/yuxiqian/bookie-mysql:latest
+    image: yuxiqian/bookie-mysql:latest
 
     environment:
-      - MYSQL_ROOT_PASSWORD=123456docker
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: bookie
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: 123456docker
     ports:
       - "3306:3306"
     container_name: mysqldb
 
   server:
-    image: docker.io/yuxiqian/bookie-server:latest
+    image: yuxiqian/bookie-server:latest
     ports:
       - "8080:8080"
     links:

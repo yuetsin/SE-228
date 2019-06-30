@@ -14,7 +14,7 @@ object ImageManager {
 
         // create file input stream object for the properties file
         val fis = ClassPathResource(
-                "application.properties").file.inputStream()
+                "application.properties").inputStream
         // create Properties class object to access properties file
         val prop = Properties()
         // load the properties file
