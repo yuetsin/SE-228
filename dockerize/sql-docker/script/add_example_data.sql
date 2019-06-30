@@ -1,3 +1,5 @@
+USE bookie;
+
 DELETE FROM book_library;
 DELETE FROM book_type;
 DELETE FROM s_role_permission;

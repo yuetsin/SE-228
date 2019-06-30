@@ -1,4 +1,4 @@
-use mysql;
+use bookie;
 select host, user from user;
 
 create user docker identified by '123456docker';

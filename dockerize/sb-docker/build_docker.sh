@@ -4,7 +4,7 @@ cd ../../server
 
 ./mvnw clean package -DskipTests
 
-mv server-0.1.0-SNAPSHOT.jar ../dockerize/sb-docker/app.jar
+mv target/server-0.1.0-SNAPSHOT.jar ../dockerize/sb-docker/app.jar
 
 cd ../dockerize/sb-docker
 
