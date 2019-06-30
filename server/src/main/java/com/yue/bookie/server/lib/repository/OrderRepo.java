@@ -1,6 +1,7 @@
 package com.yue.bookie.server.lib.repository;
 
 import com.yue.bookie.server.lib.struct.Order;
+import com.yue.bookie.server.lib.struct.OrderItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -17,4 +18,9 @@ public interface OrderRepo extends JpaRepository<Order, String> {
     @Transactional
     @Query(value = "INSERT INTO paid_orders(`bill_uuid`, `user_id`, `time`, `receiver`, `phone_no`, `address`) VALUES (?1, ?2, NOW(),?3, ?4, ?5)", nativeQuery = true)
     public void addToOrder(String uuid, Integer userId, String receiver, String phoneNo, String address);
+
+    @Query(value = "SELECT * FROM paid_orders", nativeQuery = true)
+    public List<Order> getAllOrders();
+
+
 }

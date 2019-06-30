@@ -24,6 +24,9 @@ public interface BookRepo extends JpaRepository<Book, String> {
 
     public List<Book> findByIsbn(String isbn);
 
+    @Query(value = "SELECT * FROM order_items NATURAL JOIN paid_orders lib WHERE isbn = :isbn AND user_id = :userId", nativeQuery = true)
+    public List<Book> checkPurchased(@Param("userId") Integer userId, @Param("isbn") String isbn);
+
     @Modifying
     @Transactional
     @Query(value = "UPDATE book_library SET `storage` = `storage` - ?2 WHERE isbn = ?1", nativeQuery = true)

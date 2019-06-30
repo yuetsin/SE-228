@@ -34,4 +34,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     @Query(value = "SELECT `role` FROM `s_user`, `s_role`, `s_user_role` WHERE `s_user`.name = ?1 AND `s_user`.`id` = `s_user_role`.`fk_user_id` AND `s_role`.`id` = `s_user_role`.`fk_role_id`", nativeQuery = true)
     public List<String> getUserRole(String name);
+
+    @Query(value= "SELECT * FROM `s_user` WHERE `id` = ?1", nativeQuery = true)
+    public List<User> getUserById(Integer userId);
 }

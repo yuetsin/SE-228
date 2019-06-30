@@ -17,7 +17,8 @@ import java.util.List;
 public interface CartRepo extends JpaRepository<Cart, String> {
     public List<Cart> findByUserId(Integer userId);
 
-    public List<Cart> findByIsbn(String isbn);
+    @Query(value = "SELECT * FROM unpaid_carts WHERE `user_id` = ?1 AND `isbn` = ?2", nativeQuery = true)
+    public List<Cart> findByIsbn(Integer userId, String isbn);
 
     @Modifying
     @Transactional

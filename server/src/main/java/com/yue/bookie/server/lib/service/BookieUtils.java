@@ -86,10 +86,11 @@ public class BookieUtils {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userRepo.getUserByName(userDetails.getUsername()).get(0);
         Integer userId = currentUser.id;
-        if (cartRepo.findByIsbn(isbn).size() != 0) {
+        if (cartRepo.findByIsbn(userId, isbn).size() != 0) {
             cartRepo.increaseCart(isbn, userId);
         } else {
             Book addBook = bookRepo.findByIsbn(isbn).get(0);
+            System.out.println("userId: " + userId.toString() + " , isbn: " + isbn);
             cartRepo.addToCart(userId, count, isbn);
         }
     }
@@ -124,7 +125,7 @@ public class BookieUtils {
     public Boolean checkPurchased(String userName, String isbn) {
         try {
             Integer userId = userRepo.getUserByName(userName).get(0).id;
-            return orderItemRepo.checkPurchased(userId, isbn).size() != 0;
+            return bookRepo.checkPurchased(userId, isbn).size() != 0;
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
@@ -184,5 +185,24 @@ public class BookieUtils {
 
     public void addBook(@NotNull String title, @NotNull String author, @NotNull String type, @NotNull String description, int storage, @NotNull String coverId, String isbn, float priceNum, float couponPriceNum) {
         bookRepo.addNewBook(title, author, type, description, storage, coverId, isbn, priceNum, couponPriceNum);
+    }
+
+    @NotNull
+    public List<Order> getAllOrders() {
+        return orderRepo.getAllOrders();
+    }
+
+    @NotNull
+    public List<OrderItem> getOrderItems(@Nullable String billUuid) {
+        return orderItemRepo.getEveryOrderItemsByUuid(billUuid);
+    }
+
+    @Nullable
+    public User getUserById(@Nullable Integer userId) {
+        List<User> result = userRepo.getUserById(userId);
+        if (result.size() > 0) {
+            return result.get(0);
+        }
+        return null;
     }
 }

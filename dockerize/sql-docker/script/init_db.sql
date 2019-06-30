@@ -110,7 +110,7 @@ CREATE TABLE unpaid_carts
 	`user_id` INTEGER,
 	`count` INTEGER,
 	`isbn` VARCHAR(15),
-    PRIMARY KEY (`isbn`, `user_id`),
+    PRIMARY KEY (`user_id`, `isbn`),
     FOREIGN KEY (`isbn`) REFERENCES book_library (`isbn`) ON DELETE RESTRICT,
     FOREIGN KEY (`user_id`) REFERENCES s_user (`id`) ON DELETE RESTRICT
 );
