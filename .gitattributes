@@ -1,4 +1,5 @@
 *.css linguist-detectable=false
+*.scss linguist-detectable=false
 *.html linguist-detectable=false
 *.sql linguist-detectable=false
 ./server/src/main/resources/dependency/*.* linguist-detectable=false
