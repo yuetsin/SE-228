@@ -1,5 +1,6 @@
-package com.yue.bookie.server.lib.service
+package com.yue.bookie.server.lib.utils
 
+import com.yue.bookie.server.lib.service.BookieUtils
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 
