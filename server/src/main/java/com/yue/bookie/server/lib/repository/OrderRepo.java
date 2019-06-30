@@ -15,6 +15,6 @@ public interface OrderRepo extends JpaRepository<Order, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO orders(`bill_uuid`, `user_id`, `time`, `receiver`, `phone_no`, `address`) VALUES (?1, ?2, NOW(),?3, ?4, ?5)", nativeQuery = true)
+    @Query(value = "INSERT INTO paid_orders(`bill_uuid`, `user_id`, `time`, `receiver`, `phone_no`, `address`) VALUES (?1, ?2, NOW(),?3, ?4, ?5)", nativeQuery = true)
     public void addToOrder(String uuid, Integer userId, String receiver, String phoneNo, String address);
 }

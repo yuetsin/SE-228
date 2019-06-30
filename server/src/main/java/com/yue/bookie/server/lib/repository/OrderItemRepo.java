@@ -12,13 +12,13 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public interface BillRepo extends JpaRepository<Book, String> {
+public interface OrderItemRepo extends JpaRepository<Book, String> {
 
-    @Query(value = "SELECT * FROM bills NATURAL JOIN orders lib WHERE isbn = :isbn AND user_id = :userId", nativeQuery = true)
+    @Query(value = "SELECT * FROM order_items NATURAL JOIN paid_orders lib WHERE isbn = :isbn AND user_id = :userId", nativeQuery = true)
     public List<Book> checkPurchased(@Param("userId") Integer userId, @Param("isbn") String isbn);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO bills(`bill_uuid`, `count`, `isbn`) VALUES (?1, ?2, ?3)", nativeQuery = true)
+    @Query(value = "INSERT INTO order_items(`bill_uuid`, `count`, `isbn`) VALUES (?1, ?2, ?3)", nativeQuery = true)
     public void addToBill(String uuid, Integer count, String isbn);
 }

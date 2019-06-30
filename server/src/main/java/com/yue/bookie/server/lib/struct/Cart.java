@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "carts")
+@Table(name = "unpaid_carts")
 @IdClass(MultiPrimKey.class)
 public class Cart implements Serializable {
 
@@ -20,12 +20,6 @@ public class Cart implements Serializable {
 
     @Column(name = "count")
     public Integer count;
-
-    @Column(name = "title")
-    public String title;
-
-    @Column(name = "author")
-    public String author;
 
     public Cart() {
 

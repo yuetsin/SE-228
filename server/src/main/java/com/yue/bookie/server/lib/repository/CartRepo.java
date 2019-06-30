@@ -21,17 +21,17 @@ public interface CartRepo extends JpaRepository<Cart, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO carts(`user_id`, `count`, `isbn`, `title`, `author`) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-    public void addToCart(Integer userId, Integer count, String isbn, String title, String author);
+    @Query(value = "INSERT INTO unpaid_carts(`user_id`, `count`, `isbn`) VALUES (?1, ?2, ?3)", nativeQuery = true)
+    public void addToCart(Integer userId, Integer count, String isbn);
 
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE carts SET `count` = `count` + 1 WHERE user_id = ?2 AND isbn = ?1", nativeQuery = true)
+    @Query(value = "UPDATE unpaid_carts SET `count` = `count` + 1 WHERE user_id = ?2 AND isbn = ?1", nativeQuery = true)
     public void increaseCart(String isbn, Integer userId);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM carts WHERE isbn = ?2 AND user_id = ?1", nativeQuery = true)
+    @Query(value = "DELETE FROM unpaid_carts WHERE isbn = ?2 AND user_id = ?1", nativeQuery = true)
     public void deleteFromCart(Integer userId, String isbn);
 }

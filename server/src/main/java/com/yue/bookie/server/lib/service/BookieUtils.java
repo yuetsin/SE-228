@@ -2,13 +2,13 @@ package com.yue.bookie.server.lib.service;
 
 import com.yue.bookie.server.lib.repository.*;
 import com.yue.bookie.server.lib.struct.*;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,7 +24,7 @@ public class BookieUtils {
     CommentRepo commentRepo;
 
     @Autowired
-    BillRepo billRepo;
+    OrderItemRepo orderItemRepo;
 
     @Autowired
     CartRepo cartRepo;
@@ -72,6 +72,14 @@ public class BookieUtils {
         roleRepo.setRole();
     }
 
+    public void enableUser(Integer userId) {
+        userRepo.enableUser(userId);
+    }
+
+    public void disableUser(Integer userId) {
+        userRepo.disableUser(userId);
+    }
+
     /* Cart Related Repo Methods */
     public void addToCart(String isbn, Integer count) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -81,7 +89,7 @@ public class BookieUtils {
             cartRepo.increaseCart(isbn, userId);
         } else {
             Book addBook = bookRepo.findByIsbn(isbn).get(0);
-            cartRepo.addToCart(userId, count, isbn, addBook.getTitle(), addBook.getAuthor());
+            cartRepo.addToCart(userId, count, isbn);
         }
     }
 
@@ -115,7 +123,7 @@ public class BookieUtils {
     public Boolean checkPurchased(String userName, String isbn) {
         try {
             Integer userId = userRepo.getUserByName(userName).get(0).id;
-            return billRepo.checkPurchased(userId, isbn).size() != 0;
+            return orderItemRepo.checkPurchased(userId, isbn).size() != 0;
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
@@ -133,7 +141,7 @@ public class BookieUtils {
             cartRepo.deleteFromCart(userId, isbn);
             String uuid = UUID.randomUUID().toString();
             orderRepo.addToOrder(uuid, userId, receiver, phoneNo, address);
-            billRepo.addToBill(uuid, count, isbn);
+            orderItemRepo.addToBill(uuid, count, isbn);
             return true;
         } else {
             return false;
@@ -148,10 +156,22 @@ public class BookieUtils {
         service = this;
         service.bookRepo = this.bookRepo;
         service.commentRepo = this.commentRepo;
-        service.billRepo = this.billRepo;
+        service.orderItemRepo = this.orderItemRepo;
         service.cartRepo = this.cartRepo;
         service.orderRepo = this.orderRepo;
         service.userRepo = this.userRepo;
         service.roleRepo = this.roleRepo;
+    }
+
+    public void disableBook(@NotNull String isbn) {
+        bookRepo.disableBook(isbn);
+    }
+
+    public void enableBook(@NotNull String isbn) {
+        bookRepo.enableBook(isbn);
+    }
+
+    public void setStorage(@NotNull String isbn, int storage) {
+        bookRepo.setStorage(isbn, storage);
     }
 }

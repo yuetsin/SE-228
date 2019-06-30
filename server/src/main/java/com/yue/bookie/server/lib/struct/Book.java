@@ -11,33 +11,36 @@ import java.math.BigInteger;
 @Table(name = "book_library")
 public class Book {
 
+    @Column
+    public Boolean disabled;
+
     @Column(name = "cover_url")
-    String coverUrl;
+    public String coverUrl;
 
     @Column
-    String title;
+    public String title;
 
     @Id
     @Column
-    String isbn;
+    public String isbn;
 
     @Column
-    String author;
+    public String author;
 
     @Column
-    String description;
+    public String description;
 
     @Column
     public Integer storage;
 
     @Column
-    BigDecimal price;
+    public BigDecimal price;
 
     @Column(name = "coupon_price")
-    BigDecimal couponPrice;
+    public BigDecimal couponPrice;
 
     @Column
-    String type;
+    public String type;
 
     public String getIsbn() {
         return isbn;

@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Data
-@Table(name = "orders")
+@Table(name = "paid_orders")
 public class Order {
     @Id
     @Column(name = "bill_uuid")

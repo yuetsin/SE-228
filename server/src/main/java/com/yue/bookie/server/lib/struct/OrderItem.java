@@ -10,8 +10,8 @@ import java.io.Serializable;
 
 @Entity
 @Data
-@Table(name = "bills")
-public class Bill implements Serializable {
+@Table(name = "order_items")
+public class OrderItem implements Serializable {
     @Id
     @Column(name = "bill_uuid")
     public String billUuid;

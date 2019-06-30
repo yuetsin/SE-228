@@ -13,6 +13,6 @@ public interface RoleRepo extends JpaRepository<Role, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO s_role(id, `role`) VALUES (LAST_INSERT_ID(), 'R_USER'); ", nativeQuery = true)
+    @Query(value = "INSERT INTO s_role(id, `role`) VALUES (LAST_INSERT_ID(), 'R_USER');", nativeQuery = true)
     void setRole();
 }

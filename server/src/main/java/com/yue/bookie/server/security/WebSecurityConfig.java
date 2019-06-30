@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Configuration
 @EnableWebSecurity //开启Spring Security的功能
-@EnableGlobalMethodSecurity(prePostEnabled=true)//开启注解控制权限
+@EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass = true)//开启注解控制权限
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/**
@@ -34,11 +34,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity
             .authorizeRequests().antMatchers("/reg", "/regpage", "/search", "/img/**", "/isbn", "/logout", "/login").permitAll()
             // 对于网站部分资源需要指定鉴权
-            //.antMatchers("/admin/**").hasRole("ADMIN")
+//            .antMatchers("/admin/**").hasRole("R_ADMIN")
             // 除上面外的所有请求全部需要鉴权认证
             .anyRequest().authenticated().and()
             // 定义当需要用户登录时候，转到的登录页面
-            .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll().and()
+            .formLogin().loginPage("/auth").defaultSuccessUrl("/success").permitAll().and()
             // 定义登出操作
 			.logout().logoutSuccessUrl("/login?logout").permitAll().and()
 			.csrf().disable()
