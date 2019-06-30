@@ -43,4 +43,10 @@ public interface BookRepo extends JpaRepository<Book, String> {
     @Transactional
     @Query(value = "UPDATE book_library SET `disabled` = TRUE WHERE `isbn` = ?1", nativeQuery = true)
     public void disableBook(String isbn);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO book_library VALUES (FALSE, ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)", nativeQuery = true)
+    void addNewBook(String title, String author, String type, String description, int storage, String coverId, String isbn, float priceNum, float couponPriceNum);
 }

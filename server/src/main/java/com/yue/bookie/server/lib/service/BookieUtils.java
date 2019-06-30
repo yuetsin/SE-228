@@ -181,4 +181,8 @@ public class BookieUtils {
     public List<String> getUserRole(@Nullable User user) {
         return userRepo.getUserRole(user.name);
     }
+
+    public void addBook(@NotNull String title, @NotNull String author, @NotNull String type, @NotNull String description, int storage, @NotNull String coverId, String isbn, float priceNum, float couponPriceNum) {
+        bookRepo.addNewBook(title, author, type, description, storage, coverId, isbn, priceNum, couponPriceNum);
+    }
 }
