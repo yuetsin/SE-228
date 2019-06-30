@@ -11,6 +11,8 @@ services:
     ports:
       - "3306:3306"
     container_name: mysqldb
+    healthcheck:
+      test: "exit 0"
 
   server:
     image: yuxiqian/bookie-server:latest
@@ -19,16 +21,7 @@ services:
     links:
       - mysqldb
     depends_on:
-      - mysqldb
-    command: >
-      /bin/bash -c '
-      while ! nc -z database 3306;
-      do
-        echo "wait for database";
-        sleep 1;
-      done;
-
-      echo "database is ready!";
-      echo "start web service here";'
+      mysqldb:
+        condition: service_healthy
     container_name: server
     restart: always
