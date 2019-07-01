@@ -33,16 +33,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUc-Gd-6jY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUc-Gd-6jY">
                                                     <rect key="frame" x="20" y="11" width="20" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-lo-Ast">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-lo-Ast">
                                                     <rect key="frame" x="46" y="11" width="47" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -55,7 +53,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vI8-lo-Ast" firstAttribute="leading" secondItem="rUc-Gd-6jY" secondAttribute="trailing" constant="6" id="2qT-dz-tNM"/>
                                                 <constraint firstAttribute="trailing" secondItem="HuX-Yv-gmx" secondAttribute="trailing" constant="15" id="EIS-F1-PBu"/>
+                                                <constraint firstItem="vI8-lo-Ast" firstAttribute="top" secondItem="YaL-87-srA" secondAttribute="topMargin" id="Let-q3-w80"/>
+                                                <constraint firstItem="rUc-Gd-6jY" firstAttribute="top" secondItem="YaL-87-srA" secondAttribute="topMargin" id="WPz-ek-ALr"/>
+                                                <constraint firstItem="rUc-Gd-6jY" firstAttribute="leading" secondItem="YaL-87-srA" secondAttribute="leadingMargin" id="asi-Gx-Vu8"/>
                                                 <constraint firstItem="HuX-Yv-gmx" firstAttribute="top" secondItem="YaL-87-srA" secondAttribute="top" constant="11" id="eR7-hR-c57"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -126,7 +128,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B3w-Dq-oql">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B3w-Dq-oql">
                                                     <rect key="frame" x="0.0" y="0.0" width="202" height="160"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="202" id="BUm-Uz-29S"/>

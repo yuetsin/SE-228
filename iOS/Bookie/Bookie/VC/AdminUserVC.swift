@@ -40,6 +40,7 @@ class AdminUserVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadAllUser()
         // Do any additional setup after loading the view.
     }
     
@@ -49,7 +50,7 @@ class AdminUserVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         userTableView.reloadData()
     }
     
-    func loadMyCart() {
+    func loadAllUser() {
         headlines.removeAll()
         refreshContent()
         Alamofire.request(BookieUri.adminGetAllUsers,

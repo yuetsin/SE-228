@@ -55,6 +55,7 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     func loadAllBooks() {
         bookList.removeAll()
         refreshContent()
+        bookTableView.rowHeight = 160
         Alamofire.request(BookieUri.adminGetAllBooks,
                           method: .get)
             .responseSwiftyJSON(completionHandler: { responseJSON in
@@ -94,7 +95,7 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             as! AdminBookHeadlineTableViewCell
         
         let headline = bookList[indexPath.row]
-        
+        cell.coverImage.image = nil
         cell.titleTextField.text = headline.title
         cell.authorTextField.text = "\(headline.author) 著"
         cell.storageTextField.text = "剩余库存 \(headline.storage) 件"
