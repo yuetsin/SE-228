@@ -85,6 +85,9 @@
                         <viewLayoutGuide key="safeArea" id="8pl-Nm-gk5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="用户管理" image="person.crop.circle.badge.checkmark" catalog="system" id="OHP-NJ-K0M"/>
+                    <connections>
+                        <outlet property="userTableView" destination="fsV-dc-3Ik" id="GTG-Mc-VGy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88Y-dy-bEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,7 +119,7 @@
                                 <rect key="frame" x="0.0" y="104" width="414" height="583"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="adminBookCell" rowHeight="160" id="0OB-kl-EQM" customClass="BookHeadlineTableViewCell" customModule="Bookie" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="adminBookCell" rowHeight="160" id="0OB-kl-EQM" customClass="AdminBookHeadlineTableViewCell" customModule="Bookie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0OB-kl-EQM" id="zgU-DP-6Xm">
@@ -173,11 +176,18 @@
                                                 <constraint firstItem="xlT-wp-6ez" firstAttribute="top" secondItem="zgU-DP-6Xm" secondAttribute="topMargin" id="swA-6R-ntp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorTextField" destination="4VE-kS-8hn" id="8dL-fp-aoD"/>
+                                            <outlet property="coverImage" destination="B3w-Dq-oql" id="zqC-aM-BmK"/>
+                                            <outlet property="priceTextField" destination="Y7W-Km-c5A" id="DmD-qt-PmP"/>
+                                            <outlet property="storageTextField" destination="UOS-gg-nFc" id="Lkg-fn-Y7e"/>
+                                            <outlet property="titleTextField" destination="xlT-wp-6ez" id="fbA-Q3-V3S"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="HWS-g8-mVT" id="9GB-5w-4UD"/>
-                                    <outlet property="delegate" destination="HWS-g8-mVT" id="svM-8l-gte"/>
+                                    <outlet property="dataSource" destination="HWS-g8-mVT" id="PLE-SG-xxa"/>
+                                    <outlet property="delegate" destination="HWS-g8-mVT" id="en5-zE-Q1q"/>
                                 </connections>
                             </tableView>
                         </subviews>
