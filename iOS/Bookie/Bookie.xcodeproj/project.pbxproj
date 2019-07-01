@@ -27,6 +27,8 @@
 		8AC9E7EE22C9A7F400F80460 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7ED22C9A7F400F80460 /* Book.swift */; };
 		8AC9E7F122C9A89200F80460 /* BookieUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7F022C9A89200F80460 /* BookieUri.swift */; };
 		8AC9E7F322C9ACC900F80460 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7F222C9ACC900F80460 /* Bill.swift */; };
+		8AC9E7F522C9AF4A00F80460 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7F422C9AF4A00F80460 /* PurchaseVC.swift */; };
+		8AC9E7F722C9B0D000F80460 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7F622C9B0D000F80460 /* Cart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		8AC9E7ED22C9A7F400F80460 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		8AC9E7F022C9A89200F80460 /* BookieUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookieUri.swift; sourceTree = "<group>"; };
 		8AC9E7F222C9ACC900F80460 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		8AC9E7F422C9AF4A00F80460 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
+		8AC9E7F622C9B0D000F80460 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		8E1CF065298118660176F71E /* Pods-Bookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.release.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.release.xcconfig"; sourceTree = "<group>"; };
 		94D3261F6663964F27DA5208 /* Pods-Bookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.debug.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.debug.xcconfig"; sourceTree = "<group>"; };
 		B04C21B53B0F9E631204C3F4 /* Pods_Bookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +137,7 @@
 				8AC9E7E622C9A40C00F80460 /* AdminUserVC.swift */,
 				8AC9E7E822C9A42300F80460 /* AdminOrderVC.swift */,
 				8AC9E7EA22C9A43C00F80460 /* AdminAddBookVC.swift */,
+				8AC9E7F422C9AF4A00F80460 /* PurchaseVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			children = (
 				8AC9E7ED22C9A7F400F80460 /* Book.swift */,
 				8AC9E7F222C9ACC900F80460 /* Bill.swift */,
+				8AC9E7F622C9B0D000F80460 /* Cart.swift */,
 			);
 			path = Struct;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A55B28322C8CE85007E77FD /* ViewController.swift in Sources */,
+				8AC9E7F722C9B0D000F80460 /* Cart.swift in Sources */,
 				8A55B27F22C8CE85007E77FD /* AppDelegate.swift in Sources */,
 				8AC9E7EE22C9A7F400F80460 /* Book.swift in Sources */,
 				8AC9E7DF22C9A39700F80460 /* CartVC.swift in Sources */,
@@ -282,6 +289,7 @@
 				8AC9E7F122C9A89200F80460 /* BookieUri.swift in Sources */,
 				8A55B28122C8CE85007E77FD /* SceneDelegate.swift in Sources */,
 				8AC9E7E722C9A40C00F80460 /* AdminUserVC.swift in Sources */,
+				8AC9E7F522C9AF4A00F80460 /* PurchaseVC.swift in Sources */,
 				8AC9E7DB22C9A34700F80460 /* RegisterVC.swift in Sources */,
 				8AC9E7E322C9A3CD00F80460 /* BookDetailVC.swift in Sources */,
 				8AC9E7F322C9ACC900F80460 /* Bill.swift in Sources */,

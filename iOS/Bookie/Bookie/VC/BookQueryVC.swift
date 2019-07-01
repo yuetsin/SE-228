@@ -8,11 +8,7 @@
 
 import UIKit
 
-struct Headline {
-    // ...
-}
-
-class HeadlineTableViewCell: UITableViewCell {
+class BookHeadlineTableViewCell: UITableViewCell {
 
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var titleTextField: UILabel!
@@ -53,7 +49,7 @@ class BookQueryVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "queryBookCell", for: indexPath)
-            as! HeadlineTableViewCell
+            as! BookHeadlineTableViewCell
         
         let headline = bookList[indexPath.row]
         

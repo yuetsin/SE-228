@@ -8,23 +8,37 @@
 
 import UIKit
 
-class CartVC: UIViewController {
 
+class CartHeadlineTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleTextField: UILabel!
+    @IBOutlet weak var authorTextField: UILabel!
+    @IBOutlet weak var storageTextField: UILabel!
+    @IBOutlet weak var countTextField: UILabel!
+    @IBOutlet weak var priceTextField: UILabel!
+    
+}
+
+class CartVC: UITableViewController {
+
+    var headlines: [Cart] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath)
+            as! CartHeadlineTableViewCell
+        
+        let headline = headlines[indexPath.row]
+        
+        cell.titleTextField.text = headline.title
+        cell.authorTextField.text = headline.author
+        cell.storageTextField.text = "剩余库存 \(headline.storage) 件"
+        cell.priceTextField.text = "¥\(String(format: "%.2f", headline.couponPrice))"
+        cell.countTextField.text = "×\(headline.count)"
+        return cell
     }
-    */
-
 }

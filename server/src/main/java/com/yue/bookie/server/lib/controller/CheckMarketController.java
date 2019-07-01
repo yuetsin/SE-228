@@ -25,7 +25,7 @@ public class CheckMarketController {
             for (Cart cart : currentUserCart) {
                 List<Book> foundBooks = BookieUtils.service.getBookByIsbn(cart.isbn);
                 if (foundBooks.size() != 0) {
-                    partial.add(String.format("{\"isbn\": \"%s\", \"count\": %d, \"author\": \"%s\", \"title\": \"%s\"}", cart.isbn, cart.count, foundBooks.get(0).author, foundBooks.get(0).title));
+                    partial.add(String.format("{\"isbn\": \"%s\", \"count\": %d, \"author\": \"%s\", \"title\": \"%s\", \"price\": %.2f}", cart.isbn, cart.count, foundBooks.get(0).author, foundBooks.get(0).title, foundBooks.get(0).couponPrice));
                 }
             }
             System.out.println(builtStr);
