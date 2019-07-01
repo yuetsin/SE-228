@@ -8,19 +8,28 @@
 
 import UIKit
 
-class AdminBookVC: UITableViewController {
+class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
 
 
+    @IBOutlet weak var bookTableView: UITableView!
+    
     var bookList: [Book] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bookTableView.delegate = self
+        bookTableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bookList.count
+    }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "adminUserCell", for: indexPath)
             as! BookHeadlineTableViewCell
         

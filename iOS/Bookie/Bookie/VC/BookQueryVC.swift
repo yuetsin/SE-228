@@ -18,7 +18,11 @@ class BookHeadlineTableViewCell: UITableViewCell {
 }
 
 
-class BookQueryVC: UITableViewController {
+class BookQueryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bookList.count
+    }
+    
 
     @IBOutlet weak var tableViewContent: UITableView!
     
@@ -47,7 +51,7 @@ class BookQueryVC: UITableViewController {
     }
     */
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "queryBookCell", for: indexPath)
             as! BookHeadlineTableViewCell
         

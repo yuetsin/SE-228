@@ -27,7 +27,7 @@ open class LoginSuccessController {
 
         val role = BookieUtils.service.getUserRole(foundUser[0])
         if (role!!.size < 1) {
-            return "{\"status\": \"account_unauthorized\"}"
+            return "{\"status\": \"login_successfully\", \"role\": \"" + "R_USER" + "\"}"
         }
         return "{\"status\": \"login_successfully\", \"role\": \"" + role[0] + "\"}"
     }

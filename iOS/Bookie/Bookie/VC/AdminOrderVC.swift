@@ -17,7 +17,11 @@ class AdminBillHeadlineTableViewCell: UITableViewCell {
     @IBOutlet weak var countField: UILabel!
 }
 
-class AdminOrderVC: UITableViewController {
+class AdminOrderVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return headlines.count
+    }
+    
 
     var headlines: [AdminBill] = []
     
@@ -30,7 +34,7 @@ class AdminOrderVC: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "adminBillCell", for: indexPath)
             as! AdminBillHeadlineTableViewCell
         

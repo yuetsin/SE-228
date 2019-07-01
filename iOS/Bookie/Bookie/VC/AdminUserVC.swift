@@ -17,7 +17,11 @@ class UserHeadlineTableViewCell: UITableViewCell {
     
 }
 
-class AdminUserVC: UITableViewController {
+class AdminUserVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return headlines.count
+    }
+    
 
     var headlines: [User] = []
     
@@ -28,7 +32,7 @@ class AdminUserVC: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
             as! UserHeadlineTableViewCell
         

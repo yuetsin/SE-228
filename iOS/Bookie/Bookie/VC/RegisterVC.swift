@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import Alamofire_SwiftyJSON
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userNameField.delegate = self
+        eMailField.delegate = self
+        passWordField.delegate = self
+        confirmPassWordField.delegate = self
         // Do any additional setup after loading the view.
         onFieldEdited(userNameField)
+    }
+    
+    func makeAlert(_ title: String, _ message: String, completion: @escaping () -> ()) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "嗯", style: .default, handler: nil)
+        controller.addAction(okAction)
+        self.present(controller, animated: true, completion: completion)
     }
     
     @IBOutlet weak var userNameField: UITextField!
@@ -22,9 +36,22 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passWordField: UITextField!
     @IBOutlet weak var confirmPassWordField: UITextField!
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameField {
+            eMailField.becomeFirstResponder()
+        } else if textField == eMailField {
+            passWordField.becomeFirstResponder()
+        } else if textField == passWordField {
+            confirmPassWordField.becomeFirstResponder()
+        } else {
+            registerButtonTapped(registerButton)
+        }
+        return true
+    }
+    
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
-    
     
     @IBAction func onFieldEdited(_ sender: UITextField) {
         if userNameField.text == "" && eMailField.text == "" && passWordField.text == "" && confirmPassWordField.text == "" {
@@ -34,10 +61,68 @@ class RegisterVC: UIViewController {
         }
         
         if userNameField.text == "" || eMailField.text == "" || passWordField.text == "" || confirmPassWordField.text == "" || passWordField.text != confirmPassWordField.text {
-            resetButton.isEnabled = false
+            registerButton.isEnabled = false
         } else {
-            resetButton.isEnabled = true
+            registerButton.isEnabled = true
         }
+    }
+    
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        userNameField.text = ""
+        eMailField.text = ""
+        passWordField.text = ""
+        confirmPassWordField.text = ""
+        onFieldEdited(userNameField)
+    }
+    
+    @IBAction func registerButtonTapped(_ sender: UIButton) {
+        let postParams: Parameters = [
+            "username": userNameField.text!,
+            "password": passWordField.text!,
+            "confirmPassword": confirmPassWordField.text!
+        ]
+        
+        let loadingAlert = UIAlertController(title: nil, message: "请稍等……", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+        
+        loadingAlert.view.addSubview(loadingIndicator)
+        
+        self.present(loadingAlert, animated: true, completion: {
+            var errorStr = "general error"
+            Alamofire.request(BookieUri.registerPostUri,
+                              method: .post,
+                              parameters: postParams)
+                .responseSwiftyJSON(completionHandler: { responseJSON in
+                    if responseJSON.error == nil {
+                        let jsonResp = responseJSON.value
+                        if jsonResp != nil {
+                            if jsonResp!["status"].stringValue == "ok" {
+                                loadingAlert.dismiss(animated: true, completion: {
+                                    self.makeAlert("注册成功", "您现在可以登录 Bookie 了。", completion: {
+                                            self.dismiss(animated: true, completion: nil)
+                                        })
+                                    })
+                                
+                                return
+                            } else {
+                                errorStr = jsonResp!["status"].stringValue
+                            }
+                        } else {
+                            errorStr = "bad response"
+                        }
+                    } else {
+                        errorStr = "no response"
+                    }
+                    loadingAlert.dismiss(animated: true, completion: {
+                        self.makeAlert("注册失败", "服务器报告了一个 “\(errorStr)” 错误。",
+                            completion: { })
+                    })
+                })
+        })
     }
     /*
     // MARK: - Navigation

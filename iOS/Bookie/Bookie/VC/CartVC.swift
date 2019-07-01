@@ -19,7 +19,11 @@ class CartHeadlineTableViewCell: UITableViewCell {
     
 }
 
-class CartVC: UITableViewController {
+class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return headlines.count
+    }
+    
 
     var headlines: [Cart] = []
     override func viewDidLoad() {
@@ -28,7 +32,7 @@ class CartVC: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath)
             as! CartHeadlineTableViewCell
         

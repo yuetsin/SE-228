@@ -17,7 +17,11 @@ class BillHeadlineTableViewCell: UITableViewCell {
     @IBOutlet weak var countField: UILabel!
 }
 
-class PurchasedVC: UITableViewController {
+class PurchasedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return headlines.count
+    }
+    
     
     var headlines: [Bill] = []
 
@@ -27,7 +31,7 @@ class PurchasedVC: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billCell", for: indexPath)
             as! BillHeadlineTableViewCell
         

@@ -7,20 +7,43 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import Alamofire_SwiftyJSON
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         textChanged(userNameField)
+        
+        userNameField.delegate = self
+        passwordField.delegate = self
+    }
+    
+    func makeAlert(_ title: String, _ message: String, completion: @escaping () -> ()) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "嗯", style: .default, handler: nil)
+        controller.addAction(okAction)
+        self.present(controller, animated: true, completion: completion)
     }
     
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameField {
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            loginButtonTapped(loginButton)
+            passwordField.resignFirstResponder()
+        }
+        return true
+    }
     
     @IBAction func textChanged(_ sender: UITextField) {
         if userNameField.text == "" && passwordField.text == "" {
@@ -37,7 +60,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "goToRegisterSegue", sender: self)
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
@@ -47,18 +70,61 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        let postParams: Parameters = [
+            "username": userNameField.text!,
+            "password": passwordField.text!
+        ]
         
+        let loadingAlert = UIAlertController(title: nil, message: "请稍等……", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+        
+        loadingAlert.view.addSubview(loadingIndicator)
+        
+        self.present(loadingAlert, animated: true, completion: {
+            var errorStr = "general error"
+            Alamofire.request(BookieUri.loginPostUri,
+                              method: .post,
+                              parameters: postParams)
+            .responseSwiftyJSON(completionHandler: { responseJSON in
+                if responseJSON.error == nil {
+                    let jsonResp = responseJSON.value
+                    if jsonResp != nil {
+                        if jsonResp!["status"].stringValue == "login_successfully" {
+                            let role = jsonResp!["role"].stringValue
+                            if role == "R_ADMIN" {
+                                loadingAlert.dismiss(animated: true, completion: {
+//                                    let destinationStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                                    let destinationViewController = destinationStoryboard.instantiateViewController(withIdentifier: "NormalUserVC") as! UITabBarController
+//                                    self.present(destinationViewController, animated: true, completion: nil)
+                                    self.performSegue(withIdentifier: "adminUserSegue", sender: self)
+                                })
+                            } else {
+                                loadingAlert.dismiss(animated: true, completion: {
+//                                    let destinationStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                                    let destinationViewController = destinationStoryboard.instantiateViewController(withIdentifier: "AdminVC") as! UITabBarController
+//                                    self.present(destinationViewController, animated: true, completion: nil)
+                                    self.performSegue(withIdentifier: "normalUserSegue", sender: self)
+                                })
+                            }
+                            return
+                        } else {
+                            errorStr = jsonResp!["status"].stringValue
+                        }
+                    } else {
+                        errorStr = "bad response"
+                    }
+                } else {
+                    errorStr = "no response"
+                }
+                loadingAlert.dismiss(animated: true, completion: {
+                    self.makeAlert("登录失败", "服务器报告了一个 “\(errorStr)” 错误。",
+                        completion: { })
+                })
+            })
+        })
     }
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
