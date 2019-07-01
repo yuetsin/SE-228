@@ -14,9 +14,43 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        textChanged(userNameField)
     }
     
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBAction func textChanged(_ sender: UITextField) {
+        if userNameField.text == "" && passwordField.text == "" {
+            resetButton.isEnabled = false
+        } else {
+            resetButton.isEnabled = true
+        }
+        
+        if userNameField.text == "" || passwordField.text == "" {
+            loginButton.isEnabled = false
+        } else {
+            loginButton.isEnabled = true
+        }
+    }
+    
+    @IBAction func registerButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        userNameField.text = ""
+        passwordField.text = ""
+        textChanged(userNameField)
+    }
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
+    }
 
+    
     /*
     // MARK: - Navigation
 

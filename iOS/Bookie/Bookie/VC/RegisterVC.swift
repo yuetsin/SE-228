@@ -14,9 +14,31 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        onFieldEdited(userNameField)
     }
     
-
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var eMailField: UITextField!
+    @IBOutlet weak var passWordField: UITextField!
+    @IBOutlet weak var confirmPassWordField: UITextField!
+    
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
+    
+    @IBAction func onFieldEdited(_ sender: UITextField) {
+        if userNameField.text == "" && eMailField.text == "" && passWordField.text == "" && confirmPassWordField.text == "" {
+            resetButton.isEnabled = false
+        } else {
+            resetButton.isEnabled = true
+        }
+        
+        if userNameField.text == "" || eMailField.text == "" || passWordField.text == "" || confirmPassWordField.text == "" || passWordField.text != confirmPassWordField.text {
+            resetButton.isEnabled = false
+        } else {
+            resetButton.isEnabled = true
+        }
+    }
     /*
     // MARK: - Navigation
 

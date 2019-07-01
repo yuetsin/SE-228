@@ -236,11 +236,17 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                                        <connections>
+                                                            <action selector="textChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="91N-4k-EfN"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbW-N8-J2a">
                                                         <rect key="frame" x="258" y="6" width="17.5" height="22"/>
                                                         <state key="normal" image="arrow.clockwise" catalog="system"/>
                                                         <state key="highlighted" image="arrow.clockwise" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wui-F7-HfE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -255,10 +261,16 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <connections>
+                                                            <action selector="textChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="PXq-aT-r3U"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgh-Wd-P6d">
                                                         <rect key="frame" x="258" y="6" width="20" height="22"/>
                                                         <state key="normal" image="arrow.right.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="auI-X1-Csz"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -283,6 +295,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="注册"/>
+                                                <connections>
+                                                    <action selector="registerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ce-mH-3bL"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -299,6 +314,12 @@ SE-228 “Web 开发技术” 课程作业</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Tgh-Wd-P6d" id="qU8-mH-Wg8"/>
+                        <outlet property="passwordField" destination="Pq2-JE-F7s" id="SZ7-bM-ztp"/>
+                        <outlet property="resetButton" destination="bbW-N8-J2a" id="lCX-Js-rZX"/>
+                        <outlet property="userNameField" destination="4Wz-B9-gGh" id="Mm0-E4-BRe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -700,6 +721,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                                        <connections>
+                                                            <action selector="onFieldEdited:" destination="1if-Vv-8i7" eventType="valueChanged" id="pqw-c4-KkV"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -713,7 +737,10 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                             <constraint firstAttribute="height" constant="34" id="Oq3-BM-oAj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="email"/>
+                                                        <connections>
+                                                            <action selector="onFieldEdited:" destination="1if-Vv-8i7" eventType="editingDidEnd" id="JbJ-8h-zT0"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -728,6 +755,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <connections>
+                                                            <action selector="onFieldEdited:" destination="1if-Vv-8i7" eventType="editingDidEnd" id="C9c-Hu-QN4"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -742,6 +772,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <connections>
+                                                            <action selector="onFieldEdited:" destination="1if-Vv-8i7" eventType="editingDidEnd" id="CzD-Xm-ERF"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -781,6 +814,14 @@ SE-228 “Web 开发技术” 课程作业</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="86U-FE-eID"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassWordField" destination="ql0-yt-O0o" id="gWS-ve-Dmd"/>
+                        <outlet property="eMailField" destination="RRV-Ti-Yw4" id="Qr4-Wd-C0i"/>
+                        <outlet property="passWordField" destination="iPb-qp-0fI" id="1Q3-Po-rEz"/>
+                        <outlet property="registerButton" destination="DAI-Z6-sT9" id="xlY-UL-vha"/>
+                        <outlet property="resetButton" destination="AZp-d0-bDb" id="uyt-hJ-boo"/>
+                        <outlet property="userNameField" destination="oZ8-vj-tSs" id="nrr-sp-NbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeS-rf-jtp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
