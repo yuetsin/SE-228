@@ -210,4 +210,9 @@ public class BookieUtils {
     public List<Book> getAllBooks() {
         return bookRepo.findAll();
     }
+
+    @NotNull
+    public List<User> getAllUser() {
+        return userRepo.findAll();
+    }
 }
