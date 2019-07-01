@@ -47,8 +47,12 @@ class AdminOrderVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadAllOrder()
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadAllOrder()
     }
     
     func loadAllOrder() {
@@ -62,7 +66,7 @@ class AdminOrderVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                     let jsonResp = responseJSON.value
                     if jsonResp != nil {
                         if jsonResp!["status"].stringValue == "ok" {
-                            for orderItem in jsonResp!["data"].arrayValue {
+                            for orderItem in jsonResp!["values"].arrayValue {
                                 self.headlines.append(AdminBill(userId: orderItem["userId"].intValue,
                                                                 userName: orderItem["userName"].stringValue,
                                                                 bookIsbn: orderItem["bookIsbn"].stringValue,
@@ -91,7 +95,7 @@ class AdminOrderVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         let headline = headlines[indexPath.row]
         
         cell.titleTextField.text = "ISBN: \(headline.bookIsbn)"
-        cell.deliveryInfoField.text = ""
+        cell.deliveryInfoField.text = "用户 #\(headline.userId) \(headline.userName)"
         cell.authorTextField.text = ""
         cell.purchaseTimeField.text = "购买于 \(headline.timeStamp)"
         cell.countField.text = "×\(headline.count)"

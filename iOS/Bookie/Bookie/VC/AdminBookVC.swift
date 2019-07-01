@@ -13,11 +13,13 @@ import Alamofire_SwiftyJSON
 
 class AdminBookHeadlineTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var coverImage: UIImageView!
+//    @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var titleTextField: UILabel!
     @IBOutlet weak var authorTextField: UILabel!
     @IBOutlet weak var storageTextField: UILabel!
     @IBOutlet weak var priceTextField: UILabel!
+    @IBOutlet weak var statusLabelField: UILabel!
+    
 }
 
 class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -95,15 +97,118 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             as! AdminBookHeadlineTableViewCell
         
         let headline = bookList[indexPath.row]
-        cell.coverImage.image = nil
+//        cell.coverImage.image = nil
         cell.titleTextField.text = headline.title
         cell.authorTextField.text = "\(headline.author) 著"
         cell.storageTextField.text = "剩余库存 \(headline.storage) 件"
         cell.priceTextField.text = String(format: "¥%.2f", headline.couponPrice)
-        headline.getImage(handler: { image in
-            cell.coverImage.image = image
-        })
+        if headline.disabled {
+            cell.statusLabelField.text = "已隐藏"
+        } else {
+            cell.statusLabelField.text = ""
+        }
+//        headline.getImage(handler: { image in
+//            cell.coverImage.image = image
+//        })
         
         return cell
+    }
+    
+    // Tap on table Row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let bookObject = bookList[indexPath.row]
+        
+        let alertController = UIAlertController(title: "想进行什么操作？",
+                                                message: "您刚刚选定了 \(bookObject.author) 的 \(bookObject.title)。",
+            preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "取消",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        let peekAction = UIAlertAction(title: "查看详情",
+                                      style: .default,
+                                      handler: { _ in
+            let destinationStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let destinationViewController = destinationStoryboard.instantiateViewController(withIdentifier: "BookDetailVC") as! BookDetailVC
+            destinationViewController.currentBook = bookObject
+            self.present(destinationViewController, animated: true, completion: nil)
+        })
+        
+        var activeAction: UIAlertAction?
+        
+        if bookObject.disabled {
+            activeAction = UIAlertAction(title: "显示这本书",
+                                         style: .destructive,
+                                         handler: { _ in
+                                            let postParams: Parameters = [
+                                                "isbn": bookObject.isbn
+                                            ]
+                                            Alamofire.request(BookieUri.enableBook,
+                                                              method: .post,
+                                                              parameters: postParams
+                                                ).responseSwiftyJSON(completionHandler: { responseJSON in
+                                                    var errorCode = "general error"
+                                                    if responseJSON.error == nil {
+                                                        let jsonResp = responseJSON.value
+                                                        if jsonResp != nil {
+                                                            if jsonResp!["status"].stringValue == "ok" {
+                                                                self.makeAlert("成功", "成功显示了这本书。\n它现在可以被普通用户查看了。", completion: {
+                                                                    self.loadAllBooks()
+                                                                })
+                                                                return
+                                                            } else {
+                                                                errorCode = jsonResp!["status"].stringValue
+                                                            }
+                                                        } else {
+                                                            errorCode = "bad response"
+                                                        }
+                                                    } else {
+                                                        errorCode = "no response"
+                                                    }
+                                                    self.makeAlert("显示书本失败", "服务器报告了一个 “\(errorCode)” 错误。", completion: { })
+                                                })
+            })
+        } else {
+            activeAction = UIAlertAction(title: "隐藏这本书",
+                                         style: .destructive,
+                                         handler: { _ in
+                                            let postParams: Parameters = [
+                                                "isbn": bookObject.isbn
+                                            ]
+                                            Alamofire.request(BookieUri.disableBook,
+                                                              method: .post,
+                                                              parameters: postParams
+                                                ).responseSwiftyJSON(completionHandler: { responseJSON in
+                                                    var errorCode = "general error"
+                                                    if responseJSON.error == nil {
+                                                        let jsonResp = responseJSON.value
+                                                        if jsonResp != nil {
+                                                            if jsonResp!["status"].stringValue == "ok" {
+                                                                self.makeAlert("成功", "成功隐藏了这本书。\n它现在无法被普通用户查看。", completion: {
+                                                                    self.loadAllBooks()
+                                                                })
+                                                                return
+                                                            } else {
+                                                                errorCode = jsonResp!["status"].stringValue
+                                                            }
+                                                        } else {
+                                                            errorCode = "bad response"
+                                                        }
+                                                    } else {
+                                                        errorCode = "no response"
+                                                    }
+                                                    self.makeAlert("隐藏书本失败", "服务器报告了一个 “\(errorCode)” 错误。", completion: { })
+                                                })
+            })
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(peekAction)
+        alertController.addAction(activeAction!)
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = tableView.cellForRow(at: indexPath)!.frame
+        }
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

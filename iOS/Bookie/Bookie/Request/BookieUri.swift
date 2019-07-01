@@ -62,4 +62,20 @@ class BookieUri {
     
     // parameters: <none>
     static let adminGetAllBills = "http://47.103.15.32:8080/admin/allorders"
+    
+    // parameters:
+    // userId - user's numeric id
+    static let disableUser = "http://47.103.15.32:8080/admin/disableuser"
+    
+    // parameters:
+    // userId - user's numeric id
+    static let enableUser = "http://47.103.15.32:8080/admin/enableuser"
+    
+    // parameters:
+    // isbn - book's isbn
+    static let disableBook = "http://47.103.15.32:8080/admin/disablebook"
+    
+    // parameters:
+    // isbn - book's isbn
+    static let enableBook = "http://47.103.15.32:8080/admin/enablebook"
 }
