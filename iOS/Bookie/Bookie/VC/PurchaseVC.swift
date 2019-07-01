@@ -9,12 +9,23 @@
 import UIKit
 
 class PurchaseVC: UIViewController {
+    
+    var bookIsbn: String?
+    var bookCount: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isbnTextField.isEnabled = false
+        purchaseCount.isEnabled = false
         // Do any additional setup after loading the view.
+        isbnTextField.text = bookIsbn ?? ""
+        purchaseCount.text = "\(bookCount ?? 0) 套"
     }
     
+    @IBOutlet weak var deliveryName: UITextField!
+    @IBOutlet weak var deliveryPhoneNo: UITextField!
+    @IBOutlet weak var isbnTextField: UITextField!
+    @IBOutlet weak var purchaseCount: UITextField!
     
     /*
      // MARK: - Navigation

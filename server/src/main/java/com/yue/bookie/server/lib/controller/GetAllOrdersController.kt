@@ -48,7 +48,7 @@ class GetAllOrdersController {
                         "userId" To order.userId
                         "userName" To (BookieUtils.service.getUserById(order.userId) as User).name
                         "bookIsbn" To orderItem.isbn
-                        "count" To orderItem::count
+                        "count" To orderItem.count
                         "timestamp" To order.time
                     })
                 }

@@ -8,23 +8,40 @@
 
 import UIKit
 
-class AdminOrderVC: UIViewController {
+class AdminBillHeadlineTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleTextField: UILabel!
+    @IBOutlet weak var authorTextField: UILabel!
+    @IBOutlet weak var purchaseTimeField: UILabel!
+    @IBOutlet weak var deliveryInfoField: UILabel!
+    @IBOutlet weak var countField: UILabel!
+}
 
+class AdminOrderVC: UITableViewController {
+
+    var headlines: [AdminBill] = []
+    
+    var isbns: [String] = []
+    var userIds: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "adminBillCell", for: indexPath)
+            as! AdminBillHeadlineTableViewCell
+        
+        let headline = headlines[indexPath.row]
+        
+        cell.titleTextField.text = "ISBN: \(headline.bookIsbn)"
+        cell.deliveryInfoField.text = ""
+        cell.authorTextField.text = ""
+        cell.purchaseTimeField.text = "购买于 \(headline.timeStamp)"
+        cell.countField.text = "×\(headline.count)"
+        
+        return cell
     }
-    */
-
 }

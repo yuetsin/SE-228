@@ -30,6 +30,7 @@
 		8AC9E7F522C9AF4A00F80460 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7F422C9AF4A00F80460 /* PurchaseVC.swift */; };
 		8AC9E7F722C9B0D000F80460 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7F622C9B0D000F80460 /* Cart.swift */; };
 		8AC9E7FB22C9B57E00F80460 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7FA22C9B57E00F80460 /* User.swift */; };
+		8AC9E7FD22C9C1A300F80460 /* AdminBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9E7FC22C9C1A300F80460 /* AdminBill.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		8AC9E7F422C9AF4A00F80460 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		8AC9E7F622C9B0D000F80460 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		8AC9E7FA22C9B57E00F80460 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8AC9E7FC22C9C1A300F80460 /* AdminBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBill.swift; sourceTree = "<group>"; };
 		8E1CF065298118660176F71E /* Pods-Bookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.release.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.release.xcconfig"; sourceTree = "<group>"; };
 		94D3261F6663964F27DA5208 /* Pods-Bookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.debug.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.debug.xcconfig"; sourceTree = "<group>"; };
 		B04C21B53B0F9E631204C3F4 /* Pods_Bookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				8AC9E7F222C9ACC900F80460 /* Bill.swift */,
 				8AC9E7F622C9B0D000F80460 /* Cart.swift */,
 				8AC9E7FA22C9B57E00F80460 /* User.swift */,
+				8AC9E7FC22C9C1A300F80460 /* AdminBill.swift */,
 			);
 			path = Struct;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				8AC9E7EE22C9A7F400F80460 /* Book.swift in Sources */,
 				8AC9E7DF22C9A39700F80460 /* CartVC.swift in Sources */,
 				8AC9E7E922C9A42300F80460 /* AdminOrderVC.swift in Sources */,
+				8AC9E7FD22C9C1A300F80460 /* AdminBill.swift in Sources */,
 				8AC9E7DD22C9A37500F80460 /* BookQueryVC.swift in Sources */,
 				8AC9E7E122C9A3AE00F80460 /* PurchasedVC.swift in Sources */,
 				8AC9E7E522C9A3F700F80460 /* AdminBookVC.swift in Sources */,

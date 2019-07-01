@@ -10,6 +10,17 @@ import UIKit
 
 class AdminAddBookVC: UIViewController {
 
+    @IBOutlet weak var bookName: UITextField!
+    @IBOutlet weak var authorName: UITextField!
+    @IBOutlet weak var bookIsbn: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var storageTextField: UITextField!
+    @IBOutlet weak var typeSelector: UISegmentedControl!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBAction func imageUploadTapped(_ sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

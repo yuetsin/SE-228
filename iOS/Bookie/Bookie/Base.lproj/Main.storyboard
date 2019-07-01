@@ -983,12 +983,12 @@ SE-228 “Web 开发技术” 课程作业</string>
                                     <navigationItem title="订单管理" id="8qn-ah-GLY"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ofi-el-dOM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ofi-el-dOM">
                                 <rect key="frame" x="0.0" y="103" width="414" height="710"/>
-                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="uP3-FA-3N6">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="88"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="uP3-FA-3N6" customClass="AdminBillHeadlineTableViewCell" customModule="Bookie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uP3-FA-3N6" id="Od9-2W-lWa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
@@ -1040,6 +1040,13 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                 <constraint firstItem="MOG-wC-VOc" firstAttribute="leading" secondItem="Od9-2W-lWa" secondAttribute="leadingMargin" id="wGN-rr-zU9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorTextField" destination="TRf-05-2Dx" id="W2D-Dl-hR4"/>
+                                            <outlet property="countField" destination="XsN-82-2tW" id="Qyz-fe-yhR"/>
+                                            <outlet property="deliveryInfoField" destination="MOG-wC-VOc" id="r6i-Tx-Ib8"/>
+                                            <outlet property="purchaseTimeField" destination="HQ6-ye-Jbz" id="u5c-GE-zCw"/>
+                                            <outlet property="titleTextField" destination="Xc7-eC-2Pb" id="D5B-Yb-fhW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1084,7 +1091,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍显示名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIc-24-myI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍显示名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIc-24-myI">
                                 <rect key="frame" x="69" y="104" width="325" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -1098,7 +1105,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入作者姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-E9-eZ8">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入作者姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-E9-eZ8">
                                 <rect key="frame" x="69" y="146" width="325" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -1109,7 +1116,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍 ISBN 号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beA-VY-Zyd">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍 ISBN 号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beA-VY-Zyd">
                                 <rect key="frame" x="69" y="188" width="325" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -1123,7 +1130,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍简介" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-45-xM2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍简介" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-45-xM2">
                                 <rect key="frame" x="69" y="230" width="325" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -1143,7 +1150,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍剩余库存" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-rF-Zwm">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="此处填入书籍剩余库存" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-rF-Zwm">
                                 <rect key="frame" x="69" y="272" width="325" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="continue" textContentType="cc-number"/>
@@ -1157,8 +1164,11 @@ SE-228 “Web 开发技术” 课程作业</string>
                                     <constraint firstAttribute="height" constant="31" id="HhB-zQ-xQX"/>
                                 </constraints>
                                 <state key="normal" title="选择…"/>
+                                <connections>
+                                    <action selector="imageUploadTapped:" destination="c3h-za-faW" eventType="touchUpInside" id="eVt-fN-aYG"/>
+                                </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JPL-By-9pc">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JPL-By-9pc">
                                 <rect key="frame" x="69" y="315" width="325" height="32"/>
                                 <segments>
                                     <segment title="散文"/>
@@ -1179,8 +1189,8 @@ SE-228 “Web 开发技术” 课程作业</string>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KPv-ZE-efT" firstAttribute="leading" secondItem="Pfb-jo-SOL" secondAttribute="leading" id="08y-TK-PrI"/>
-                            <constraint firstItem="h39-EF-zcY" firstAttribute="centerY" secondItem="JPL-By-9pc" secondAttribute="centerY" id="1a6-Yx-6Bt"/>
-                            <constraint firstItem="EkZ-kg-Wbz" firstAttribute="centerY" secondItem="beA-VY-Zyd" secondAttribute="centerY" id="2l8-fe-qJE"/>
+                            <constraint firstItem="h39-EF-zcY" firstAttribute="centerY" secondItem="JPL-By-9pc" secondAttribute="centerY" constant="1" id="1a6-Yx-6Bt"/>
+                            <constraint firstItem="EkZ-kg-Wbz" firstAttribute="centerY" secondItem="beA-VY-Zyd" secondAttribute="centerY" constant="1.5" id="2l8-fe-qJE"/>
                             <constraint firstItem="Yhg-E9-eZ8" firstAttribute="trailing" secondItem="beA-VY-Zyd" secondAttribute="trailing" id="3Re-b4-Bab"/>
                             <constraint firstItem="K7N-PW-Yli" firstAttribute="leading" secondItem="5De-Qc-5KI" secondAttribute="leading" constant="20" id="3Xd-2o-4fZ"/>
                             <constraint firstItem="Pfb-jo-SOL" firstAttribute="top" secondItem="KPv-ZE-efT" secondAttribute="bottom" constant="21" id="4V0-6y-DvW"/>
@@ -1203,23 +1213,23 @@ SE-228 “Web 开发技术” 课程作业</string>
                             <constraint firstItem="Ur3-ag-YZx" firstAttribute="top" secondItem="JPL-By-9pc" secondAttribute="bottom" constant="11" id="TPP-dv-Lnp"/>
                             <constraint firstItem="Iqa-rF-Zwm" firstAttribute="trailing" secondItem="JPL-By-9pc" secondAttribute="trailing" id="TWS-Qq-XIU"/>
                             <constraint firstItem="beA-VY-Zyd" firstAttribute="trailing" secondItem="aWt-45-xM2" secondAttribute="trailing" id="Tfs-yT-Ulv"/>
-                            <constraint firstItem="Pfb-jo-SOL" firstAttribute="centerY" secondItem="Iqa-rF-Zwm" secondAttribute="centerY" id="Wbl-xm-r3a"/>
+                            <constraint firstItem="Pfb-jo-SOL" firstAttribute="centerY" secondItem="Iqa-rF-Zwm" secondAttribute="centerY" constant="1.5" id="Wbl-xm-r3a"/>
                             <constraint firstItem="beA-VY-Zyd" firstAttribute="leading" secondItem="aWt-45-xM2" secondAttribute="leading" id="bqi-aP-G7i"/>
                             <constraint firstItem="5De-Qc-5KI" firstAttribute="trailing" secondItem="DKm-Zf-pk5" secondAttribute="trailing" constant="20" id="cOn-Vq-N2L"/>
                             <constraint firstItem="NIc-24-myI" firstAttribute="leading" secondItem="Yhg-E9-eZ8" secondAttribute="leading" id="cX6-U4-INj"/>
                             <constraint firstItem="aWt-45-xM2" firstAttribute="leading" secondItem="KPv-ZE-efT" secondAttribute="trailing" constant="8" symbolic="YES" id="cb0-Ua-CsC"/>
                             <constraint firstItem="Ur3-ag-YZx" firstAttribute="top" secondItem="Ig7-Ho-KH3" secondAttribute="top" constant="357" id="cse-py-PtP"/>
-                            <constraint firstItem="NIc-24-myI" firstAttribute="top" secondItem="ndZ-cQ-kta" secondAttribute="bottom" id="cz0-GQ-Qkc"/>
+                            <constraint firstItem="NIc-24-myI" firstAttribute="top" secondItem="ndZ-cQ-kta" secondAttribute="bottom" constant="-1" id="cz0-GQ-Qkc"/>
                             <constraint firstItem="h39-EF-zcY" firstAttribute="leading" secondItem="2d0-bi-L3F" secondAttribute="leading" id="fBS-Oz-Wa6"/>
                             <constraint firstItem="Yhg-E9-eZ8" firstAttribute="leading" secondItem="beA-VY-Zyd" secondAttribute="leading" id="gHI-25-ock"/>
                             <constraint firstItem="beA-VY-Zyd" firstAttribute="top" secondItem="Yhg-E9-eZ8" secondAttribute="bottom" constant="8" symbolic="YES" id="hA8-yU-cfd"/>
                             <constraint firstItem="NIc-24-myI" firstAttribute="trailing" secondItem="Ig7-Ho-KH3" secondAttribute="trailingMargin" id="hb9-RA-3Ph"/>
                             <constraint firstItem="DKm-Zf-pk5" firstAttribute="leading" secondItem="5De-Qc-5KI" secondAttribute="leading" constant="20" id="iso-OC-zCp"/>
                             <constraint firstItem="aWt-45-xM2" firstAttribute="trailing" secondItem="Iqa-rF-Zwm" secondAttribute="trailing" id="ixX-jc-OIw"/>
-                            <constraint firstItem="KPv-ZE-efT" firstAttribute="centerY" secondItem="aWt-45-xM2" secondAttribute="centerY" id="jMH-Xd-5Kv"/>
+                            <constraint firstItem="KPv-ZE-efT" firstAttribute="centerY" secondItem="aWt-45-xM2" secondAttribute="centerY" constant="1.5" id="jMH-Xd-5Kv"/>
                             <constraint firstItem="DKm-Zf-pk5" firstAttribute="bottom" secondItem="5De-Qc-5KI" secondAttribute="bottom" id="jof-Jd-Dv3"/>
                             <constraint firstItem="Pfb-jo-SOL" firstAttribute="leading" secondItem="h39-EF-zcY" secondAttribute="leading" id="jz8-uD-WhE"/>
-                            <constraint firstItem="K7N-PW-Yli" firstAttribute="centerY" secondItem="NIc-24-myI" secondAttribute="centerY" id="kCm-HW-89d"/>
+                            <constraint firstItem="K7N-PW-Yli" firstAttribute="centerY" secondItem="NIc-24-myI" secondAttribute="centerY" constant="1.5" id="kCm-HW-89d"/>
                             <constraint firstItem="aWt-45-xM2" firstAttribute="leading" secondItem="Iqa-rF-Zwm" secondAttribute="leading" id="kgI-eS-P0L"/>
                             <constraint firstItem="K7N-PW-Yli" firstAttribute="top" secondItem="ndZ-cQ-kta" secondAttribute="bottom" constant="7" id="lBQ-7T-wtu"/>
                             <constraint firstItem="Iqa-rF-Zwm" firstAttribute="top" secondItem="aWt-45-xM2" secondAttribute="bottom" constant="8" symbolic="YES" id="ohl-gy-7aL"/>
@@ -1228,7 +1238,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                             <constraint firstItem="beA-VY-Zyd" firstAttribute="leading" secondItem="EkZ-kg-Wbz" secondAttribute="trailing" constant="8" symbolic="YES" id="tj7-im-xlG"/>
                             <constraint firstItem="aWt-45-xM2" firstAttribute="top" secondItem="beA-VY-Zyd" secondAttribute="bottom" constant="8" symbolic="YES" id="xdQ-P3-JvO"/>
                             <constraint firstItem="nou-ts-aC4" firstAttribute="leading" secondItem="EkZ-kg-Wbz" secondAttribute="leading" id="xk6-4Q-QY8"/>
-                            <constraint firstItem="nou-ts-aC4" firstAttribute="centerY" secondItem="Yhg-E9-eZ8" secondAttribute="centerY" id="ySp-5C-vTB"/>
+                            <constraint firstItem="nou-ts-aC4" firstAttribute="centerY" secondItem="Yhg-E9-eZ8" secondAttribute="centerY" constant="1.5" id="ySp-5C-vTB"/>
                             <constraint firstItem="h39-EF-zcY" firstAttribute="top" secondItem="Pfb-jo-SOL" secondAttribute="bottom" constant="20" id="yY4-tX-Ut9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5De-Qc-5KI"/>
@@ -1239,6 +1249,15 @@ SE-228 “Web 开发技术” 课程作业</string>
                         <barButtonItem title="确认" id="K1q-EM-6od"/>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="authorName" destination="Yhg-E9-eZ8" id="tp8-Hh-Uqr"/>
+                        <outlet property="bookIsbn" destination="beA-VY-Zyd" id="BzT-qX-UAK"/>
+                        <outlet property="bookName" destination="NIc-24-myI" id="XBy-Wr-vtB"/>
+                        <outlet property="descriptionTextField" destination="aWt-45-xM2" id="yTX-ln-KHC"/>
+                        <outlet property="imageView" destination="DKm-Zf-pk5" id="ypn-fS-3B0"/>
+                        <outlet property="storageTextField" destination="Iqa-rF-Zwm" id="9Og-O0-N1U"/>
+                        <outlet property="typeSelector" destination="JPL-By-9pc" id="mPd-OI-486"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rec-gv-ruD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1323,6 +1342,12 @@ SE-228 “Web 开发技术” 课程作业</string>
                         <barButtonItem title="确认" id="eKJ-4O-Rzy"/>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="deliveryName" destination="lnq-Wj-CH8" id="Bn6-dE-PXH"/>
+                        <outlet property="deliveryPhoneNo" destination="nQZ-7Z-EpR" id="UCI-23-hkp"/>
+                        <outlet property="isbnTextField" destination="hFa-u3-uTG" id="L1U-qB-51t"/>
+                        <outlet property="purchaseCount" destination="2Ka-a7-quA" id="yNg-5W-BZZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYS-Fj-xD3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
