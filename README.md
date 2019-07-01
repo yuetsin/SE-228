@@ -3,6 +3,8 @@ Project Repository for SE-228，「Web 开发技术」。
 
 # Configure
 
+* 执行 `docker-compose rm` 来清理已有的 Docker Compose 容器。
+
 * 执行 `dockerize ▸ build_and_compose.sh` 来构建 Docker 容器并启动。
 
 # ~Configure [deprecated]~
