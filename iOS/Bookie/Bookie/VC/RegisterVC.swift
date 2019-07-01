@@ -26,9 +26,11 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     
     func makeAlert(_ title: String, _ message: String, completion: @escaping () -> ()) {
         let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "嗯", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "嗯", style: .default, handler: { _ in
+            completion()
+        })
         controller.addAction(okAction)
-        self.present(controller, animated: true, completion: completion)
+        self.present(controller, animated: true, completion: nil)
     }
     
     @IBOutlet weak var userNameField: UITextField!
@@ -73,6 +75,10 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         passWordField.text = ""
         confirmPassWordField.text = ""
         onFieldEdited(userNameField)
+    }
+
+    @IBAction func dismissMe(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
