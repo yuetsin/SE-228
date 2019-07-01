@@ -8,7 +8,18 @@
 
 import UIKit
 
-class PurchasedVC: UIViewController {
+class BillHeadlineTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleTextField: UILabel!
+    @IBOutlet weak var authorTextField: UILabel!
+    @IBOutlet weak var purchaseTimeField: UILabel!
+    @IBOutlet weak var deliveryInfoField: UILabel!
+    @IBOutlet weak var countField: UILabel!
+}
+
+class PurchasedVC: UITableViewController {
+    
+    var headlines: [Bill] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,15 +27,19 @@ class PurchasedVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "billCell", for: indexPath)
+            as! BillHeadlineTableViewCell
+        
+        let headline = headlines[indexPath.row]
+        
+        cell.titleTextField.text = headline.bookName
+        cell.authorTextField.text = "\(headline.author) 著"
+        cell.deliveryInfoField.text = "配送给：\(headline.receiver)，\(headline.phoneNo)"
+        cell.purchaseTimeField.text = "购买于 \(headline.purchasedTime)"
+        cell.countField.text = "×\(headline.count)"
+        
+        return cell
     }
-    */
 
 }

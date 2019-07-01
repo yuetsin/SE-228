@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="103" width="414" height="710"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PJV-vj-411">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="adminUserCell" id="PJV-vj-411" customClass="UserHeadlineTableViewCell" customModule="Bookie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PJV-vj-411" id="YaL-87-srA">
@@ -47,8 +47,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理员，活跃" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-Yv-gmx">
-                                                    <rect key="frame" x="295" y="11" width="104" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活跃" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-Yv-gmx">
+                                                    <rect key="frame" x="364" y="11" width="35" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,8 +59,17 @@
                                                 <constraint firstItem="HuX-Yv-gmx" firstAttribute="top" secondItem="YaL-87-srA" secondAttribute="top" constant="11" id="eR7-hR-c57"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="statusTextField" destination="HuX-Yv-gmx" id="Ktw-Og-PKo"/>
+                                            <outlet property="userIdTextField" destination="rUc-Gd-6jY" id="lrA-Nn-j0N"/>
+                                            <outlet property="userNameTextField" destination="vI8-lo-Ast" id="nkX-eu-4qg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="D9U-gP-Osx" id="mSo-uf-Op2"/>
+                                    <outlet property="delegate" destination="D9U-gP-Osx" id="WCA-Bl-Ifd"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,7 +116,7 @@
                                 <rect key="frame" x="0.0" y="103" width="414" height="710"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="160" id="0OB-kl-EQM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="adminBookCell" rowHeight="160" id="0OB-kl-EQM">
                                         <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0OB-kl-EQM" id="zgU-DP-6Xm">
@@ -166,6 +175,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HWS-g8-mVT" id="9GB-5w-4UD"/>
+                                    <outlet property="delegate" destination="HWS-g8-mVT" id="svM-8l-gte"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,6 +409,10 @@ SE-228 “Web 开发技术” 课程作业</string>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3V5-if-tkX" id="IhH-88-bEb"/>
+                                    <outlet property="delegate" destination="3V5-if-tkX" id="QoO-Mm-37z"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -582,7 +599,11 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="103.5"/>
                                 <items>
                                     <navigationItem title="《倾城之恋》" id="MgC-Ns-N8t">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="cdl-fF-cqZ"/>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="cdl-fF-cqZ">
+                                            <connections>
+                                                <action selector="dismissMe:" destination="3k1-ei-qj2" id="esP-TE-hQf"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -672,11 +693,28 @@ SE-228 “Web 开发技术” 课程作业</string>
                         <viewLayoutGuide key="safeArea" id="J8h-SQ-8wa"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="加入选物车" id="rkY-68-D36"/>
+                        <barButtonItem title="加入选物车" id="rkY-68-D36">
+                            <connections>
+                                <action selector="addToCart:" destination="3k1-ei-qj2" id="8eV-UN-jXF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6Oc-P5-Ia3"/>
-                        <barButtonItem title="立即购买" id="pLK-6M-OcE"/>
+                        <barButtonItem title="立即购买" id="pLK-6M-OcE">
+                            <connections>
+                                <action selector="purchaseNow:" destination="3k1-ei-qj2" id="UHX-Fz-iyI"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="authorTextField" destination="QlE-Sb-n8R" id="wu5-cv-2eU"/>
+                        <outlet property="countPicker" destination="dzP-JF-f2R" id="11I-8P-QW9"/>
+                        <outlet property="coverView" destination="iHe-FO-XlQ" id="DrS-HG-o9h"/>
+                        <outlet property="descriptionTextField" destination="Pax-bz-JCB" id="2nG-tI-RSa"/>
+                        <outlet property="isbnText" destination="sxX-56-6l0" id="05M-7c-21y"/>
+                        <outlet property="navigateTitle" destination="MgC-Ns-N8t" id="LbR-Mz-qQE"/>
+                        <outlet property="storageTextField" destination="2FO-UH-0dW" id="jiy-f3-Zjc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C7d-Jt-2X9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -845,7 +883,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <rect key="frame" x="0.0" y="103" width="414" height="710"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="A0A-PH-E1z">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="billCell" rowHeight="88" id="A0A-PH-E1z" customClass="BillHeadlineTableViewCell" customModule="Bookie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A0A-PH-E1z" id="pcn-YA-R71">
@@ -898,8 +936,19 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                 <constraint firstItem="Epz-da-UXI" firstAttribute="top" secondItem="HZm-ke-SoV" secondAttribute="bottom" constant="5.5" id="ygF-sT-RhX"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorTextField" destination="fkB-0q-z7o" id="1dV-EW-qff"/>
+                                            <outlet property="countField" destination="yBG-RB-B1Y" id="pvQ-l5-lSs"/>
+                                            <outlet property="deliveryInfoField" destination="HZm-ke-SoV" id="Rf7-jQ-k5S"/>
+                                            <outlet property="purchaseTimeField" destination="Epz-da-UXI" id="WyA-CE-cVJ"/>
+                                            <outlet property="titleTextField" destination="Qan-UP-dyu" id="WW6-FT-bur"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lDf-IJ-1pn" id="hJB-cF-S69"/>
+                                    <outlet property="delegate" destination="lDf-IJ-1pn" id="xlD-wp-XD6"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

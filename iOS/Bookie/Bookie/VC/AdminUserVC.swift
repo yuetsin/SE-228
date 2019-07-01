@@ -8,23 +8,40 @@
 
 import UIKit
 
-class AdminUserVC: UIViewController {
 
+class UserHeadlineTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var userIdTextField: UILabel!
+    @IBOutlet weak var userNameTextField: UILabel!
+    @IBOutlet weak var statusTextField: UILabel!
+    
+}
+
+class AdminUserVC: UITableViewController {
+
+    var headlines: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+            as! UserHeadlineTableViewCell
+        
+        let headline = headlines[indexPath.row]
+        
+        cell.userIdTextField.text = "#\(headline.userId)"
+        cell.userNameTextField.text = headline.userName
+        if headline.available {
+            cell.statusTextField.text = "活跃"
+        } else {
+            cell.statusTextField.text = "已冻结"
+        }
+        return cell
     }
-    */
 
 }
