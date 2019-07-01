@@ -1107,6 +1107,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                         <viewLayoutGuide key="safeArea" id="9uW-T4-5z6"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="订单管理" image="yensign.square" catalog="system" id="CVr-dF-miM"/>
+                    <connections>
+                        <outlet property="orderTableView" destination="ofi-el-dOM" id="dEL-YE-QYD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFZ-QA-0ZP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

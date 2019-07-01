@@ -59,4 +59,7 @@ class BookieUri {
 
     // parameters: <none>
     static let adminGetAllUsers = "http://47.103.15.32:8080/admin/alluser"
+    
+    // parameters: <none>
+    static let adminGetAllBills = "http://47.103.15.32:8080/admin/allorders"
 }
