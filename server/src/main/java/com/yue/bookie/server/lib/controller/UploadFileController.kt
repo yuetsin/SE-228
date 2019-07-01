@@ -26,7 +26,6 @@ import kotlin.collections.HashMap
 @RequestMapping("/img")
 class UploadFileController {
 
-
     @Autowired
     lateinit var gridFS: GridFS
 
@@ -75,7 +74,7 @@ class UploadFileController {
     @RequestMapping(value = ["/download"])
     fun downLoadByFileId(@RequestParam(value = "fileId") fileId: ObjectId, response: HttpServletResponse) {
 
-        val gridFSDBFile = gridFS.findOne(fileId)
+        val gridFSDBFile = this.gridFS.findOne(fileId)
 
         try {
             //获取回复的输出流
@@ -84,7 +83,7 @@ class UploadFileController {
             response.characterEncoding = "UTF-8"
             response.setHeader("Access-Control-Allow-Origin", "*")
             //设置文件返回类型，为上传文件时获取的文件类型
-            response.contentType = gridFSDBFile.metaData.get("contentType").toString()
+            response.contentType = gridFSDBFile!!.metaData.get("contentType").toString()
             response.addHeader("Content-Disposition", "attachment; filename=\"" + gridFSDBFile.metaData.get("fileTrueName") + "\"")
             //将查询到的数据放入到输出流sos中
             gridFSDBFile.writeTo(sos)

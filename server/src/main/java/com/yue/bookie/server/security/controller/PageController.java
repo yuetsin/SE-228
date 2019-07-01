@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class PageController {
-	
-	@RequestMapping("/admin")
-	@PreAuthorize("hasAuthority('R_ADMIN')")
-	public String admin(Model model, String tt) {
-		return "admin.html";
-	}
-	
-	@RequestMapping("/hello")
-	public String hello(Model model, String tt) {
-		return "hello.html";
-	}
-
-	@RequestMapping("/me")
-	@ResponseBody
-	public String me(Model model, String tt) {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		return "Hello! You're " + userDetails.getUsername();
-	}
+//
+//	@RequestMapping("/admin")
+//	@PreAuthorize("hasAuthority('R_ADMIN')")
+//	public String admin(Model model, String tt) {
+//		return "admin.html";
+//	}
+//
+//	@RequestMapping("/hello")
+//	public String hello(Model model, String tt) {
+//		return "hello.html";
+//	}
+//
+//	@RequestMapping("/me")
+//	@ResponseBody
+//	public String me(Model model, String tt) {
+//		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		return "Hello! You're " + userDetails.getUsername();
+//	}
 }
