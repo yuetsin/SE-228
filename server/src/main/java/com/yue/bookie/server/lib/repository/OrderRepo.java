@@ -21,6 +21,4 @@ public interface OrderRepo extends JpaRepository<Order, String> {
 
     @Query(value = "SELECT * FROM paid_orders", nativeQuery = true)
     public List<Order> getAllOrders();
-
-
 }

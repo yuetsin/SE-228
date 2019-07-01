@@ -205,4 +205,9 @@ public class BookieUtils {
         }
         return null;
     }
+
+    @NotNull
+    public List<Book> getAllBooks() {
+        return bookRepo.findAll();
+    }
 }
