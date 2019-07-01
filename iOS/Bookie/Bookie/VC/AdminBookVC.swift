@@ -50,6 +50,10 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         self.present(controller, animated: true, completion: nil)
     }
     
+    
+    @IBAction func addNewBookButtonTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "addNewBookSegue", sender: self)
+    }
     func refreshContent() {
         bookTableView.reloadData()
     }
@@ -119,11 +123,58 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let bookObject = bookList[indexPath.row]
         
         let alertController = UIAlertController(title: "想进行什么操作？",
-                                                message: "您刚刚选定了 \(bookObject.author) 的 \(bookObject.title)。",
+                                                message: "您刚刚选定了 \(bookObject.author) 的《\(bookObject.title)》。",
             preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "取消",
                                          style: .cancel,
                                          handler: nil)
+        let changeStorageAction = UIAlertAction(title: "修改库存",
+                                                style: .default,
+                                                handler: { _ in
+                                                    
+                                                    let alert = UIAlertController(title: "修改库存", message: "请输入《\(bookObject.title)》的新库存数量。", preferredStyle: .alert)
+                                                    
+                                                    alert.addTextField { (textField) in
+                                                        textField.text = String(bookObject.storage)
+                                                        textField.keyboardType = .numberPad
+                                                    }
+                                                   
+                                                    alert.addAction(UIAlertAction(title: "好", style: .default, handler: { [weak alert] (_) in
+                                                        let newStorage = Int(alert?.textFields![0].text! ?? String(bookObject.storage))
+                                                        let postParams: Parameters = [
+                                                            "isbn": bookObject.isbn,
+                                                            "storage": newStorage!
+                                                        ]
+                                                        Alamofire.request(BookieUri.modifyStorage,
+                                                                          method: .post,
+                                                                          parameters: postParams
+                                                            ).responseSwiftyJSON(completionHandler: { responseJSON in
+                                                                var errorCode = "general error"
+                                                                if responseJSON.error == nil {
+                                                                    let jsonResp = responseJSON.value
+                                                                    if jsonResp != nil {
+                                                                        if jsonResp!["status"].stringValue == "ok" {
+                                                                            self.makeAlert("成功", "成功地修改了库存。", completion: {
+                                                                                self.loadAllBooks()
+                                                                            })
+                                                                            return
+                                                                        } else {
+                                                                            errorCode = jsonResp!["status"].stringValue
+                                                                        }
+                                                                    } else {
+                                                                        errorCode = "bad response"
+                                                                    }
+                                                                } else {
+                                                                    errorCode = "no response"
+                                                                }
+                                                                self.makeAlert("修改库存失败", "服务器报告了一个 “\(errorCode)” 错误。", completion: { })
+                                                            })
+                                                    }))
+                                                    
+                                                    alert.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
+                                                    
+                                                    self.present(alert, animated: true, completion: nil)
+        })
         
         let peekAction = UIAlertAction(title: "查看详情",
                                       style: .default,
@@ -203,6 +254,7 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         }
         alertController.addAction(cancelAction)
         alertController.addAction(peekAction)
+        alertController.addAction(changeStorageAction)
         alertController.addAction(activeAction!)
         if let popoverController = alertController.popoverPresentationController {
             popoverController.sourceView = self.view
