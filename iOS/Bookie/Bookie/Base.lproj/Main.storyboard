@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait" appearance="dark"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,7 +11,7 @@
         <!--用户管理-->
         <scene sceneID="LBT-Lx-opa">
             <objects>
-                <viewController storyboardIdentifier="AdminUserVC" id="D9U-gP-Osx" customClass="AdminUserVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminUserVC" interfaceStyle="dark" id="D9U-gP-Osx" customClass="AdminUserVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c9b-x3-gAf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,26 +21,26 @@
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="adminUserCell" id="PJV-vj-411" customClass="UserHeadlineTableViewCell" customModule="Bookie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="42.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PJV-vj-411" id="YaL-87-srA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUc-Gd-6jY">
-                                                    <rect key="frame" x="20" y="11.000000000000002" width="20" height="20.666666666666671"/>
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="20" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-lo-Ast">
-                                                    <rect key="frame" x="46" y="11.000000000000002" width="47" height="20.666666666666671"/>
+                                                    <rect key="frame" x="46" y="11.000000000000002" width="47" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活跃" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-Yv-gmx">
-                                                    <rect key="frame" x="364" y="11.000000000000002" width="35" height="20.666666666666671"/>
+                                                    <rect key="frame" x="364" y="11.000000000000002" width="35" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                     <outlet property="delegate" destination="D9U-gP-Osx" id="WCA-Bl-Ifd"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="WGD-aa-frp">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGD-aa-frp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -78,7 +78,6 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fsV-dc-3Ik" firstAttribute="bottom" secondItem="8pl-Nm-gk5" secondAttribute="bottom" id="GRe-5e-xni"/>
                             <constraint firstItem="WGD-aa-frp" firstAttribute="trailing" secondItem="fsV-dc-3Ik" secondAttribute="trailing" id="dbb-hO-xW1"/>
@@ -102,13 +101,14 @@
         <!--书籍管理-->
         <scene sceneID="rnC-w5-2nW">
             <objects>
-                <viewController storyboardIdentifier="AdminBookVC" id="HWS-g8-mVT" customClass="AdminBookVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminBookVC" interfaceStyle="dark" id="HWS-g8-mVT" customClass="AdminBookVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dR-p1-4Fz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yT4-nj-Cy4">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="书籍管理" id="aLR-lp-bPS">
                                         <barButtonItem key="rightBarButtonItem" title="新增" image="plus.circle" catalog="system" style="plain" id="jNj-BU-xT0">
@@ -193,7 +193,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yT4-nj-Cy4" firstAttribute="centerX" secondItem="4dR-p1-4Fz" secondAttribute="centerX" id="42Z-37-DAG"/>
                             <constraint firstItem="jzp-51-VbH" firstAttribute="bottom" secondItem="w5Y-AF-Hcg" secondAttribute="bottom" id="47b-1c-x2F"/>
@@ -218,7 +217,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ryJ-tt-r9A">
             <objects>
-                <tabBarController storyboardIdentifier="AdminVC" id="j1S-Aj-5Md" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="AdminVC" interfaceStyle="dark" id="j1S-Aj-5Md" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TT5-uS-zc4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -237,7 +236,7 @@
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" interfaceStyle="light" id="BYZ-38-t0r" customClass="LoginVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,7 +361,7 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--购物车-->
         <scene sceneID="srz-dk-yXs">
             <objects>
-                <viewController storyboardIdentifier="CartVC" id="3V5-if-tkX" customClass="CartVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartVC" interfaceStyle="light" id="3V5-if-tkX" customClass="CartVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n5T-hg-xvz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -392,9 +391,6 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="陈浩鹏 翻译" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-yx-bLO">
                                                     <rect key="frame" x="19.999999999999993" y="51" width="91.333333333333314" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="91.333333333333314" id="1gG-XU-KL7"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -436,7 +432,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qaK-VN-G2U" firstAttribute="bottom" secondItem="FCN-tx-SaY" secondAttribute="bottom" id="6Px-s4-CBn"/>
                             <constraint firstItem="gsd-ys-tBG" firstAttribute="leading" secondItem="qaK-VN-G2U" secondAttribute="leading" id="F0z-jG-mV3"/>
@@ -460,7 +456,7 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--搜索-->
         <scene sceneID="KVH-Tj-53a">
             <objects>
-                <viewController storyboardIdentifier="BookQueryVC" id="GCm-Cf-Z26" customClass="BookQueryVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookQueryVC" interfaceStyle="light" id="GCm-Cf-Z26" customClass="BookQueryVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zbL-gj-MT7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,7 +557,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4u1-zw-msA" firstAttribute="centerX" secondItem="p6m-c8-w5h" secondAttribute="centerX" id="7GE-TR-pAZ"/>
                             <constraint firstItem="1Wc-ev-mG2" firstAttribute="top" secondItem="p6m-c8-w5h" secondAttribute="bottom" constant="8.0000000000000284" id="HA5-bs-v63"/>
@@ -589,7 +585,7 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--Tab Bar Controller-->
         <scene sceneID="jwg-9u-FSc">
             <objects>
-                <tabBarController storyboardIdentifier="NormalUserVC" id="ANh-au-Fu3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NormalUserVC" interfaceStyle="light" id="ANh-au-Fu3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="72w-1O-vhc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -622,7 +618,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tye-tr-R0g">
                                                     <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="立即购买"/>
+                                                    <state key="normal" title="立即购买">
+                                                        <color key="titleColor" cocoaTouchSystemColor="linkColor"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="purchaseNow:" destination="3k1-ei-qj2" eventType="touchUpInside" id="DDM-Ix-kVa"/>
                                                     </connections>
@@ -632,7 +630,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6zZ-49-jLi">
                                                     <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="加入选物车"/>
+                                                    <state key="normal" title="加入选物车">
+                                                        <color key="titleColor" cocoaTouchSystemColor="linkColor"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="addToCart:" destination="3k1-ei-qj2" eventType="touchUpInside" id="5Sb-ke-diw"/>
                                                     </connections>
@@ -640,6 +640,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                             </barButtonItem>
                                         </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="cdl-fF-cqZ">
+                                            <color key="tintColor" cocoaTouchSystemColor="linkColor"/>
                                             <connections>
                                                 <action selector="dismissMe:" destination="3k1-ei-qj2" id="G1M-3a-Emg"/>
                                             </connections>
@@ -756,7 +757,7 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--RegisterVC-->
         <scene sceneID="YtV-Bh-vZU">
             <objects>
-                <viewController storyboardIdentifier="RegisterVC" id="1if-Vv-8i7" customClass="RegisterVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" interfaceStyle="light" id="1if-Vv-8i7" customClass="RegisterVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xUp-z7-UZk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -911,7 +912,7 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--已购项目-->
         <scene sceneID="lDG-Ju-rGt">
             <objects>
-                <viewController storyboardIdentifier="PurchasedVC" id="lDf-IJ-1pn" customClass="PurchasedVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PurchasedVC" interfaceStyle="light" id="lDf-IJ-1pn" customClass="PurchasedVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cTa-bq-7Si">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -992,7 +993,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pY8-VH-V3c" firstAttribute="centerX" secondItem="cTa-bq-7Si" secondAttribute="centerX" id="5FU-KI-wfJ"/>
                             <constraint firstItem="pY8-VH-V3c" firstAttribute="leading" secondItem="63H-de-fb2" secondAttribute="leading" id="PvM-T7-0yf"/>
@@ -1016,19 +1017,21 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--订单管理-->
         <scene sceneID="s8o-ul-6j3">
             <objects>
-                <viewController storyboardIdentifier="AdminOrderVC" id="qgX-6Y-Xii" customClass="AdminOrderVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminOrderVC" interfaceStyle="dark" id="qgX-6Y-Xii" customClass="AdminOrderVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Q9-e3-CMY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFt-Iy-8eX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="-1" width="414" height="44"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="订单管理" id="8qn-ah-GLY"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ofi-el-dOM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
+                                <rect key="frame" x="0.0" y="43" width="414" height="644"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="adminBillCell" rowHeight="88" id="uP3-FA-3N6" customClass="AdminBillHeadlineTableViewCell" customModule="Bookie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="88"/>
@@ -1096,10 +1099,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ofi-el-dOM" firstAttribute="bottom" secondItem="9uW-T4-5z6" secondAttribute="bottom" id="IfZ-7C-tXD"/>
-                            <constraint firstItem="GFt-Iy-8eX" firstAttribute="top" secondItem="9uW-T4-5z6" secondAttribute="top" id="V6f-a7-1km"/>
+                            <constraint firstItem="GFt-Iy-8eX" firstAttribute="top" secondItem="9uW-T4-5z6" secondAttribute="top" constant="-1" id="V6f-a7-1km"/>
                             <constraint firstItem="ofi-el-dOM" firstAttribute="top" secondItem="GFt-Iy-8eX" secondAttribute="bottom" id="gIa-Ih-BdG"/>
                             <constraint firstItem="GFt-Iy-8eX" firstAttribute="leading" secondItem="9uW-T4-5z6" secondAttribute="leading" id="goK-dX-VG7"/>
                             <constraint firstItem="GFt-Iy-8eX" firstAttribute="trailing" secondItem="ofi-el-dOM" secondAttribute="trailing" id="tdo-hC-R55"/>
@@ -1120,7 +1122,7 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--Admin Add BookVC-->
         <scene sceneID="xVC-2k-zDo">
             <objects>
-                <viewController storyboardIdentifier="AdminAddBookVC" id="c3h-za-faW" customClass="AdminAddBookVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminAddBookVC" interfaceStyle="dark" id="c3h-za-faW" customClass="AdminAddBookVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ig7-Ho-KH3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1140,6 +1142,7 @@ SE-228 “Web 开发技术” 课程作业</string>
                                             </button>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="cGY-jp-VRx">
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="dismissMe:" destination="c3h-za-faW" id="e1e-Gy-NDA"/>
                                             </connections>
@@ -1277,7 +1280,9 @@ SE-228 “Web 开发技术” 课程作业</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="tuU-Dn-lx4"/>
                                 </constraints>
-                                <state key="normal" title="选择…"/>
+                                <state key="normal" title="选择…">
+                                    <color key="titleColor" cocoaTouchSystemColor="systemTealColor"/>
+                                </state>
                                 <connections>
                                     <action selector="imageUploadTapped:" destination="c3h-za-faW" eventType="touchUpInside" id="eVt-fN-aYG"/>
                                 </connections>
@@ -1362,7 +1367,7 @@ SE-228 “Web 开发技术” 课程作业</string>
         <!--PurchaseVC-->
         <scene sceneID="Dpt-Ab-8fe">
             <objects>
-                <viewController storyboardIdentifier="PurchaseVC" id="lAy-GR-eof" customClass="PurchaseVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PurchaseVC" interfaceStyle="light" id="lAy-GR-eof" customClass="PurchaseVC" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mcx-r1-HCY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

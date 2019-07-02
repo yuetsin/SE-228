@@ -43,6 +43,7 @@ class PurchasedVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        overrideUserInterfaceStyle = .light
     }
     
     override func viewDidAppear(_ animated: Bool) {

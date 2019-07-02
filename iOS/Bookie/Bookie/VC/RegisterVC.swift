@@ -15,6 +15,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
 
         userNameField.delegate = self
         eMailField.delegate = self

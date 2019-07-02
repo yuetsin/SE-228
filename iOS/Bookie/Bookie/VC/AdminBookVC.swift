@@ -35,6 +35,7 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         bookTableView.dataSource = self
         loadAllBooks()
         // Do any additional setup after loading the view.
+        overrideUserInterfaceStyle = .dark
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

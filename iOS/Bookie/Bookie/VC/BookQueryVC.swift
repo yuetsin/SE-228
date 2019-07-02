@@ -46,11 +46,13 @@ class BookQueryVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         super.viewDidLoad()
         searchTextField.delegate = self
         // Do any additional setup after loading the view.
+        overrideUserInterfaceStyle = .light
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == searchTextField {
             searchTextOver(textField)
+            searchTextField.resignFirstResponder()
         }
         return true
     }
