@@ -179,7 +179,7 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     // Tap on table Row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let bookObject = bookList[indexPath.row]
+        let bookObject = sortedBookDict[indexArray[indexPath.section]]![indexPath.row]
         
         let alertController = UIAlertController(title: "想进行什么操作？",
                                                 message: "您刚刚选定了 \(bookObject.author) 的《\(bookObject.title)》。",

@@ -1,4 +1,4 @@
-# SE-228
+# BookieBookie!
 Project Repository for SE-228，「Web 开发技术」。
 
 # Configure
@@ -17,3 +17,58 @@ Project Repository for SE-228，「Web 开发技术」。
 * 执行 `fresh_start.sh` 来编译并启动程序。
 
 * 访问 `localhost:8080` 来查看前端网页。
+
+# iOS Client Screenshots
+
+## 书籍管理
+
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Admin_AddNewBook.PNG?raw=true"/>
+  <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Admin_BookManager_2.PNG?raw=true"/>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Admin_BookManager_3.PNG?raw=true"/>
+</div>
+
+## 新用户注册
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Register_Success.PNG?raw=true"/>
+</div>
+
+
+## 用户管理
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Admin_ActivateUser.PNG?raw=true"/>
+  <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Admin_UserManager.PNG?raw=true"/>
+</div>
+
+## 订单管理
+
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Admin_OrderManager.PNG?raw=true"/>
+  <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Admin_OrderStats.PNG?raw=true"/>
+</div>
+
+## 搜索书籍
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/User_Search.PNG?raw=true"/>
+</div>
+
+## 书籍详情
+
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/Book_Detail.PNG?raw=true"/>
+</div>
+
+## 购物车、购买
+
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/User_Cart.PNG?raw=true"/>
+  <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/User_Buy.PNG?raw=true"/>
+</div>
+
+## 查看历史订单
+
+<div align=center>
+    <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/User_Purchased.PNG?raw=true"/>
+  <img width="450" height="800" src="https://github.com/yuetsin/SE-228/blob/master/screenshots/User_PurchasedStats.PNG?raw=true"/>
+</div>
+

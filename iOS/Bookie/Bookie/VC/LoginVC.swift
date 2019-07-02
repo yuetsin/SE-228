@@ -43,8 +43,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         if textField == userNameField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
-            loginButtonTapped(loginButton)
             passwordField.resignFirstResponder()
+            loginButtonTapped(loginButton)
         }
         return true
     }

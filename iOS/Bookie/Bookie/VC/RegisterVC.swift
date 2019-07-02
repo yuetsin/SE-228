@@ -48,6 +48,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         } else if textField == passWordField {
             confirmPassWordField.becomeFirstResponder()
         } else {
+            confirmPassWordField.resignFirstResponder()
             registerButtonTapped(registerButton)
         }
         return true
