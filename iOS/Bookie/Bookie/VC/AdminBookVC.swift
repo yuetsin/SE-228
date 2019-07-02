@@ -28,14 +28,32 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     var bookList: [Book] = []
     
+    var allDataSource = NSDictionary()
+    var indexDataSource = [Any]()
+    
+    func processData() {
+        bookList = HCSortString.sortAndGroup(for: allDataSource, propertyName: "title")
+        indexDataSource = HCSortString.sort(forStringAry: allDataSource.allKeys) as! [Any]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bookTableView.delegate = self
         bookTableView.dataSource = self
-        loadAllBooks()
+        
         // Do any additional setup after loading the view.
         overrideUserInterfaceStyle = .dark
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadAllBooks()
+    }
+    
+    @IBAction func logOutButtonTapped(_ sender: UIButton) {
+        Alamofire.request(BookieUri.logOutPostUri, method: .post).response(completionHandler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,9 +73,22 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBAction func addNewBookButtonTapped(_ sender: UIButton) {
         self.performSegue(withIdentifier: "addNewBookSegue", sender: self)
     }
+    
     func refreshContent() {
         bookTableView.reloadData()
     }
+    
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return indexDataSource as? [String]
+    }
+
+    
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        tableView.scrollToRow(at: NSIndexPath.init(row: 0, section: index) as IndexPath , at: .top, animated: true)
+        return index
+    }
+    
     
     func loadAllBooks() {
         bookList.removeAll()
@@ -139,6 +170,9 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
                                                         textField.text = String(bookObject.storage)
                                                         textField.keyboardType = .numberPad
                                                     }
+                                                    
+                                                    
+                                                    alert.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
                                                    
                                                     alert.addAction(UIAlertAction(title: "好", style: .default, handler: { [weak alert] (_) in
                                                         let newStorage = Int(alert?.textFields![0].text! ?? String(bookObject.storage))
@@ -171,9 +205,6 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
                                                                 self.makeAlert("修改库存失败", "服务器报告了一个 “\(errorCode)” 错误。", completion: { })
                                                             })
                                                     }))
-                                                    
-                                                    alert.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
-                                                    
                                                     self.present(alert, animated: true, completion: nil)
         })
         

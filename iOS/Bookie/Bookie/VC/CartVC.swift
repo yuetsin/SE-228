@@ -22,6 +22,13 @@ class CartHeadlineTableViewCell: UITableViewCell {
 }
 
 class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBAction func logOutButtonTapped(_ sender: UIButton) {
+        Alamofire.request(BookieUri.logOutPostUri, method: .post).response(completionHandler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return headlines.count
     }
