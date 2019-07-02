@@ -1,6 +1,14 @@
 # BookieBookie!
-Project Repository for SE-228，「Web 开发技术」。
+![](https://img.shields.io/badge/project%20name-BookieBookie!-ff69b4.svg?style=flat-square)
+![](https://img.shields.io/badge/kotlin-1.3-f18e33.svg?style=flat-square&logo=kotlin)
+![](https://img.shields.io/badge/database-MySQL-4479a1.svg?style=flat-square&logo=mysql)
+![](https://img.shields.io/badge/database-MongoDB-47a248.svg?style=flat-square&logo=mongodb)
+![](https://img.shields.io/badge/docker-yes-1488c6.svg?style=flat-square&logo=docker)
+![](https://img.shields.io/badge/swift-5.0-fa7343.svg?logo=swift&style=flat-square)
+![](https://img.shields.io/badge/iOS-13.0-lightgrey.svg?logo=apple&style=flat-square)
 
+
+Project Repository for SE-228，「Web 开发技术」。
 # Configure
 
 * 在 `application.properties` 文件中配置 `MySQL` 和 `MongoDB` 服务器 URI 和凭据；
