@@ -27,14 +27,8 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBOutlet weak var bookTableView: UITableView!
     
     var bookList: [Book] = []
-    
-    var allDataSource = NSDictionary()
-    var indexDataSource = [Any]()
-    
-    func processData() {
-        bookList = HCSortString.sortAndGroup(for: allDataSource, propertyName: "title")
-        indexDataSource = HCSortString.sort(forStringAry: allDataSource.allKeys) as! [Any]
-    }
+    var sortedBookDict = [String: [Book]]()
+    var indexArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +51,7 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookList.count
+        return sortedBookDict[indexArray[section]]?.count ?? 0
     }
     
     func makeAlert(_ title: String, _ message: String, completion: @escaping () -> ()) {
@@ -74,19 +68,51 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         self.performSegue(withIdentifier: "addNewBookSegue", sender: self)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return indexArray.count
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return indexArray
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return indexArray[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
     func refreshContent() {
         bookTableView.reloadData()
     }
     
-    
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return indexDataSource as? [String]
-    }
-
-    
-    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        tableView.scrollToRow(at: NSIndexPath.init(row: 0, section: index) as IndexPath , at: .top, animated: true)
-        return index
+    func buildDictionary() {
+        indexArray.removeAll()
+        sortedBookDict.removeAll()
+        
+        for book in bookList {
+            let result = "\(PYConverter.transformChinese(book.title + book.author).first!)"
+            
+            if !indexArray.contains(result) {
+                indexArray.append(result)
+                indexArray.sort()
+            }
+            
+            if sortedBookDict[result] == nil {
+                sortedBookDict[result] = [book]
+            } else {
+                if !sortedBookDict[result]!.contains(where: {
+                    return $0.title == book.title
+                }) {
+                    sortedBookDict[result]!.append(book)
+                    sortedBookDict[result]!.sort(by: {$0.title < $1.title} )
+                }
+            }
+            NSLog("\(book.title + book.author) => \(result)")
+        }
+        refreshContent()
     }
     
     
@@ -112,8 +138,8 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
                                                           storage: bookItem["storage"].intValue,
                                                           price: bookItem["price"].doubleValue,
                                                           couponPrice: bookItem["couponPrice"].doubleValue))
-                                self.refreshContent()
                             }
+                            self.buildDictionary()
                             return
                         } else {
                             errorCode = jsonResp!["status"].stringValue
@@ -128,11 +154,12 @@ class AdminBookVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             })
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "adminBookCell", for: indexPath)
             as! AdminBookHeadlineTableViewCell
         
-        let headline = bookList[indexPath.row]
+        let headline = sortedBookDict[indexArray[indexPath.section]]![indexPath.row]
 //        cell.coverImage.image = nil
         cell.titleTextField.text = headline.title
         cell.authorTextField.text = "\(headline.author) 著"
