@@ -11,13 +11,13 @@
 Project Repository for SE-228，「Web 开发技术」。
 # Configure
 
-* 在 `application.properties` 文件中配置 `MySQL` 和 `MongoDB` 服务器 URI 和凭据；
+* 在 `server⁩ ▸ ⁨src⁩ ▸ ⁨main⁩ ▸ ⁨resources ▸ ⁨application.properties` 文件中配置 `MySQL` 和 `MongoDB` 服务器 URI 和凭据；
 
 * 清理本地的旧 `docker` 镜像；
 
-* 进入 `dockerize` 文件夹，执行 `docker-compose stop` 来停止已有的 Docker Compose 容器；
+* 执行 `dockerize ▸ docker-compose stop` 来停止已有的 Docker Compose 容器；
 
-* 执行 `docker-compose rm` 来清理已有的 Docker Compose 容器；
+* 执行 `dockerize ▸ docker-compose rm` 来清理已有的 Docker Compose 容器；
 
 * 执行 `dockerize ▸ build_and_compose.sh` 来构建 Docker 容器并启动。
 
