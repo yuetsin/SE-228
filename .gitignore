@@ -1,3 +1,5 @@
 *.DS_Store
 web/bookie/.idea/workspace.xml
 web/bookie/.idea/workspace.xml
+mongo/init_mongo.sh
+*.html

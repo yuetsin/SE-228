@@ -1,7 +1,25 @@
 package com.yue.bookie.server.lib.struct;
 
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Table(name = "s_user")
+@Data
+@Entity
 public class User {
-    String userID;
-    String passWord;
-    String token;
+
+    @Id
+    @Column
+    @GeneratedValue
+    public Integer id;
+
+    @Column(name = "`name`")
+    public String name;
+
+    @Column
+    public String password;
+
+    @Column
+    public Boolean available;
 }

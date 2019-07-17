@@ -4,7 +4,7 @@ import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
 // @ts-ignore
 import global_ from '../../common/common'
-import HttpRequest from '../../axios/api.request'
+// import HttpRequest from '../../axios/api.request'
 
 interface UserResponse {
   id: string
@@ -15,18 +15,21 @@ interface UserResponse {
   template: require('./list.html'),
   data: function () {
     return {
+      flush: true,
       buyAnonymously: false,
       originPrice: '',
       couponPrice: '',
       type: '',
       isbn: '',
-      bookAmount: undefined,
-      cover: '',
+      bookAmount: 1,
+      cover: 'default.png',
       storage: 0,
       selectedDate: undefined,
       bookName: '十三个理由',
       author: 'Jay Asher',
-      details: '中学生汉娜自杀后……'
+      details: '中学生汉娜自杀后……',
+      comments: [],
+      commContent: ''
     }
   },
   components: {
@@ -41,17 +44,11 @@ export class ListComponent extends Vue {
     if (this.$data.isbn === '') {
       return
     }
-    HttpRequest.post('/buy', {
-      params: {
-        isbn: this.$data.isbn,
-        count: this.$data.bookAmount,
-        later: true
-      }
-    }).then(response => {
+    this.axios.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=true').then(response => {
       console.log(response)
       if (response['status'] === 200) {
         if (response['data']['status'] === 'ok') {
-          this.$router.push('/about')
+          this.$router.push('/')
         } else {
           alert('加入购物车失败。\n错误信息：' + response['data']['status'])
         }
@@ -59,12 +56,13 @@ export class ListComponent extends Vue {
     })
   }
   purchaseBill () {
-    HttpRequest.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=false')
+    this.axios.post('/buy?isbn=' + this.$data.isbn + '&count=' + this.$data.bookAmount + '&later=false')
       .then(response => {
         if (response['status'] === 200) {
           let resp = response['data']
           if (resp['status'] === 'ok') {
-            alert('添加成功。总花费：' + resp['cost'])
+            alert('购买成功。')
+            this.$router.push('/')
           } else {
             alert('购买失败。错误信息：' + resp['status'])
           }
@@ -73,12 +71,35 @@ export class ListComponent extends Vue {
         }
       })
   }
+  submitComment () {
+    this.axios.post('/comment?content=' + this.$data.commContent + '&isbn=' + this.$data.isbn)
+      .then(response => {
+        if (response['status'] === 200) {
+          let resp = response['data']
+          if (resp['status'] === 'ok') {
+            alert('评论成功！')
+            this.$data.commContent = ''
+            this.loadComments()
+            this.$data.flush = false
+            this.$data.flush = true
+          } else {
+            alert('提交评论错误。错误信息：' + resp['status'])
+          }
+        } else {
+          alert('提交评论错误。错误代码：' + response['status'])
+        }
+      })
+  }
   mounted () {
+    this.loadComments()
+  }
+
+  private loadComments () {
     console.log('CALLED ENTER!')
     if (global_.highlightBook === undefined) {
-      this.$router.push('/')
+      this.$router.push('/home')
     }
-    HttpRequest.get('/isbn', {
+    this.axios.get('/isbn', {
       params: {
         isbn: global_.highlightBook
       }
@@ -88,21 +109,32 @@ export class ListComponent extends Vue {
         let rsp = response['data']
         if (rsp['status'] === 'ok') {
           rsp = rsp['data'][0]
-          this.$data.cover = rsp['cover_url']
+          this.$data.cover = rsp['coverUrl']
           this.$data.bookName = rsp['title']
           this.$data.originPrice = rsp['price']
           this.$data.isbn = rsp['isbn']
-          this.$data.couponPrice = rsp['coupon_price']
+          this.$data.couponPrice = rsp['couponPrice']
           this.$data.author = rsp['author']
           this.$data.details = rsp['description']
           this.$data.storage = rsp['storage']
           this.$data.type = rsp['type']
+          this.axios.get('/comlist', {
+            params: {
+              isbn: this.$data.isbn
+            }
+          }).then(response => {
+            if (response['data']['status'] === 'ok') {
+              this.$data.comments = response['data']['data']
+            } else {
+              console.log('failed to load comments. response: ', response)
+            }
+          })
           console.log(this.$data)
         } else {
-          this.$router.push('/')
+          this.$router.push('/home')
         }
       } else {
-        this.$router.push('/')
+        this.$router.push('/home')
       }
     })
   }

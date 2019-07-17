@@ -1,4 +1,4 @@
-<b-container class="content">
+<b-container class="content" v-if="flush">
   <b-row>
     <b-col class="content">
       <h1>
@@ -27,33 +27,31 @@
   <b-col>
   <b-col class="content">
     <md-layout md-align="center">
-    <md-table v-model="cartList" md-sort="time" md-sort-order="asc">
+    <md-table v-if="cartList.length !== 0" v-model="cartList" md-sort="time" md-sort-order="asc">
       <md-table-toolbar>
         <h1 class="md-title">购物车</h1>
       </md-table-toolbar>
 
       <md-table-row slot="md-table-row" slot-scope="{ item }">
         <md-table-cell md-label="ISBN" md-sort-by="isbn">{{ item.isbn }}</md-table-cell>
-        <md-table-cell v-if="item.desc !== 'undefined - undefined'" md-label="详情" md-sort-by="desc">{{ item.desc }}</md-table-cell>
-        <md-table-cell md-label="交易流水" md-sort-by="bill_uuid">{{ item.bill_uuid }}</md-table-cell>
-        <md-table-cell md-label="交易时间" md-sort-by="time">{{ item.time }}</md-table-cell>
-        <md-table-cell md-label="数量" md-sort-by="count">{{ item.count }}</md-table-cell>
+        <md-table-cell md-label="书名" md-sort-by="title">{{ item.title }}</md-table-cell>
+        <md-table-cell md-label="作者" md-sort-by="author">{{ item.author }}</md-table-cell>
+        <md-table-cell md-label="数量" md-sort-by="count" md-numeric>{{ item.count }}</md-table-cell>
+        <md-table-cell><md-button v-on:click="buyFromMarket(item.isbn, item.count)"><md-icon>monetization_on</md-icon> 购买</md-button></md-table-cell>
+        <md-table-cell><md-button v-on:click="removeFromCart(item.isbn)"><md-icon>remove_shopping_cart</md-icon> 移除</md-button></md-table-cell>
 <!--        <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>-->
       </md-table-row>
     </md-table>
       </md-layout>
     <md-layout md-align="center">
-  <md-table v-model="purchasedList" md-sort="time" md-sort-order="asc">
+  <md-table v-if="purchasedList.length !== 0" v-model="purchasedList" md-sort="time" md-sort-order="asc">
     <md-table-toolbar>
       <h1 class="md-title">已购项目</h1>
     </md-table-toolbar>
 
     <md-table-row slot="md-table-row" slot-scope="{ item }">
-      <md-table-cell md-label="ISBN" md-sort-by="isbn">{{ item.isbn }}</md-table-cell>
-      <md-table-cell v-if="item.desc !== 'undefined - undefined'" md-label="详情" md-sort-by="desc">{{ item.desc }}</md-table-cell>
-      <md-table-cell md-label="交易流水" md-sort-by="bill_uuid">{{ item.bill_uuid }}</md-table-cell>
       <md-table-cell md-label="交易时间" md-sort-by="time">{{ item.time }}</md-table-cell>
-      <md-table-cell md-label="数量" md-sort-by="count">{{ item.count }}</md-table-cell>
+      <md-table-cell md-label="交易流水" md-sort-by="bill_uuid">{{ item.billUuid }}</md-table-cell>
       <!--        <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>-->
     </md-table-row>
   </md-table>

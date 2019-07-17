@@ -1,5 +1,5 @@
 export interface Book {
-  cover_url: string
+  coverUrl: string
   title: string
   isbn: string
   author: string
@@ -7,7 +7,7 @@ export interface Book {
   uuid: string
   storage: number
   price: number
-  coupon_price: number
+  couponPrice: number
   type: string
 }
 

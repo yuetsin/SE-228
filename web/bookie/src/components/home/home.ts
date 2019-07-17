@@ -3,7 +3,7 @@ import bContainer from 'bootstrap-vue/es/components/layout/container'
 import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
 // @ts-ignore
-import HttpRequest from '../../axios/api.request'
+// import HttpRequest from '../../axios/api.request'
 import './home.scss'
 // @ts-ignore
 import global_ from '../../common/common'
@@ -40,7 +40,7 @@ import global_ from '../../common/common'
       this.$data.ascending = !this.$data.ascending
     },
     getimg (imgName: string) {
-      HttpRequest.request({
+      this.axios.request({
         url: '/img/' + imgName,
         method: 'get'
       }).then(response => {
@@ -53,7 +53,7 @@ import global_ from '../../common/common'
       this.$router.push('/list')
     },
     addCart (isbn: string) {
-      HttpRequest.post('/buy?isbn=' + isbn + '&count=1&later=true')
+      this.axios.post('/buy?isbn=' + isbn + '&count=1&later=true')
         .then(response => {
           if (response['status'] === 200) {
             let resp = response['data']

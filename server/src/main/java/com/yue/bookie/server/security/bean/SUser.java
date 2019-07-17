@@ -16,8 +16,8 @@ public class SUser {
 	private String password;
 	
 	public SUser(SUser sUser) {
-		this.id = sUser.getId();
-		this.name = sUser.getName();
-		this.password = sUser.getPassword();
+		this.id = sUser.id;
+		this.name = sUser.name;
+		this.password = sUser.password;
 	}
 }

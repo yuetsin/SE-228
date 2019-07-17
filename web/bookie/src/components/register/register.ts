@@ -4,7 +4,7 @@ import bCol from 'bootstrap-vue/es/components/layout/col'
 import bRow from 'bootstrap-vue/es/components/layout/row'
 // @ts-ignore
 import global_ from '../../common/common'
-import HttpRequest from '../../axios/api.request'
+// import HttpRequest from '../../axios/api.request'
 @Component({
   template: require('./register.html'),
   data: function () {
@@ -30,14 +30,14 @@ export class RegisterComponent extends Vue {
   }
   postRegister () {
     console.log(this.$data.userName, this.$data.passWord)
-    HttpRequest.post('/reg?username=' + this.$data.userName + '&password=' + this.$data.passWord).then(response => {
+    this.axios.post('/reg?username=' + this.$data.userName + '&password=' + this.$data.passWord).then(response => {
       let rsp = response['data']
       if (rsp['status'] !== 'ok') {
         alert('注册失败，请再试一次。\n错误信息：' + rsp['status'])
         return
       }
       this.registerSucceed = true
-      this.$router.push('/login')
+      this.$router.push('/logout')
     })
   }
 }
